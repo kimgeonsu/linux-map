@@ -15,10 +15,10 @@
 #include <iostream>
 #include <fstream>
 #include <cmath>
-#include "type.h"
-#include "pen.h"
-#include "font.h"
-#include "brush.h"
-#include "graphics.h"
+#include "./include/type.h"
+#include "./include/pen.h"
+#include "./include/font.h"
+#include "./include/brush.h"
+#include "./include/graphics.h"
 
 #endif
