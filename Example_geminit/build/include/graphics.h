@@ -31,7 +31,7 @@ class Graphics
 		void DrawLine(const Pen *pen, INT x1, INT y1, INT x2, INT y2);
 		void DrawRectangle(const Pen *pen, INT x, INT y, INT width, INT height);
 		void FillRectangle(const Brush *brush, INT x, INT y, INT width, INT height);
-		void DrawString(const string *string, INT length, const Font *font, const PointF& origin, const Brush *brush);
+		void DrawString(const std::string *string, INT length, const Font *font, const PointF& origin, const Brush *brush);
 	private:
 		cairo_surface_t *surface;
 		cairo_t *cr;
