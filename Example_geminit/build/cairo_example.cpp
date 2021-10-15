@@ -8,7 +8,7 @@ int main(int argc, char *argv[]) {
 	Color color(0, 0, 0);
 	Font font;
 	Brush brush;
-	WCHAR *str = "Geminit Hello! 1234567890";
+	string *str = "Geminit Hello! 1234567890";
 
 	//선 그리기
 	g->DrawLine(&p, 10, 10, 110, 10);
