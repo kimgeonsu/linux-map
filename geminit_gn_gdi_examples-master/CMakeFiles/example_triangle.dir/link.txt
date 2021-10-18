@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/example_triangle.dir/src/example_triangle.cpp.o -o out/example_triangle  -Llib -lgeminit-gn-gdi -lpng16 -ljpeg 

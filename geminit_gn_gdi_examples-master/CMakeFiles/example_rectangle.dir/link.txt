@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/example_rectangle.dir/src/example_rectangle.cpp.o -o out/example_rectangle  -Llib -lgeminit-gn-gdi -lpng16 -ljpeg 

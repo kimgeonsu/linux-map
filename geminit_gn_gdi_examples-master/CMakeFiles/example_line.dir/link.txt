@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/example_line.dir/src/example_line.cpp.o -o out/example_line  -Llib -lgeminit-gn-gdi -lpng16 -ljpeg 

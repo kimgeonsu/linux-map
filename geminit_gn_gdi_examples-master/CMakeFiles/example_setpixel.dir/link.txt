@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/example_setpixel.dir/src/example_setpixel.cpp.o -o out/example_setpixel  -Llib -lgeminit-gn-gdi -lpng16 -ljpeg 
