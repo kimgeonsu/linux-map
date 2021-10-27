@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 	Brush 		 brush;
 
 	graphics = new Graphics("/dev/fb0");
-	color 	 = Color(0, 0, 0);
+	color 	 = Color(0, 0, 256);
 	pen 	 = Pen(color, 1.0);
 	brush 	 = Brush(color);
 
