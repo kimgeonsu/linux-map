@@ -5,6 +5,11 @@
 #include "MapDataManager.h"
 #include "iCoord.h"
 
+#include "tmp_brush.h"
+#include "tmp_pen.h"
+#include "tmp_font.h"
+#include "tmp_graphics.h"
+
 class CMapDrawEngine
 {
 public:
@@ -36,26 +41,26 @@ public:
 	{
 		return mapDataManager.GetMapDataPath();
 	};
-	void GetDeviceRect(Rect& rect)						// Get Display Device Size
+	void GetDeviceRect(RectF& RectF)						// Get Display Device Size
 	{
-		rect = drawInfo.devRect;
+		RectF = drawInfo.devRect;
 	};
-	Rect GetDeviceRect()
+	RectF GetDeviceRect()
 	{
 		return drawInfo.devRect;
 	};
-	void SetDeviceRect(Rect rect)
+	void SetDeviceRect(RectF RectF)
 	{
-		drawInfo.devRect = rect;
+		drawInfo.devRect = RectF;
 
 		drawInfo.drawRect.left = 0;
 		drawInfo.drawRect.top = 0;
-		drawInfo.drawRect.right = (long)(4096. * rect.right / 800.);
-		drawInfo.drawRect.bottom = (long)(4096. * rect.bottom / 800.);
+		drawInfo.drawRect.right = (long)(4096. * RectF.right / 800.);
+		drawInfo.drawRect.bottom = (long)(4096. * RectF.bottom / 800.);
 	};
 	void SetDeviceRect(long left, long top, long right, long bottom)
 	{
-		Rect tmpRect = Rect(left, top, right, bottom);
+		RectF tmpRect = RectF(left, top, right, bottom);
 		SetDeviceRect(tmpRect);
 	};
 
@@ -209,15 +214,14 @@ public:
 		return SetMapPos(drawInfo.mapCenterPos);
 	}
 
-	long DrawMap(HDC hDC);					// Shape Data Draw
-	long DrawPolygon(HDC hDC, _MapRecord* pData, double angle, long bufferIdx);						// Polygon Draw
-	long DrawPolyline(HDC hDC, _MapRecord* pData, double angle, long bufferIdx, long isShade = 0);	// Polyline Draw
-	long DrawPOI(HDC hDC, _MapRecord* pData, double angle, long bufferIdx);							// POI Data Draw
-	long DrawBackground(HDC hDC);																	// Background Draw
-	bool IsDrawObject(Rect drawRect, Rect objRect);
+	long DrawMap(Graphics *graphics);					// Shape Data Draw
+	long DrawPolygon( _MapRecord* pData, double angle, long bufferIdx);						// Polygon Draw
+	long DrawPolyline(_MapRecord* pData, double angle, long bufferIdx);	// Polyline Draw
+	long DrawPOI(_MapRecord* pData, double angle, long bufferIdx);							// POI Data Draw
+	bool IsDrawObject(RectF drawRect, RectF objRect);
 
 	Point Rotate(Point inPoint, Point centerPoint, long angle);
-	Rect GetBoundaryRect(Rect inRect, long angle);
+	RectF GetBoundaryRect(RectF inRect, long angle);
 
 	Point WorldToDevice(const _dPoint _inPoint);
 	_dPoint DeviceToWorld(const Point _inPoint);
@@ -239,13 +243,15 @@ public:
 	_MapFactorInfo			_mapFactorInfo;
 	_MapDrawInfo			drawInfo;					// Draw Window Information
 
-	HPEN					m_NULLPEN;
-	HBRUSH					m_NULLBRUSH;
-	HBRUSH					m_BACKBRUSH;
-	HFONT					m_MapFont[2];
+	Pen						m_NULLPEN;
+	Brush					m_NULLBRUSH;
+	Brush					m_BACKBRUSH;
+	Font					m_MapFont[2];
 
 	long					m_CosValue[360];
 	long					m_SinValue[360];
 	CGeoCoordinate			m_Coordinate;				// ÁÂÇ¥º¯È¯ 
 	int						m_BaseZone;
+
+	Graphics				*graphics;
 };

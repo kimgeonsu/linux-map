@@ -10,12 +10,12 @@ inline void GlReleaseMem(dataType** pMem)
 	}
 }
 
-template <typename dataTypeHOBJ>
-inline void GlReleaseHOBJ(dataTypeHOBJ* hObj)
-{
-	if (*hObj != NULL)
-	{
-		DeleteObject(*hObj);
-		*hObj = NULL;
-	}
-}
+//template <typename dataTypeHOBJ>
+//inline void GlReleaseHOBJ(dataTypeHOBJ* hObj)
+//{
+//	if (*hObj != 0)
+//	{
+//		delete *hObj;
+//		*hObj = 0;
+//	}
+//}

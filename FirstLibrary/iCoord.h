@@ -32,25 +32,19 @@ typedef struct tagUTM
 class CGeoCoordinate
 {
 public:
-	void GetBesselTawon2WGSXY(double sphi, double slam, double& y, double& x);
-
 	bool	mgrs2gp(int tawon, std::string mgrs, KW& kw);
 	bool	mgrs2utm(int tawon, std::string mgrs, double& utmx, double& utmy);
 
 	std::string gp2mgrs(int tawon, double lat, double lon);
 	std::string utm2mgrs(int tawon, int zone, double tutmx, double tutmy);
 
-	void	GetDatumTransform(int tawon, double alat, double alon, double h, double* tlat, double* tlon, double* th);
 	void	GetTawon2utm(int tawon, double sphi, double slam, int* izone, double* y, double* x, int ifixz);
 	void	GetUtm2Tawon(int tawon, double* sphi, double* slam, int izone, double y, double x);
 
 	double	GetRadian(short dd, short mm, double ss);
-	//junga
-	void GetWGSTawon2BesselXY(double sphi, double slam, double& y, double& x);
-	//end 
+
 	void	GetDMS(double radian, short* dd, short* mm, double* ss);
 
-	void	GetDegreebyKw(KW kw, double* wd, double* kd);
 	void	GetKwbyXY(double wd, double kd, KW* kw);
 
 	double _dCentralKd;
@@ -58,9 +52,6 @@ public:
 	double _dFactor;
 	double _dFalseNorth;
 	double _dFalseEast;
-
-	void GetTMToKW(double x, double y, KW* kw);
-	void GetKWToTM(KW kw, TM* tm);
 
 	CGeoCoordinate();
 	~CGeoCoordinate();

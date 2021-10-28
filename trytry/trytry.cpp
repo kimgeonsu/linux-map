@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "MapDataManager.h"
+//#include "MapDrawEngine.h"
 
 int main()
 {
@@ -17,6 +18,10 @@ int main()
     mapMng.LoadMapData();
     std::cout << mapMng.GetMapDataPath();
 
+    ////---------------------------------------------------
+    //CMapDrawEngine engine;
 
+    //engine.Init();
+  
     return 0;
 }

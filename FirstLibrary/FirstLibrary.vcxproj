@@ -155,7 +155,11 @@
     <ClInclude Include="MapDataManager.h" />
     <ClInclude Include="MapDataRecord.h" />
     <ClInclude Include="MapDrawEngine.h" />
-    <ClInclude Include="Rect.h" />
+    <ClInclude Include="tmp_brush.h" />
+    <ClInclude Include="tmp_font.h" />
+    <ClInclude Include="tmp_graphics.h" />
+    <ClInclude Include="tmp_image.h" />
+    <ClInclude Include="tmp_pen.h" />
     <ClInclude Include="type.h" />
   </ItemGroup>
   <ItemGroup>
@@ -165,7 +169,6 @@
     <ClCompile Include="MapDataManager.cpp" />
     <ClCompile Include="MapDataRecord.cpp" />
     <ClCompile Include="MapDrawEngine.cpp" />
-    <ClCompile Include="Rect.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,14 +1,14 @@
 #pragma once
 
 #include "AppLibrary.h"
-#include "Rect.h"
 #include <string>
 
 typedef struct Point {
 	long x;
 	long y;
+	Point() : x(0), y(0) {};
 
-	Point();
+	Point(int x_val, int y_val) : x(x_val), y(y_val){}
 
 	Point(long x_val, long y_val) {
 		x = x_val;
@@ -21,24 +21,41 @@ typedef struct _dPoint {
 	double y;
 } _dPoint;
 
+typedef struct RectF {
+	int top;
+	int left;
+	int bottom;
+	int right;
 
-typedef struct LOGFONT {
-	long      lfHeight;
-	long      lfWidth;
-	long      lfEscapement;
-	long      lfOrientation;
-	long      lfWeight;
-	unsigned char      lfItalic;
-	unsigned char      lfUnderline;
-	unsigned char      lfStrikeOut;
-	unsigned char      lfCharSet;
-	unsigned char      lfOutPrecision;
-	unsigned char      lfClipPrecision;
-	unsigned char      lfQuality;
-	unsigned char      lfPitchAndFamily;
-	std::string     lfFaceName;
-};
+	int Height() {
+		return top - bottom;
+	}
 
+	int Width() {
+		return right - left;
+	}
+
+	RectF() : top(0), left(0), bottom(0), right(0) {}
+	RectF(int t, int l, int b, int r): top(t), left(l), bottom(b), right(r) {}
+
+	Point TopLeft() {
+		return Point(left, top);
+	}
+
+	Point CenterPoint() {
+		return Point((left + right) / 2, (top + bottom) / 2);
+	}
+
+	void SetRect(int l, int t, int r, int b) {
+		top = t;
+		left = l;
+		bottom = b;
+		right = r;
+	}
+
+	bool PtInRect(Point p);
+	bool IntersectRect(RectF* checkRect, RectF* objRect);
+} RectF;
 
 typedef union _MapCode
 {
@@ -60,7 +77,7 @@ typedef struct _MapRecordHeader
 	int		objType;
 	int		pointCount;
 	int		drawOrder;
-	Rect	boundaryRect;
+	RectF	boundaryRect;
 	char			textLayerDes[32];
 	char			textData[32];
 
@@ -180,11 +197,20 @@ typedef struct _MapDrawInfo
 	long		dayNightMode;			// 야간 모드
 	_dPoint		mapCenterPos;			// Map Center Point
 	Point		mapCenterPos4096;		// Map Center Point 4096
-	Rect		drawRect;				// 4096 Rect
-	Rect		devRect;				// Device Full Size
+	RectF		drawRect;				// 4096 RectF
+	RectF		devRect;				// Device Full Size
 	Point		devCenterPos;			// Device Center Point
 
 	_MapDrawInfo() : physicalLevel(0), logicalLevel(0), mapAngle(0), headingUpMode(0),
 		dayNightMode(0) {};
 	~_MapDrawInfo() {};
 } _MapDrawInfo;
+
+typedef struct Color {
+	int r;
+	int g;
+	int b;
+
+	Color() : r(0), g(0), b(0) {}
+	Color(int R, int G, int B) : r(R), g(G), b(B) {}
+} Color;

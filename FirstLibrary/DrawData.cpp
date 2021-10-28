@@ -14,25 +14,8 @@ CDrawData::~CDrawData()
 
 void CDrawData::Init()
 {
-	/*td::list<_MapRecord>::iterator listPos;
-	_MapRecord pData; 
-
-	listPos = _drawDataList.begin();
-
-	while (listPos != _drawDataList.end())
-	{
-		pData = *listPos++;
-		delete pData;
-		pData = NULL;
-	}*/
-
 	_drawDataList.clear();
-
 	_level = 0;
-	_parcelID.x = 0;
-	_parcelID.y = 0;
-	_parcelPos.x = 0;
-	_parcelPos.y = 0;
 }
 
 void CDrawData::AddDataList(_MapRecord* inData)
@@ -44,6 +27,8 @@ void CDrawData::AddDataList(_MapRecord* inData)
 
 
 	for (listPos = _drawDataList.begin(); listPos != _drawDataList.end(); listPos++) {
+		pData = *listPos;
+
 		if (pData.header.drawOrder > inData->header.drawOrder) {
 			_drawDataList.push_front(*inData);
 			isInsert = true;
@@ -53,4 +38,6 @@ void CDrawData::AddDataList(_MapRecord* inData)
 
 	if (isInsert == false)
 		_drawDataList.push_back(*inData);
+
+	return;
 }

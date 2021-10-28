@@ -39,10 +39,22 @@
     <ClInclude Include="MapDrawEngine.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Rect.h">
+    <ClInclude Include="iCoord.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="iCoord.h">
+    <ClInclude Include="tmp_brush.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="tmp_font.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="tmp_graphics.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="tmp_image.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="tmp_pen.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -60,9 +72,6 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="MapDrawEngine.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Rect.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="iCoord.cpp">

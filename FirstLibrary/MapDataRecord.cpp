@@ -25,6 +25,8 @@ void CMapDataRecord::Init()
 	}*/
 	
 	//_drawDataList.RemoveAll();
+
+	_drawDataList.clear();
 	
 	_level = 0;
 	_parcelID.x = 0;

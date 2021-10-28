@@ -124,4 +124,4 @@ typedef struct _DesignRecord
 			_fontStyle[idx].initData();
 		}
 	}
-};
+} _DesignRecord;

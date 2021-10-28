@@ -34,7 +34,7 @@ public:
 		for (const fs::directory_entry& entry : fs::directory_iterator(searchPath)) {
 			fileName = entry.path().string();
 			ReadFile(fileName, &_drawData);
-			/*std::cout << fileName << std::endl;*/
+			std::cout << fileName << std::endl;
 		}
 
 		std::string designFileName;

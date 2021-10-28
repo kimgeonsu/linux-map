@@ -1,7 +1,7 @@
+#pragma once
+
 #include "Design.h"
 #include "AppLibrary.h"
-
-#pragma once
 
 #include <string>
 

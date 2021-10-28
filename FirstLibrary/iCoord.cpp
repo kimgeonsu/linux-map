@@ -37,13 +37,6 @@ CGeoCoordinate::~CGeoCoordinate()
 
 }
 
-
-void CGeoCoordinate::GetDegreebyKw(KW kw, double* wd, double* kd)
-{
-	*kd = kw.kd + kw.kb / 60.0 + kw.kc / 3600.0;
-	*wd = kw.wd + kw.wb / 60.0 + kw.wc / 3600.0;
-}
-
 void CGeoCoordinate::GetKwbyXY(double wd, double kd, KW* kw)
 {
 	kw->wd = (short)wd;
@@ -67,59 +60,6 @@ double CGeoCoordinate::GetRadian(short dd, short mm, double ss)
 {
 	double degree = dd + mm / 60.0 + ss / 3600.0;
 	return (degree * m_phi / 180.0);
-}
-
-void CGeoCoordinate::GetDatumTransform(int tawon, double alat, double alon, double h, double* tlat, double* tlon, double* th)
-{
-	double slat, clat, slon, clon, ssqlat, adb, rn, rm;
-	double a, f, esq, da, df, dx, dy, dz;
-
-	if (tawon == BESSEL)
-	{
-		a = 6377397.155;
-		f = 1. / 299.1528128;
-		esq = 2. * f - f * f;
-		da = 6378137. - 6377397.155;
-		df = 1. / 298.257223563 - 1. / 299.1528128;
-		dx = -146;
-		dy = 507;
-		dz = 687;
-	}
-	else if (tawon == WGS_84)
-	{
-		a = 6378137.;
-		f = 1. / 298.257223563;
-		esq = 2. * f - f * f;
-		da = -1. * (6378137. - 6377397.155);
-		df = -1. * (1. / 298.257223563 - 1. / 299.1528128);
-		dx = 146;
-		dy = -507;
-		dz = -687;
-	}
-
-	slat = sin(alat);
-	clat = cos(alat);
-
-	slon = sin(alon);
-	clon = cos(alon);
-	ssqlat = slat * slat;
-	adb = 1. / (1. - f);
-
-	rn = a / sqrt(1. - esq * ssqlat);
-	rm = a * (1. - esq) / pow(1. - esq * ssqlat, 1.5);
-
-	*tlat = -dx * slat * clon - dy * slat * slon + dz * clat;
-	*tlat = *tlat + da * (rn * esq * slat * clat) / a;
-	*tlat = *tlat + df * (rm * adb + rn / adb) * slat * clat;
-	*tlat = *tlat / (rm + h);
-
-	*tlon = (-dx * slon + dy * clon) / ((rn + h) * clat);
-
-	*tlat = *tlat + alat;
-	*tlon = *tlon + alon;
-
-	*th = dx * clat * clon + dy * clat * slon + dz * slat;
-	*th = *th - da * a / rn + df * rn * ssqlat / adb;
 }
 
 void CGeoCoordinate::GetTawon2utm(int tawon, double sphi, double slam, int* izone, double* y, double* x, int ifixz)
@@ -286,140 +226,6 @@ void CGeoCoordinate::GetUtm2Tawon(int tawon, double* sphi, double* slam, int izo
 	*slam = olam + dlam;
 }
 
-void CGeoCoordinate::GetTMToKW(double x, double y, KW* kw)
-{
-	double py, px, p, pr, cc, of, oa, ob, ne, nea, ia;
-	double lba, ib, lb, iab, lva, ixx, il, iyy, ix2, iy2;
-	double ax1, ax3, ix4, ay1, ay3, iy4;
-	double para = _dCentralKd;
-
-	py = (y - _dFalseNorth);
-	px = (x - _dFalseEast);
-
-	p = 3.141592654;
-	pr = p / 180.0;
-
-	cc = _dScalingWd;
-
-	of = 180.0 / p;
-	oa = 6377397.155;
-	ob = 6356078.96325;
-	ne = (oa * oa - ob * ob) / (oa * oa);
-	nea = (oa * oa - ob * ob) / (ob * ob);
-
-	ia = of * pow(1.0 - ne * (sin(cc * pr) * sin(cc * pr)), 1.5) / oa / (1.0 - ne);
-	lba = cc + ia * py;
-	ib = of * pow(1.0 - ne * (sin((lba + cc) / 2.0 * pr) * sin((lba + cc) / 2.0 * pr)), 1.5) / oa / (1.0 - ne);
-	lb = cc + ib * py;
-	iab = of * pow(1.0 - ne * (sin(lb * pr)) * (sin(lb * pr)), 0.5) / oa;
-	lva = 1.0 + nea * (cos(lb * pr)) * (cos(lb * pr));
-	ixx = lb - (iab * px) * (iab * px) * lva / 2.0 / of * tan(lb * pr);
-	il = iab * px / cos(lb * pr) - pow((iab * px), 3.0) / 6.0 / (of * of) / cos(lb * pr) * (1.0 + 2.0 * (tan(lb * pr)) * (tan(lb * pr)));
-	iyy = para + il;
-
-	ax1 = floor(ixx);
-	ix2 = (ixx - ax1) * 60.0;
-	ax3 = floor(ix2);
-	ix4 = (ix2 - ax3) * 60.0;
-	ay1 = floor(iyy);
-	iy2 = (iyy - ay1 + 0.0028902778) * 60.0;
-	ay3 = floor(iy2);
-	if (ay3 == 60.0)
-	{
-		ay1 = ay1 + 1.0;
-		ay3 = 0.0;
-		iy4 = (iy2 - 60.0) * 60.0;
-	}
-	else
-	{
-		iy4 = (iy2 - ay3) * 60.0;
-	}
-	kw->wd = (int)ax1;
-	kw->wb = (int)ax3;
-	kw->wc = (float)ix4;
-	kw->kd = (int)ay1;
-	kw->kb = (int)ay3;
-	kw->kc = (float)iy4;
-}
-
-void CGeoCoordinate::GetKWToTM(KW kw, TM* tm)
-{
-	double jc, ica, iac, icb, ibc, jo, p, pr, ofa, jnn;
-	double of, oa, ne, nea, ks, kc, la, lv, lb, ls, lm, ns, nc, na, nk, nt;
-	double ba, bb, jbc, aa, ab, jac, tx, ty;
-	double para = _dCentralKd;
-
-	ba = (double)kw.kd;
-	bb = (double)kw.kb;
-	jbc = kw.kc;
-	aa = (double)kw.wd;
-	ab = (double)kw.wb;
-	jac = kw.wc;
-
-	jc = jbc - 10.405;
-	ica = ab / 60.0;
-	iac = jac / 3600.0;
-	icb = bb / 60.0;
-	ibc = jc / 3600.0;
-	jnn = aa + ica + iac;
-	jo = ba + icb + ibc;
-
-	p = 3.141592654;
-	pr = 0.0174532925;
-	ofa = 0.0087266462;
-	of = 57.29577951;
-	oa = 6377397.155;
-	ne = 0.006674372177;
-	nea = 0.006719218744;
-
-	ks = sin(pr * jnn);
-	kc = cos(pr * jnn);
-	la = jo - para;
-	lv = 1.0 + nea * kc * kc;
-	lb = jnn + lv * la * la * ofa * ks * kc;
-	ls = sin((lb + _dScalingWd) * pr / 2.0);
-	lm = oa * (1.0 - ne) / pow((1.0 - ne * ls * ls), 1.5);
-
-	ty = (lb - _dScalingWd) * lm / of + _dFalseNorth;
-
-	ns = sin(lb * pr);
-	nc = cos(2.0 * jnn * pr);
-	na = oa / pow((1.0 - ne * ns * ns), 0.5);
-	nk = of / na;
-	nt = pow((6.0 * (180.0 / p) * (180.0 / p)), (-1.0));
-	tx = la / nk * kc + la * la * la / nk * nt * kc * nc + _dFalseEast;
-
-	tm->x = tx;
-	tm->y = ty;
-}
-
-void CGeoCoordinate::GetWGSTawon2BesselXY(double sphi, double slam, double& y, double& x)
-{
-	double th;
-	double tlat;
-	double tlon;
-
-	//wgs_84....bessel·Î...
-	GetDatumTransform(WGS_84, sphi, slam, 1, &tlat, &tlon, &th);
-
-	y = tlat * 180. / m_phi;
-	x = tlon * 180. / m_phi;
-}
-
-void CGeoCoordinate::GetBesselTawon2WGSXY(double sphi, double slam, double& y, double& x)
-{
-	double th;
-	double tlat;
-	double tlon;
-
-	//wgs_84....bessel·Î...
-	GetDatumTransform(BESSEL, sphi, slam, 1, &tlat, &tlon, &th);
-
-	y = tlat * 180. / m_phi;
-	x = tlon * 180. / m_phi;
-}
-
-
 std::string CGeoCoordinate::gp2mgrs(int tawon, double lat, double lon)
 {
 	std::string		retValue;
@@ -513,7 +319,7 @@ bool CGeoCoordinate::mgrs2gp(int tawon, std::string mgrs, KW& kw)
 		return false;
 
 	zoneValue = mgrs[0] + mgrs[1];
-	izondValue = (long)_tcstod(zoneValue, &tEnd);
+	izondValue = stol(zoneValue);
 
 	zoneSubValue = mgrs[2];
 	xGrid = mgrs[3];
@@ -554,8 +360,8 @@ bool CGeoCoordinate::mgrs2gp(int tawon, std::string mgrs, KW& kw)
 			break;
 		}
 
-		ixValue = (long)_tcstod(xValue, &tEnd);
-		iyValue = (long)_tcstod(yValue, &tEnd);
+		ixValue = stol(xValue);
+		iyValue = stol(yValue);
 
 		ixValue *= Factor;
 		iyValue *= Factor;
@@ -685,7 +491,7 @@ bool CGeoCoordinate::mgrs2utm(int tawon, std::string mgrs, double& utmx, double&
 		return false;
 
 	zoneValue = mgrs[0] + mgrs[1];
-	izondValue = (long)_tcstod(zoneValue, &tEnd);
+	izondValue = stol(zoneValue);
 
 	zoneSubValue = mgrs[2];
 	xGrid = mgrs[3];
@@ -726,8 +532,8 @@ bool CGeoCoordinate::mgrs2utm(int tawon, std::string mgrs, double& utmx, double&
 			break;
 		}
 
-		ixValue = (long)_tcstod(xValue, &tEnd);
-		iyValue = (long)_tcstod(yValue, &tEnd);
+		ixValue = stol(xValue);
+		iyValue = stol(yValue);
 
 		ixValue *= Factor;
 		iyValue *= Factor;
