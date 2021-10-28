@@ -1,22 +1,15 @@
 #pragma once
 
-#include <iostream>
 #include <string>
 #include <list>
-#include <format>
-#include <iostream>
-#include <filesystem>
 #include "type.h"
 #include "MapDataRecord.h"
-#include "DesignRecordManager.h"
-#include "DrawData.h"
-
-namespace fs = std::filesystem;
+#include "MapDesignRecordManager.h"
 
 class MapDataManager {
 public:
 	MapDataManager();
-	~MapDataManager();
+	virtual ~MapDataManager();
 
 private:
 	std::string _mapDataPath;
@@ -24,22 +17,45 @@ private:
 public:
 	long Init();
 	long LoadMapData() {
-		long countIdx;
 		std::string searchPath;
 		Point parcelID;
 		std::string fileName;
-	
-		searchPath = _mapDataPath + "\\Lv1\\0_0";
+		std::string csName;
+		std::string csDirPath;
 
-		for (const fs::directory_entry& entry : fs::directory_iterator(searchPath)) {
-			fileName = entry.path().string();
-			ReadFile(fileName, &_drawData);
-			/*std::cout << fileName << std::endl;*/
-		}
+	//	CCeFileFind fia;
+
+	//	csDirPath.Format(L"%s\\Lv%d\\%d_%d", _mapDataPath, 1, 0, 0);
+	//	searchPath.Format(L"%s\\*.*", csDirPath);
+		bool bFound;
+	//	bFound = fia.FindFile(searchPath);
+
+	//	while (bFound)
+	//	{
+	//		bFound = fia.FindNextFile();
+	//		csName = fia.GetFileName();
+
+	//		if (fia.IsDirectory())
+	//		{
+	//			//			GetSubFileList(strDir+csName);
+	//		}
+	//		else
+	//		{
+	//			if (csName.Find(L".rec") != -1 || csName.Find(L".REC") != -1)
+	//			{
+	//				fileName.Format(L"%s\\%s", csDirPath, csName);
+	//				//					TRACE(L"%s\n", fileName);
+	//				ReadFile(fileName, &_drawData);
+	//			}
+
+	//		}
+	//	}
+
+	//	fia.Close();
 
 		std::string designFileName;
-		designFileName = _mapDataPath + "\\Lv1_info.ddf";
-		_designRecordMng.LoadDesignFile(designFileName);
+	//	designFileName.Format(L"%s\\Lv%d_info.ddf", _mapDataPath, 1);
+	//	_designRecordMng.LoadDesignFile(designFileName);
 
 		return true;
 	}
@@ -51,9 +67,14 @@ public:
 		return _mapDataPath;
 	}
 
-	long ReadFile(std::string fileName, CDrawData *drawData);
+	void SaveAirMapData();
+	void SelectAll();
+	void ReleaseAll();
+	void SortAdd(_MapRecord *inData);
+	long ReadFile(std::string fileName, CMapDataRecord* drawData);
 
 public :
-	CDrawData _drawData;
-	CDesignRecordMng _designRecordMng;
+	std::list<_MapRecord> _airMapList;
+	CMapDataRecord _drawData;
+	CMapDesignRecordMng _designRecorMng;
 };

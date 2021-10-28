@@ -2,21 +2,16 @@
 //
 
 #include <iostream>
-#include "MapDataManager.h"
+#include "myHeader.h"
 
 int main()
 {
     std::cout << "Hello World!\n";
 
-    std::string dataFilePath = "";
+    std::string dataFilePath = "냐냐냐냐냐";
+    CMapEngine *mapEng = new CMapEngine(dataFilePath);
 
-    MapDataManager mapMng;
-
-    mapMng.Init();
-    mapMng.setMapDataPath("C:\\Users\\kundo\\Downloads\\PDU\\운용프로그램\\MapData\\Output");
-    mapMng.LoadMapData();
-    std::cout << mapMng.GetMapDataPath();
-
+    mapEng->Init();
 
     return 0;
 }
