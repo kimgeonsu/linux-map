@@ -146,13 +146,23 @@
     <ClInclude Include="AppLibrary.h" />
     <ClInclude Include="MapDataManager.h" />
     <ClInclude Include="MapDataRecord.h" />
+<<<<<<< HEAD
     <ClInclude Include="MapDesignRecordManager.h" />
     <ClInclude Include="myHeader.h" />
+=======
+    <ClInclude Include="MapDrawEngine.h" />
+    <ClInclude Include="Rect.h" />
+>>>>>>> parent of 6da7800 (왜 안될깡........)
     <ClInclude Include="type.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MapDataRecord.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="mySource.cpp" />
+=======
+    <ClCompile Include="MapDrawEngine.cpp" />
+    <ClCompile Include="Rect.cpp" />
+>>>>>>> parent of 6da7800 (왜 안될깡........)
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

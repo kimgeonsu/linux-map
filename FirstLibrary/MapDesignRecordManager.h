@@ -1,3 +1,9 @@
+<<<<<<< HEAD:FirstLibrary/MapDesignRecordManager.h
+=======
+#include "Design.h"
+#include "AppLibrary.h"
+
+>>>>>>> parent of 6da7800 (왜 안될깡........):FirstLibrary/DesignRecordManager.h
 #pragma once
 
 #include <string>

@@ -51,7 +51,15 @@ public:
 	//		}
 	//	}
 
+<<<<<<< HEAD
 	//	fia.Close();
+=======
+		for (const fs::directory_entry& entry : fs::directory_iterator(searchPath)) {
+			fileName = entry.path().string();
+			ReadFile(fileName, &_drawData);
+			/*std::cout << fileName << std::endl;*/
+		}
+>>>>>>> parent of 6da7800 (왜 안될깡........)
 
 		std::string designFileName;
 	//	designFileName.Format(L"%s\\Lv%d_info.ddf", _mapDataPath, 1);
