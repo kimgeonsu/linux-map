@@ -53,8 +53,28 @@ typedef struct RectF {
 		right = r;
 	}
 
-	bool PtInRect(Point p);
-	bool IntersectRect(RectF* checkRect, RectF* objRect);
+	bool PtInRect(Point p) {
+		if (left <= p.x && top <= p.y && bottom >= p.y && p.x >= right) {
+			return true;
+		}
+		return false;
+	}
+	bool IntersectRect(RectF* checkRect, RectF* objRect) {
+		RectF min, max;
+		if (checkRect->left <= objRect->left || checkRect->left <= objRect->left) {
+			min = *checkRect;
+			max = *objRect;
+		}
+		else {
+			min = *objRect;
+			max = *checkRect;
+		}
+
+		if (max.left > min.right && max.top >  min.bottom) {
+			return false;
+		}
+		return true;
+	}
 } RectF;
 
 typedef union _MapCode

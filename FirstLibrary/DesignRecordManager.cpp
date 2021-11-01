@@ -34,7 +34,7 @@ long CDesignRecordMng::LoadDesignFile(std::string fileName)
 
 	fread(&_recordList[recIdx], sizeof(_DesignRecord), _recordCount, pFile);
 
-	delete[] _recordList;
+	//delete[] _recordList;
 	fclose(pFile);
 
 	return true;

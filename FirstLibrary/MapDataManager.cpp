@@ -1,6 +1,4 @@
 #include "MapDataManager.h"
-#include "DrawData.h"
-#include "DrawData.cpp"
 
 #define _CRT_SECURE_NO_WARNINGS
 

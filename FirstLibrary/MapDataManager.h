@@ -7,7 +7,6 @@
 #include <iostream>
 #include <filesystem>
 #include "type.h"
-#include "MapDataRecord.h"
 #include "DesignRecordManager.h"
 #include "DrawData.h"
 
@@ -24,7 +23,6 @@ private:
 public:
 	long Init();
 	long LoadMapData() {
-		long countIdx;
 		std::string searchPath;
 		Point parcelID;
 		std::string fileName;

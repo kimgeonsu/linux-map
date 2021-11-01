@@ -204,11 +204,6 @@ public:
 
 		drawInfo.mapCenterPos = DeviceToWorldMove(tmpPoint, centerPoint);
 
-
-
-
-
-
 		//TRACE("<%f, %f>\n", drawInfo.mapCenterPos.y, drawInfo.mapCenterPos.x);
 		std::cout << "<" << drawInfo.mapCenterPos.y << ", " << drawInfo.mapCenterPos.x << ">\n";
 		return SetMapPos(drawInfo.mapCenterPos);

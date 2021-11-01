@@ -3,25 +3,27 @@
 
 #include <iostream>
 #include "MapDataManager.h"
-//#include "MapDrawEngine.h"
+#include "MapDrawEngine.h"
+
+using namespace std;
 
 int main()
 {
     std::cout << "Hello World!\n";
 
-    std::string dataFilePath = "";
-
-    MapDataManager mapMng;
-
-    mapMng.Init();
-    mapMng.setMapDataPath("C:\\Users\\kundo\\Downloads\\PDU\\운용프로그램\\MapData\\Output");
-    mapMng.LoadMapData();
-    std::cout << mapMng.GetMapDataPath();
+    std::string dataFilePath = "C:\\Users\\kundo\\Downloads\\PDU\\운용프로그램\\MapData\\Output";
 
     ////---------------------------------------------------
-    //CMapDrawEngine engine;
+    CMapDrawEngine *engine = new CMapDrawEngine;
 
-    //engine.Init();
-  
+    engine->Init();
+    engine->SetMapDataPath(dataFilePath);
+
+    cout << engine->GetDeviceRect().left << endl;
+    
+    Graphics* graphics = new Graphics("dev/fb0");
+    if (engine->DrawMap(graphics))
+        cout << "I'm True hahahaha\n";
+
     return 0;
 }

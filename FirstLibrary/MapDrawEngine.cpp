@@ -46,7 +46,6 @@ CMapDrawEngine::~CMapDrawEngine()
 	//GlReleaseHOBJ(&m_NULLPEN);
 	//GlReleaseHOBJ(&m_NULLBRUSH);
 	//GlReleaseHOBJ(&m_BACKBRUSH);
-
 	//GlReleaseHOBJ(&m_MapFont[0]);
 	//GlReleaseHOBJ(&m_MapFont[1]);
 }
@@ -60,13 +59,13 @@ long CMapDrawEngine::Init()
 }
 
 long CMapDrawEngine::DrawMap(Graphics *graphics)
-{
+{ 
 	long	tmpFontSize = 0;
 	long	nIdx = 0;
 	Font	oldFont;
 
 	/*graphics->FillRectangle(hDC, drawInfo.devRect, m_BACKBRUSH);*/
-	//graphics->FillRectangle(m_BACKBRUSH, drawInfo.devRect);
+	graphics->FillRectangle(&m_BACKBRUSH, drawInfo.devRect);
 
 	if (drawInfo.logicalLevel == 0)
 	{
@@ -102,16 +101,15 @@ long CMapDrawEngine::DrawMap(Graphics *graphics)
 	//SelectObject(hDC, oldFont);
 
 	Color red = Color(255, 0, 0);
-	Brush testBrush = Brush(red);
+	Brush testBrush = Brush(red, 1);
 	RectF tmpRect;
 	tmpRect.left = drawInfo.devCenterPos.x - 5;
 	tmpRect.top = drawInfo.devCenterPos.y - 5;
 	tmpRect.right = drawInfo.devCenterPos.x + 5;
 	tmpRect.bottom = drawInfo.devCenterPos.y + 5;
 
-	//graphics->FillRectangle(testBrush, &tmpRect);
+	graphics->FillRectangle(&testBrush, tmpRect);
 	//GlReleaseHOBJ(&testBrush);
-
 	return true;
 }
 
@@ -161,7 +159,7 @@ bool CMapDrawEngine::IsDrawObject(RectF drawRect, RectF objRect)
 	}
 
 	checkPoint = inRect.TopLeft();
-	/*if (cmpRect.PtInRect(checkPoint) == true)
+	if (cmpRect.PtInRect(checkPoint) == true)
 		return true;
 
 	checkPoint = inRect.TopLeft();
@@ -176,7 +174,7 @@ bool CMapDrawEngine::IsDrawObject(RectF drawRect, RectF objRect)
 	checkPoint.x = inRect.left;
 	checkPoint.y = inRect.bottom;
 	if (cmpRect.PtInRect(checkPoint) == true)
-		return true;*/
+		return true;
 
 	return false;
 }
@@ -250,10 +248,10 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	// Text Point Calculate
 	textData = pData->header.textData;
 
-	/*if (!rectBuffer.IntersectRect(&checkRect, &objRect))
+	if (!rectBuffer.IntersectRect(&checkRect, &objRect))
 	{
 		return false;
-	}*/
+	}
 
 	memset(&g_DrawBuffer, 0, sizeof(Point) * MAX_DRAW_POINT_COUNT);
 	for (nIdx = 0; nIdx < pData->header.pointCount; nIdx++)
@@ -426,10 +424,10 @@ long CMapDrawEngine::DrawPolyline(_MapRecord* pData, double angle, long bufferId
 	}
 
 
-	/*if (!rectBuffer.IntersectRect(&checkRect, &objRect))
+	if (!rectBuffer.IntersectRect(&checkRect, &objRect))
 	{
 		return false;
-	}*/
+	}
 
 	memset(&g_DrawBuffer, 0, sizeof(Point) * MAX_DRAW_POINT_COUNT);
 	for (nIdx = 0; nIdx < pData->header.pointCount; nIdx++)
@@ -548,10 +546,10 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 		objRect = GetBoundaryRect(objRect, (long)angle);
 	}
 
-	/*if (!rectBuffer.IntersectRect(&checkRect, &objRect))
+	if (!rectBuffer.IntersectRect(&checkRect, &objRect))
 	{
 		return false;
-	}*/
+	}
 
 	inPoint.x -= drawRect.left;
 	inPoint.y -= drawRect.top;
@@ -688,8 +686,8 @@ long CMapDrawEngine::GetUTM(_dPoint inPoint, _dPoint& utmPoint, long param)
 	double	sphi = 0.;
 	int		tmp_zone = 0;
 
-	//	double	tutmxt		= 0.;
-	//	double	tutmyt		= 0.;
+		double	tutmxt		= 0.;
+		double	tutmyt		= 0.;
 
 	m_Coordinate._dCentralKd = 127;
 	m_Coordinate.GetKwbyXY(inPoint.y, inPoint.x, &kw);
@@ -698,8 +696,8 @@ long CMapDrawEngine::GetUTM(_dPoint inPoint, _dPoint& utmPoint, long param)
 
 	m_Coordinate.GetTawon2utm(0, sphi, slam, &m_BaseZone, &tutmy, &tutmx, 0);
 
-	//	utmPoint.x = tutmx;
-	//	utmPoint.y = tutmy;
+		utmPoint.x = tutmx;
+		utmPoint.y = tutmy;
 
 	if (param == 0)
 	{
@@ -730,7 +728,7 @@ long CMapDrawEngine::GetUTM2KW(long izone, _dPoint utmPoint, KW& kw)
 	double slam = 0.;
 
 	m_Coordinate.GetUtm2Tawon(0, &sphi, &slam, izone, utmPoint.y, utmPoint.x);
-	// m_Coordinate.GetUtm2Tawon(BESSEL, &sphi, &slam, izone, utmPoint.y, utmPoint.x);
+	m_Coordinate.GetUtm2Tawon(BESSEL, &sphi, &slam, izone, utmPoint.y, utmPoint.x);
 	m_Coordinate.GetDMS(sphi, &kw.wd, &kw.wb, &kw.wc);
 	m_Coordinate.GetDMS(slam, &kw.kd, &kw.kb, &kw.kc);
 
