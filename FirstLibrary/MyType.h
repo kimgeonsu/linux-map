@@ -4,6 +4,8 @@
 #include <string>
 #include <cstring>
 
+#include "./include/type.h"
+
 typedef struct Point {
 	long x;
 	long y;

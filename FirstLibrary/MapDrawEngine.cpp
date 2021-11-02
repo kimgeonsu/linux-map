@@ -583,19 +583,19 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 	outPoint.x = outPoint.x + (drawInfo.devCenterPos.x - drawInfo.devRect.CenterPoint().x);
 	outPoint.y = outPoint.y + (drawInfo.devCenterPos.y - drawInfo.devRect.CenterPoint().y);
 
-	PointF tmp;
+	PointF ttt;
 	if (drawInfo.headingUpMode == 1)
 	{
 		Point temp = Rotate(outPoint, centerPoint, (long)angle);
-		tmp.X = temp.x;
-		tmp.Y = temp.y;
-		g_DrawBuffer[0] = tmp;
+		ttt.X = temp.x;
+		ttt.Y = temp.y;
+		g_DrawBuffer[0] = ttt;
 	}
 	else
 	{
-		tmp.X = outPoint.x;
-		tmp.Y = outPoint.y;
-		g_DrawBuffer[0] = tmp;
+		ttt.X = outPoint.x;
+		ttt.Y = outPoint.y;
+		g_DrawBuffer[0] = ttt;
 	}
 
 	//GetTextExtentPoint(hDC, FieldValue, FieldValue.length(), &textSize);
