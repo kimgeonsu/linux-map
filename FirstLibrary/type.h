@@ -2,6 +2,7 @@
 
 #include "AppLibrary.h"
 #include <string>
+#include <cstring>
 
 typedef struct Point {
 	long x;

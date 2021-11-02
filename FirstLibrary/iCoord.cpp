@@ -1,6 +1,5 @@
 #include "iCoord.h"
 #include <math.h>
-#include <format>
 
 long g_FactorTable[10][3] =
 {
