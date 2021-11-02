@@ -5,11 +5,11 @@
 #include "MapDataManager.h"
 #include "iCoord.h"
 
-#include "brush.h"
-#include "pen.h"
-#include "font.h"
-#include "graphics.h"
-#include "type.h"
+#include "./include/brush.h"
+#include "./include/pen.h"
+#include "./include/font.h"
+#include "./include/graphics.h"
+#include "./include/type.h"
 
 class CMapDrawEngine
 {
