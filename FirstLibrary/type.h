@@ -117,6 +117,7 @@ typedef struct _MapRecord
 	_MapRecord() : pointList(0) { };
 	~_MapRecord()
 	{
+		
 		GlReleaseMem(&pointList);
 	}
 

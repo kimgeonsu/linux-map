@@ -22,7 +22,7 @@ int main()
     cout << engine->GetDeviceRect().left << endl;
     
     Graphics* graphics = new Graphics("dev/fb0");
-    if (engine->DrawMap(graphics))
+    if (engine->  DrawMap(graphics))
         cout << "I'm True hahahaha\n";
 
     return 0;
