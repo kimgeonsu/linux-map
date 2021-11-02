@@ -2,7 +2,7 @@
 #include "MapDrawEngine.h"
 #include "AppLibrary.h"
 
-#include "type.h"
+#include "MyType.h"
 
 #define MAX_DRAW_POINT_COUNT	8192
 PointF g_DrawBuffer[MAX_DRAW_POINT_COUNT];
