@@ -1,14 +1,15 @@
 #pragma once
 
 #include <string>
-#include "type.h"
+#include "MyType.h"
 #include "MapDataManager.h"
 #include "iCoord.h"
 
-#include "tmp_brush.h"
-#include "tmp_pen.h"
-#include "tmp_font.h"
-#include "tmp_graphics.h"
+#include "brush.h"
+#include "pen.h"
+#include "font.h"
+#include "graphics.h"
+#include "type.h"
 
 class CMapDrawEngine
 {

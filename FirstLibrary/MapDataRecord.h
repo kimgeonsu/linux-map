@@ -1,6 +1,6 @@
 #pragma once
 
-#include "type.h"
+#include "MyType.h"
 #include <list>
 
 class CMapDataRecord {

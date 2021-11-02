@@ -5,7 +5,7 @@
 #include <list>
 #include <iostream>
 #include <filesystem>
-#include "type.h"
+#include "MyType.h"
 #include "DesignRecordManager.h"
 #include "DrawData.h"
 

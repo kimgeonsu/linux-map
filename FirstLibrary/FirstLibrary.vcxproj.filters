@@ -18,7 +18,7 @@
     <ClInclude Include="MapDataManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="type.h">
+    <ClInclude Include="MyType.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="AppLibrary.h">
@@ -40,21 +40,6 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="iCoord.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="tmp_brush.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="tmp_font.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="tmp_graphics.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="tmp_image.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="tmp_pen.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

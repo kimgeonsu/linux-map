@@ -1,10 +1,11 @@
 ﻿#include "MapDataManager.h"
 #include "MapDrawEngine.h"
 #include "AppLibrary.h"
+
 #include "type.h"
 
 #define MAX_DRAW_POINT_COUNT	8192
-Point g_DrawBuffer[MAX_DRAW_POINT_COUNT];
+PointF g_DrawBuffer[MAX_DRAW_POINT_COUNT];
 
 
 CMapDrawEngine::CMapDrawEngine()
@@ -253,7 +254,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		return false;
 	}
 
-	memset(&g_DrawBuffer, 0, sizeof(Point) * MAX_DRAW_POINT_COUNT);
+	memset(&g_DrawBuffer, 0, sizeof(PointF) * MAX_DRAW_POINT_COUNT);
 	for (nIdx = 0; nIdx < pData->header.pointCount; nIdx++)
 	{
 		inPoint = pData->pointList[nIdx];
@@ -345,7 +346,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		//oldTextColor = GetTextColor(hDC);
 		// SetTextColor(hDC, RGB(150, 79, 223));
 		//SetTextColor(hDC, designInfo->_fontStyle[drawInfo.dayNightMode].color);
-		graphics->DrawString(textData, textData.length(), &font, textRect.TopLeft(), &fillBrush);
+		graphics->DrawString(textData.c_str(), textData.length(), &font, textRect.TopLeft(), &fillBrush);
 		//SetTextColor(hDC, oldTextColor);
 	}
 
@@ -589,7 +590,7 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 		color = Color(255, 255, 255);
 
 
-	graphics->DrawString(FieldValue, FieldValue.length(), &font, textRect.TopLeft(), &fillBrush);
+	graphics->DrawString(FieldValue.c_str(), FieldValue.length(), &font, textRect.TopLeft(), &fillBrush);
 
 	//SetTextColor(hDC, oldTextColor);
 

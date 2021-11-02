@@ -155,12 +155,7 @@
     <ClInclude Include="MapDataManager.h" />
     <ClInclude Include="MapDataRecord.h" />
     <ClInclude Include="MapDrawEngine.h" />
-    <ClInclude Include="tmp_brush.h" />
-    <ClInclude Include="tmp_font.h" />
-    <ClInclude Include="tmp_graphics.h" />
-    <ClInclude Include="tmp_image.h" />
-    <ClInclude Include="tmp_pen.h" />
-    <ClInclude Include="type.h" />
+    <ClInclude Include="MyType.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DesignRecordManager.cpp" />

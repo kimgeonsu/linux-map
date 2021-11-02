@@ -227,12 +227,3 @@ typedef struct _MapDrawInfo
 		dayNightMode(0) {};
 	~_MapDrawInfo() {};
 } _MapDrawInfo;
-
-typedef struct Color {
-	int r;
-	int g;
-	int b;
-
-	Color() : r(0), g(0), b(0) {}
-	Color(int R, int G, int B) : r(R), g(G), b(B) {}
-} Color;
