@@ -66,7 +66,8 @@ long CMapDrawEngine::DrawMap(Graphics *graphics)
 	Font	oldFont;
 
 	/*graphics->FillRectangle(hDC, drawInfo.devRect, m_BACKBRUSH);*/
-	graphics->FillRectangle(&m_BACKBRUSH, drawInfo.devRect);
+	RectF change = drawInfo.devRect.Rect2RectF();
+	graphics->FillRectangle(&m_BACKBRUSH, change);
 
 	if (drawInfo.logicalLevel == 0)
 	{
@@ -103,18 +104,19 @@ long CMapDrawEngine::DrawMap(Graphics *graphics)
 
 	Color red = Color(255, 0, 0);
 	Brush testBrush = Brush(red, 1);
-	RectF tmpRect;
+	Rect tmpRect;
 	tmpRect.left = drawInfo.devCenterPos.x - 5;
 	tmpRect.top = drawInfo.devCenterPos.y - 5;
 	tmpRect.right = drawInfo.devCenterPos.x + 5;
 	tmpRect.bottom = drawInfo.devCenterPos.y + 5;
 
-	graphics->FillRectangle(&testBrush, tmpRect);
+	RectF Convert = tmpRect.Rect2RectF();
+	graphics->FillRectangle(&testBrush, Convert);
 	//GlReleaseHOBJ(&testBrush);
 	return true;
 }
 
-RectF CMapDrawEngine::GetBoundaryRect(RectF inRect, long angle)
+Rect CMapDrawEngine::GetBoundaryRect(Rect inRect, long angle)
 {
 	long minX = 999999;
 	long minY = 999999;
@@ -122,7 +124,7 @@ RectF CMapDrawEngine::GetBoundaryRect(RectF inRect, long angle)
 	long maxY = 0;
 	long index = 0;
 
-	RectF retRect;
+	Rect retRect;
 	Point inPoint[4];
 	Point centerPoint = drawInfo.devCenterPos;
 
@@ -143,16 +145,16 @@ RectF CMapDrawEngine::GetBoundaryRect(RectF inRect, long angle)
 			maxY = inPoint[index].y;
 	}
 
-	retRect = RectF(minX, minY, maxX, maxY);
+	retRect = Rect(minX, minY, maxX, maxY);
 
 	return retRect;
 }
 
-bool CMapDrawEngine::IsDrawObject(RectF drawRect, RectF objRect)
+bool CMapDrawEngine::IsDrawObject(Rect drawRect, Rect objRect)
 {
 	Point	checkPoint;
-	RectF	inRect = objRect;
-	RectF	cmpRect = drawRect;
+	Rect	inRect = objRect;
+	Rect	cmpRect = drawRect;
 	if ((drawRect.Width() < objRect.Width()) || (drawRect.Height() < objRect.Height()))
 	{
 		inRect = drawRect;
@@ -183,15 +185,15 @@ bool CMapDrawEngine::IsDrawObject(RectF drawRect, RectF objRect)
 long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx)
 {
 	// for intersect calculation..
-	RectF		objRect = pData->header.boundaryRect;
-	RectF		drawRect;
-	RectF		checkRect;
-	RectF		rectBuffer;
+	Rect		objRect = pData->header.boundaryRect;
+	Rect		drawRect;
+	Rect		checkRect;
+	Rect		rectBuffer;
 	Point		centerPoint;
 	Point		outPoint;
 	Point		inPoint;
 	Point		textPoint;
-	RectF		textRect;
+	Rect		textRect;
 	Point		tmpCenterPoint = drawInfo.mapCenterPos4096;
 	long		nIdx = 0;
 
@@ -273,13 +275,21 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		outPoint.y = outPoint.y + (drawInfo.devCenterPos.y - drawInfo.devRect.CenterPoint().y);
 
 		// ������ϰ��
+		PointF tmp;
 		if (drawInfo.headingUpMode == 1)
 		{
-			g_DrawBuffer[nIdx] = Rotate(outPoint, centerPoint, (long)angle);
+			//g_DrawBuffer[nIdx] = Rotate(outPoint, centerPoint, (long)angle);
+			Point temp = Rotate(outPoint, centerPoint, (long)angle);
+			tmp.X = temp.x;
+			tmp.Y = temp.y;
+			g_DrawBuffer[nIdx] = tmp;
 		}
 		else
 		{
-			g_DrawBuffer[nIdx] = outPoint;
+			//g_DrawBuffer[nIdx] = outPoint;
+			tmp.X = outPoint.x;
+			tmp.Y = outPoint.y;
+			g_DrawBuffer[nIdx] = tmp;
 		}
 	}
 
@@ -346,7 +356,10 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		//oldTextColor = GetTextColor(hDC);
 		// SetTextColor(hDC, RGB(150, 79, 223));
 		//SetTextColor(hDC, designInfo->_fontStyle[drawInfo.dayNightMode].color);
-		graphics->DrawString(textData.c_str(), textData.length(), &font, textRect.TopLeft(), &fillBrush);
+		PointF tmp;
+		tmp.X = textRect.TopLeft().x;
+		tmp.Y = textRect.TopLeft().y;
+		graphics->DrawString(textData.c_str(), textData.length(), &font, tmp, &fillBrush);
 		//SetTextColor(hDC, oldTextColor);
 	}
 
@@ -375,10 +388,10 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 
 long CMapDrawEngine::DrawPolyline(_MapRecord* pData, double angle, long bufferIdx)
 {
-	RectF		objRect = pData->header.boundaryRect;
-	RectF		drawRect;
-	RectF		checkRect;
-	RectF		rectBuffer;
+	Rect		objRect = pData->header.boundaryRect;
+	Rect		drawRect;
+	Rect		checkRect;
+	Rect		rectBuffer;
 	Point		centerPoint;
 	Point		outPoint;
 	Point		inPoint;
@@ -449,13 +462,21 @@ long CMapDrawEngine::DrawPolyline(_MapRecord* pData, double angle, long bufferId
 		outPoint.x = outPoint.x + (drawInfo.devCenterPos.x - drawInfo.devRect.CenterPoint().x);
 		outPoint.y = outPoint.y + (drawInfo.devCenterPos.y - drawInfo.devRect.CenterPoint().y);
 
+		PointF tmp;
 		if (drawInfo.headingUpMode == 1)
 		{
-			g_DrawBuffer[nIdx] = Rotate(outPoint, centerPoint, (long)angle);
+			//g_DrawBuffer[nIdx] = Rotate(outPoint, centerPoint, (long)angle);
+			Point temp = Rotate(outPoint, centerPoint, (long)angle);
+			tmp.X = temp.x;
+			tmp.Y = temp.y;
+			g_DrawBuffer[nIdx] = tmp;
 		}
 		else
 		{
-			g_DrawBuffer[nIdx] = outPoint;
+			//g_DrawBuffer[nIdx] = outPoint;
+			tmp.X = outPoint.x;
+			tmp.Y = outPoint.y;
+			g_DrawBuffer[nIdx] = tmp;
 		}
 	}
 
@@ -493,17 +514,17 @@ long CMapDrawEngine::DrawPolyline(_MapRecord* pData, double angle, long bufferId
 
 long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 {
-	RectF		drawRect;
-	RectF		checkRect;
-	RectF		objRect;
-	RectF		rectBuffer;
+	Rect		drawRect;
+	Rect		checkRect;
+	Rect		objRect;
+	Rect		rectBuffer;
 	Point		centerPoint;
 	Point		outPoint;
 	Point		inPoint;
 	Point		tmpCenterPoint = drawInfo.mapCenterPos4096;
 
 	Point		textSize;
-	RectF		textRect;
+	Rect		textRect;
 	std::string		FieldValue;
 	//unsigned long	oldTextColor;
 
@@ -562,23 +583,29 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 	outPoint.x = outPoint.x + (drawInfo.devCenterPos.x - drawInfo.devRect.CenterPoint().x);
 	outPoint.y = outPoint.y + (drawInfo.devCenterPos.y - drawInfo.devRect.CenterPoint().y);
 
+	PointF tmp;
 	if (drawInfo.headingUpMode == 1)
 	{
-		g_DrawBuffer[0] = Rotate(outPoint, centerPoint, (long)angle);
+		Point temp = Rotate(outPoint, centerPoint, (long)angle);
+		tmp.X = temp.x;
+		tmp.Y = temp.y;
+		g_DrawBuffer[0] = tmp;
 	}
 	else
 	{
-		g_DrawBuffer[0] = outPoint;
+		tmp.X = outPoint.x;
+		tmp.Y = outPoint.y;
+		g_DrawBuffer[0] = tmp;
 	}
 
 	//GetTextExtentPoint(hDC, FieldValue, FieldValue.length(), &textSize);
 	textSize.x += 4;
 	textSize.y += 4;
 
-	textRect.left = g_DrawBuffer[0].x - (int)(textSize.x / 2) - 1;
-	textRect.right = g_DrawBuffer[0].x + (int)(textSize.x / 2) + 1;
-	textRect.top = g_DrawBuffer[0].y - (int)(textSize.y / 2) - 1;
-	textRect.bottom = g_DrawBuffer[0].y + (int)(textSize.y / 2) + 1;
+	textRect.left = g_DrawBuffer[0].X - (int)(textSize.x / 2) - 1;
+	textRect.right = g_DrawBuffer[0].X + (int)(textSize.x / 2) + 1;
+	textRect.top = g_DrawBuffer[0].Y - (int)(textSize.y / 2) - 1;
+	textRect.bottom = g_DrawBuffer[0].Y + (int)(textSize.y / 2) + 1;
 
 	Color color;
 
@@ -590,7 +617,10 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 		color = Color(255, 255, 255);
 
 
-	graphics->DrawString(FieldValue.c_str(), FieldValue.length(), &font, textRect.TopLeft(), &fillBrush);
+	PointF tmp;
+	tmp.X = textRect.TopLeft().x;
+	tmp.Y = textRect.TopLeft().y;
+	graphics->DrawString(FieldValue.c_str(), FieldValue.length(), &font, tmp, &fillBrush);
 
 	//SetTextColor(hDC, oldTextColor);
 

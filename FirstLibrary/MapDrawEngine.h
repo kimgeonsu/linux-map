@@ -42,15 +42,15 @@ public:
 	{
 		return mapDataManager.GetMapDataPath();
 	};
-	void GetDeviceRect(RectF& RectF)						// Get Display Device Size
+	void GetDeviceRect(Rect& RectF)						// Get Display Device Size
 	{
 		RectF = drawInfo.devRect;
 	};
-	RectF GetDeviceRect()
+	Rect GetDeviceRect()
 	{
 		return drawInfo.devRect;
 	};
-	void SetDeviceRect(RectF RectF)
+	void SetDeviceRect(Rect RectF)
 	{
 		drawInfo.devRect = RectF;
 
@@ -61,7 +61,7 @@ public:
 	};
 	void SetDeviceRect(long left, long top, long right, long bottom)
 	{
-		RectF tmpRect = RectF(left, top, right, bottom);
+		Rect tmpRect = Rect(left, top, right, bottom);
 		SetDeviceRect(tmpRect);
 	};
 
@@ -214,10 +214,10 @@ public:
 	long DrawPolygon( _MapRecord* pData, double angle, long bufferIdx);						// Polygon Draw
 	long DrawPolyline(_MapRecord* pData, double angle, long bufferIdx);	// Polyline Draw
 	long DrawPOI(_MapRecord* pData, double angle, long bufferIdx);							// POI Data Draw
-	bool IsDrawObject(RectF drawRect, RectF objRect);
+	bool IsDrawObject(Rect drawRect, Rect objRect);
 
 	Point Rotate(Point inPoint, Point centerPoint, long angle);
-	RectF GetBoundaryRect(RectF inRect, long angle);
+	Rect GetBoundaryRect(Rect inRect, long angle);
 
 	Point WorldToDevice(const _dPoint _inPoint);
 	_dPoint DeviceToWorld(const Point _inPoint);

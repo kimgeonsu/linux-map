@@ -22,7 +22,7 @@ typedef struct _dPoint {
 	double y;
 } _dPoint;
 
-typedef struct RectF {
+typedef struct Rect {
 	int top;
 	int left;
 	int bottom;
@@ -36,8 +36,8 @@ typedef struct RectF {
 		return right - left;
 	}
 
-	RectF() : top(0), left(0), bottom(0), right(0) {}
-	RectF(int t, int l, int b, int r): top(t), left(l), bottom(b), right(r) {}
+	Rect() : top(0), left(0), bottom(0), right(0) {}
+	Rect(int t, int l, int b, int r): top(t), left(l), bottom(b), right(r) {}
 
 	Point TopLeft() {
 		return Point(left, top);
@@ -60,9 +60,9 @@ typedef struct RectF {
 		}
 		return false;
 	}
-	bool IntersectRect(RectF* checkRect, RectF* objRect) {
-		RectF min, max;
-		if (checkRect->left <= objRect->left || checkRect->left <= objRect->left) {
+	bool IntersectRect(Rect* checkRect, Rect* objRect) {
+		Rect min, max;
+		if (checkRect->left <= objRect->left || checkRect->top <= objRect->top) {
 			min = *checkRect;
 			max = *objRect;
 		}
@@ -76,7 +76,17 @@ typedef struct RectF {
 		}
 		return true;
 	}
-} RectF;
+
+	RectF Rect2RectF() {
+		RectF tmp;
+		tmp.X = left;
+		tmp.Y = top;
+		tmp.Height = bottom - top;
+		tmp.Width = right - left;
+
+		return tmp;
+	}
+} Rect;
 
 typedef union _MapCode
 {
@@ -98,7 +108,7 @@ typedef struct _MapRecordHeader
 	int		objType;
 	int		pointCount;
 	int		drawOrder;
-	RectF	boundaryRect;
+	Rect	boundaryRect;
 	char			textLayerDes[32];
 	char			textData[32];
 
@@ -219,8 +229,8 @@ typedef struct _MapDrawInfo
 	long		dayNightMode;			// 야간 모드
 	_dPoint		mapCenterPos;			// Map Center Point
 	Point		mapCenterPos4096;		// Map Center Point 4096
-	RectF		drawRect;				// 4096 RectF
-	RectF		devRect;				// Device Full Size
+	Rect		drawRect;				// 4096 RectF
+	Rect		devRect;				// Device Full Size
 	Point		devCenterPos;			// Device Center Point
 
 	_MapDrawInfo() : physicalLevel(0), logicalLevel(0), mapAngle(0), headingUpMode(0),
