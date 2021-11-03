@@ -16,7 +16,7 @@
 #include <cmath>
 extern "C" {
 #include "type.h"
-#include "gx.h"
+#include "./gx/gx.h"
 }
 
 #define IMAGE_TYPE_BMP	1
