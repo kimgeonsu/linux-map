@@ -13,10 +13,10 @@
 #include <cmath>
 
 extern "C" {
-#include "../lib/type.h"
-#include "../lib/pen.h"
-#include "../lib/brush.h"
-#include "../lib/graphics.h"
+#include "../include/type.h"
+#include "../include/pen.h"
+#include "../include/brush.h"
+#include "../include/graphics.h"
 }
 
 int main(int argc, char *argv[])
