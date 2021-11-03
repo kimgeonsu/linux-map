@@ -12,7 +12,7 @@
 #include <fstream>
 #include <cmath>
 
-#include "MapDrawEngine.hs"
+#include "../Header/MapDrawEngine.h "
 
 extern "C" {
 #include "../include/type.h"
