@@ -12,8 +12,6 @@
 #include <fstream>
 #include <cmath>
 
-#include "MapDrawEngine.h "
-
 extern "C" {
 #include "../include/type.h"
 #include "../include/pen.h"
@@ -42,7 +40,7 @@ int main(int argc, char *argv[])
     Graphics* graphics = new Graphics("dev/fb0");
     if (engine->  DrawMap(graphics))
         cout << "I'm True hahahaha\n";
-
+    
     return 0;
 
 	return 0;
