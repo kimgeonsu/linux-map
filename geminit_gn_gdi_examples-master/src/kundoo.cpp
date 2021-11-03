@@ -12,6 +12,8 @@
 #include <fstream>
 #include <cmath>
 
+#include "MapDrawEngine.hs"
+
 extern "C" {
 #include "../include/type.h"
 #include "../include/pen.h"
@@ -22,19 +24,26 @@ extern "C" {
 int main(int argc, char *argv[])
 {
 	Graphics 	*graphics;
-	Color 		 color;
-	Pen 		 pen;
-	Brush 		 brush;
 
 	graphics = new Graphics("/dev/fb0");
-	color 	 = Color(0, 0, 256);
-	pen 	 = Pen(color, 1.0);
-	brush 	 = Brush(color);
+	
+    std::cout << "Hello World!\n";
 
-	graphics->DrawEllipse(&pen, RectF(10, 10, 100, 100));
-	graphics->FillEllipse(&brush, RectF(120, 10, 100, 100));
+    std::string dataFilePath = "linux-map/geminit_gn_gdi-examples-master/src/Output";
 
-	graphics->~Graphics();
+    ////---------------------------------------------------
+    CMapDrawEngine *engine = new CMapDrawEngine;
+
+    engine->Init();
+    engine->SetMapDataPath(dataFilePath);
+
+    cout << engine->GetDeviceRect().left << endl;
+    
+    Graphics* graphics = new Graphics("dev/fb0");
+    if (engine->  DrawMap(graphics))
+        cout << "I'm True hahahaha\n";
+
+    return 0;
 
 	return 0;
 }
