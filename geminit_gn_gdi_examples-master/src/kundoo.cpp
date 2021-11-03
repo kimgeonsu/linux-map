@@ -17,7 +17,10 @@ extern "C" {
 #include "../include/pen.h"
 #include "../include/brush.h"
 #include "../include/graphics.h"
+#include "../Header/MapDrawEngine.h"
 }
+
+using namespace std;
 
 int main(int argc, char *argv[])
 {
@@ -37,11 +40,8 @@ int main(int argc, char *argv[])
 
     cout << engine->GetDeviceRect().left << endl;
     
-    Graphics* graphics = new Graphics("dev/fb0");
     if (engine->  DrawMap(graphics))
         cout << "I'm True hahahaha\n";
     
-    return 0;
-
 	return 0;
 }
