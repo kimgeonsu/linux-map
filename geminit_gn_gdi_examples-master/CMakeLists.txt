@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.2)
 
-SET(CMAKE_CXX_STANDARD 11)
+SET(CMAKE_CXX_STANDARD 17)
 SET(CMAKE_CXX_STANDARD_REQUIRED True)
 
 PROJECT(example_setpixel)
@@ -11,6 +11,7 @@ PROJECT(example_polygon)
 PROJECT(example_rectangle)
 PROJECT(example_string)
 PROJECT(example_triangle)
+PROJECT(kundoo)
 
 INCLUDE_DIRECTORIES(include/ include/gx/)
 
@@ -28,6 +29,7 @@ ADD_EXECUTABLE(example_polygon src/example_polygon.cpp)
 ADD_EXECUTABLE(example_rectangle src/example_rectangle.cpp)
 ADD_EXECUTABLE(example_string src/example_string.cpp)
 ADD_EXECUTABLE(example_triangle src/example_triangle.cpp)
+ADD_EXECUTABLE(kundoo src/kundoo.cpp)
 
 TARGET_LINK_LIBRARIES(example_setpixel -Llib geminit-gn-gdi png16 jpeg)
 TARGET_LINK_LIBRARIES(example_line -Llib geminit-gn-gdi png16 jpeg)
@@ -37,6 +39,7 @@ TARGET_LINK_LIBRARIES(example_polygon -Llib geminit-gn-gdi png16 jpeg)
 TARGET_LINK_LIBRARIES(example_rectangle -Llib geminit-gn-gdi png16 jpeg)
 TARGET_LINK_LIBRARIES(example_string -Llib geminit-gn-gdi png16 jpeg)
 TARGET_LINK_LIBRARIES(example_triangle -Llib geminit-gn-gdi png16 jpeg)
+TARGET_LINK_LIBRARIES(kundoo -Llib geminit-gn-gdi png16 jpeg -Llib LinuxMap)
 
 SET_TARGET_PROPERTIES(example_setpixel PROPERTIES RUNTIME_OUTPUT_DIRECTORY out)
 SET_TARGET_PROPERTIES(example_line PROPERTIES RUNTIME_OUTPUT_DIRECTORY out)
@@ -46,3 +49,4 @@ SET_TARGET_PROPERTIES(example_polygon PROPERTIES RUNTIME_OUTPUT_DIRECTORY out)
 SET_TARGET_PROPERTIES(example_rectangle PROPERTIES RUNTIME_OUTPUT_DIRECTORY out)
 SET_TARGET_PROPERTIES(example_string PROPERTIES RUNTIME_OUTPUT_DIRECTORY out)
 SET_TARGET_PROPERTIES(example_triangle PROPERTIES RUNTIME_OUTPUT_DIRECTORY out)
+SET_TARGET_PROPERTIES(kundoo PROPERTIES RUNTIME_OUTPUT_DIRECTORY out)
