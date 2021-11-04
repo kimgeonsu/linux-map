@@ -98,7 +98,7 @@ public:
 
 	void GetMapAngle(long& Angle)
 	{
-		// ½ÇÁ¦ °¢µµÀÇ ¹Ý´ë ¹æÇâÀ¸·Î ¸ÊÀÌ µ·´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ý´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 		Angle = 360 - drawInfo.mapAngle;
 		if (Angle == 360)
 			Angle = 0;
@@ -113,7 +113,7 @@ public:
 	};
 	void SetMapAngle(long Angle)
 	{
-		// ½ÇÁ¦ °¢µµÀÇ ¹Ý´ë ¹æÇâÀ¸·Î ¸ÊÀÌ µ·´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ý´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 		Angle %= 360;
 		drawInfo.mapAngle = 360 - Angle;
 		if (drawInfo.mapAngle == 360)
@@ -210,7 +210,7 @@ public:
 		return SetMapPos(drawInfo.mapCenterPos);
 	}
 
-	long DrawMap(Graphics *graphics);					// Shape Data Draw
+	long DrawMap();					// Shape Data Draw
 	long DrawPolygon( _MapRecord* pData, double angle, long bufferIdx);						// Polygon Draw
 	long DrawPolyline(_MapRecord* pData, double angle, long bufferIdx);	// Polyline Draw
 	long DrawPOI(_MapRecord* pData, double angle, long bufferIdx);							// POI Data Draw
@@ -224,12 +224,12 @@ public:
 
 	_dPoint DeviceToWorldMove(const Point _inPoint, Point centerPoint);
 
-	long GetUTM(_dPoint inPoint, _dPoint& utmPoint, long param = 0);	// ÁÂÇ¥ º¯È¯ (WGS84 -> UTM)
-	long GetUTM2KW(long izone, _dPoint utmPoint, KW& kw); // ÁÂÇ¥ º¯È¯ (UTM -> WGS84)
+	long GetUTM(_dPoint inPoint, _dPoint& utmPoint, long param = 0);	// ï¿½ï¿½Ç¥ ï¿½ï¿½È¯ (WGS84 -> UTM)
+	long GetUTM2KW(long izone, _dPoint utmPoint, KW& kw); // ï¿½ï¿½Ç¥ ï¿½ï¿½È¯ (UTM -> WGS84)
 
-	std::string GetGP2MGRS(_dPoint inPoint);					// ÁÂÇ¥ º¯È¯ (WGS84 -> MGRS)
+	std::string GetGP2MGRS(_dPoint inPoint);					// ï¿½ï¿½Ç¥ ï¿½ï¿½È¯ (WGS84 -> MGRS)
 	std::string GetUTM2MGRS(int zone, _dPoint utmPoint);
-	bool GetMGRS2KW(std::string mgrs, KW& kw);				// ÁÂÇ¥ º¯È¯ (MGRS -> WGS84)
+	bool GetMGRS2KW(std::string mgrs, KW& kw);				// ï¿½ï¿½Ç¥ ï¿½ï¿½È¯ (MGRS -> WGS84)
 	bool GetMGRS2UTM(std::string mgrs, _dPoint& utmPoint);
 
 
@@ -246,7 +246,7 @@ public:
 
 	long					m_CosValue[360];
 	long					m_SinValue[360];
-	CGeoCoordinate			m_Coordinate;				// ÁÂÇ¥º¯È¯ 
+	CGeoCoordinate			m_Coordinate;				// ï¿½ï¿½Ç¥ï¿½ï¿½È¯ 
 	int						m_BaseZone;
 
 	Graphics				*graphics;

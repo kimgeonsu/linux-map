@@ -59,7 +59,7 @@ long CMapDrawEngine::Init()
 	return true;
 }
 
-long CMapDrawEngine::DrawMap(Graphics *graphics)
+long CMapDrawEngine::DrawMap()
 { 
 	long	tmpFontSize = 0;
 	long	nIdx = 0;
