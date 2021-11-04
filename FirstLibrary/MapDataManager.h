@@ -36,7 +36,7 @@ public:
 		}*/
 		DIR* dir; 
 		struct dirent* ent;
-		if ((dir = opendir(searchPath) != NULL) {
+		if ((dir = opendir(searchPath.c_str())) != NULL) {
 			while (ent = readdir(dir) != NULL)
 			{
 				ReadFile(ent->d_name, &_drawData);
