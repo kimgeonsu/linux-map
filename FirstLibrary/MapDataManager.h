@@ -4,12 +4,13 @@
 #include <string>
 #include <list>
 #include <iostream>
-#include <experimental/filesystem>
+//#include <experimental/filesystem>
+#include <dirent.h>
 #include "MyType.h"
 #include "DesignRecordManager.h"
 #include "DrawData.h"
 
-namespace fs = std::experimental::filesystem;
+//namespace fs = std::experimental::filesystem;
 
 class MapDataManager {
 public:
@@ -28,10 +29,23 @@ public:
 	
 		searchPath = _mapDataPath + "\\Lv1\\0_0";
 
-		for (const fs::directory_entry& entry : fs::directory_iterator(searchPath)) {
+		/*for (const fs::directory_entry& entry : fs::directory_iterator(searchPath)) {
 			fileName = entry.path().string();
 			ReadFile(fileName, &_drawData);
 			std::cout << fileName << std::endl;
+		}*/
+		DIR* dir; 
+		struct dirent* ent;
+		if ((dir = opendir(searchPath) != NULL) {
+			while (ent = readdir(dir) != NULL)
+			{
+				ReadFile(ent->d_name, &_drawData);
+			}
+			closedir(dir);
+		}
+		else {
+			perror("");
+			return EXIT_FAILURE;
 		}
 
 		std::string designFileName;
