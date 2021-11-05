@@ -61,10 +61,11 @@ long CMapDrawEngine::Init()
 
 long CMapDrawEngine::DrawMap()
 { 
+	
 	long	tmpFontSize = 0;
 	long	nIdx = 0;
 	Font	oldFont;
-
+	std::cout << tmpFontSize << "ㅑㄴ냐냐냔ㄴ" << std::endl;
 	/*graphics->FillRectangle(hDC, drawInfo.devRect, m_BACKBRUSH);*/
 	RectF change = drawInfo.devRect.Rect2RectF();
 	graphics->FillRectangle(&m_BACKBRUSH, change);
@@ -80,7 +81,7 @@ long CMapDrawEngine::DrawMap()
 
 	std::list<_MapRecord>::iterator pos = mapDataManager._drawData._drawDataList.begin();
 	_MapRecord pData;
-	std::cout << "ㅑㄴ냐냐냔ㄴ" << std::endl;
+	
 	for (pos; pos != mapDataManager._drawData._drawDataList.end(); pos++) {
 		pData = *pos;
 
