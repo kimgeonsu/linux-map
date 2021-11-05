@@ -45,9 +45,12 @@ int main()
 	int currentMapMode = 0;
 	engine->SetMapAngle(currentAngle);
 	engine->SetMapHeadingUpMode(currentMapMode);
+    
     cout << engine->GetDeviceRect().left << endl;
     
     engine->DrawMap();
-
+    mapDrawEngine->WorldToDevice(Point(128.5, 36.5));
+    engine->DrawMap();
+    
     return 0;
 }
