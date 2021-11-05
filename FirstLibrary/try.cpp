@@ -46,7 +46,7 @@ int main()
 	engine->SetMapAngle(currentAngle);
 	engine->SetMapHeadingUpMode(currentMapMode);
     
-    cout << engine->GetDeviceRect().left << endl;
+    // cout << engine->GetDeviceRect().left << endl;
     
     engine->DrawMap();
     _dPoint dp;
