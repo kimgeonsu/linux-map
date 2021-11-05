@@ -93,21 +93,21 @@ long CMapDrawEngine::DrawMap()
 	// _MapRecord pdatas = *pos;
 	
 	for (pos; pos != eee; pos++) {
-		pData = *pos; 
+		// pData = *pos; 
 
 		switch (pos->header.objType)
 		{
 		case 1:
 			std::cout << "DrawPOI(&pData, drawInfo.mapAngle, nIdx);\n";
-			DrawPOI((_MapRecord*)pos, drawInfo.mapAngle, nIdx);
+			DrawPOI(&(*pos), drawInfo.mapAngle, nIdx);
 			break;
 		case 3:
 			std::cout << "DrawPolyline(&pData, drawInfo.mapAngle, nIdx);\n";
-			DrawPolyline((_MapRecord*)pos, drawInfo.mapAngle, nIdx);
+			DrawPolyline(&(*pos), drawInfo.mapAngle, nIdx);
 			break;
 		case 5:
 			std::cout << "DrawPolygon(&pData, drawInfo.mapAngle, nIdx);\n";
-			DrawPolygon((_MapRecord*)pos, drawInfo.mapAngle, nIdx);
+			DrawPolygon(&(*pos), drawInfo.mapAngle, nIdx);
 			break;
 		default:
 			break;
