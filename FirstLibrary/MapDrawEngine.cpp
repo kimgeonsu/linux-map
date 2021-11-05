@@ -100,6 +100,7 @@ long CMapDrawEngine::DrawMap()
 			std::cout << "DrawPolygon(&pData, drawInfo.mapAngle, nIdx);\n";
 			break;
 		default:
+			std::cout << tmpFontSize << "ㅑㄴ냐냐냔ㄴ" << std::endl;
 			break;
 		}
 
