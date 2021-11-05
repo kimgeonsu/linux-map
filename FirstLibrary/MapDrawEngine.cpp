@@ -68,28 +68,29 @@ long CMapDrawEngine::DrawMap()
 	std::cout << tmpFontSize << "ㅑㄴ냐냐냔ㄴ" << std::endl;
 	/*graphics->FillRectangle(hDC, drawInfo.devRect, m_BACKBRUSH);*/
 	RectF change = drawInfo.devRect.Rect2RectF();
+		std::cout << tmpFontSize << "111111111111" << std::endl;
 	graphics->FillRectangle(&m_BACKBRUSH, change);
+		std::cout << tmpFontSize <<"22222222222" << std::endl;
 
 	if (drawInfo.logicalLevel == 0)
 	{
+		std::cout << tmpFontSize <<"33" << std::endl;
 		oldFont = m_MapFont[0];
 	}
 	else
 	{
+		std::cout << tmpFontSize <<"44" << std::endl;
 		oldFont = m_MapFont[1];
 	}
-
+		std::cout << tmpFontSize <<"45" << std::endl;
 	std::list<_MapRecord>::iterator pos = mapDataManager._drawData._drawDataList.begin();
+		std::cout << tmpFontSize <<"46" << std::endl;
+	
 	std::list<_MapRecord>::iterator eee = mapDataManager._drawData._drawDataList.end();
+		std::cout << tmpFontSize <<"47" << std::endl;
 	
 	// _MapRecord pData;
 	// _MapRecord pdatas = *pos;
-	try {
-		// std::cout << pos->header.objType << std::endl;
-		// std::cout << eee->header.objType << std::endl;
-	} catch(e) {
-		std::cout << "메세지\n";
-	}
 	
 	for (pos; pos != eee; pos++) {
 		// pData = *pos; 
