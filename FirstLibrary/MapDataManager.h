@@ -27,7 +27,7 @@ public:
 		Point parcelID;
 		std::string fileName;
 	
-		searchPath = _mapDataPath + "\\Lv1\\0_0";
+		searchPath = _mapDataPath + "/Lv1/0_0";
 
 		/*for (const fs::directory_entry& entry : fs::directory_iterator(searchPath)) {
 			fileName = entry.path().string();
