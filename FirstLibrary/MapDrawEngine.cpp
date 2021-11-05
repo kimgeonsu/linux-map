@@ -69,7 +69,7 @@ long CMapDrawEngine::DrawMap()
 	/*graphics->FillRectangle(hDC, drawInfo.devRect, m_BACKBRUSH);*/
 	RectF change = drawInfo.devRect.Rect2RectF();
 		std::cout << tmpFontSize << "111111111111" << std::endl;
-	graphics->FillRectangle(&m_BACKBRUSH, change);
+	// graphics->FillRectangle(&m_BACKBRUSH, change);
 		std::cout << tmpFontSize <<"22222222222" << std::endl;
 
 	if (drawInfo.logicalLevel == 0)
