@@ -36,8 +36,8 @@ int main()
     
     engine->Init();
     engine->SetMapDataPath(dataFilePath);
-	engine->SetDeviceRect(0, 0, 480, 800);
-	engine->SetDeviceCenterPos(240, 600);
+	engine->SetDeviceRect(0, 0, 480, 480);
+	engine->SetDeviceCenterPos(240, 240);
 	engine->SetZoomLevel(0);
 	engine->SetMapPos(128.0, 36.0);
 
