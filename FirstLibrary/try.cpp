@@ -39,8 +39,7 @@ int main()
 
     cout << engine->GetDeviceRect().left << endl;
     
-    if (engine->  DrawMap())
-        cout << "I'm True hahahaha\n";
+    engine->  DrawMap()
 
     return 0;
 }
