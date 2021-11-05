@@ -46,6 +46,7 @@ public:
 		}
 		else {
 			perror("");
+			std::cout << "I can't find.....TT\n";
 			return EXIT_FAILURE;
 		}
 
