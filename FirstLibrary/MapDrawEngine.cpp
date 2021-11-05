@@ -82,7 +82,7 @@ long CMapDrawEngine::DrawMap()
 	std::list<_MapRecord>::iterator pos = mapDataManager._drawData._drawDataList.begin();
 	_MapRecord pData;
 	
-	for (pos; pos != mapDataManager._drawData._drawDataList.end(); pos++) {
+	for (pos; pos != 10; pos++) {
 		pData = *pos;
 
 		switch (pData.header.objType)
@@ -100,7 +100,6 @@ long CMapDrawEngine::DrawMap()
 			std::cout << "DrawPolygon(&pData, drawInfo.mapAngle, nIdx);\n";
 			break;
 		default:
-			std::cout << tmpFontSize << "ㅑㄴ냐냐냔ㄴ" << std::endl;
 			break;
 		}
 
