@@ -39,7 +39,7 @@ int main()
 
     cout << engine->GetDeviceRect().left << endl;
     
-    engine->  DrawMap()
+    engine->DrawMap();
 
     return 0;
 }
