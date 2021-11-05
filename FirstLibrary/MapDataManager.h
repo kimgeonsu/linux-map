@@ -36,7 +36,7 @@ public:
 		}*/
 		DIR* dir; 
 		struct dirent* ent;
-		if ((dir = opendir(".")) != NULL) {
+		if ((dir = opendir(searchPath.c_str())) != NULL) {
 			while ((ent = readdir(dir)) != NULL)
 			{	
 				std::cout << ent->d_name << std::endl;

@@ -29,7 +29,7 @@ int main()
 {
     std::cout << "Hello World!\n";
 
-    std::string dataFilePath = "linux-map/FirstLibrary/Output";
+    std::string dataFilePath = "../Output";
 
     ////---------------------------------------------------
     CMapDrawEngine *engine = new CMapDrawEngine;
