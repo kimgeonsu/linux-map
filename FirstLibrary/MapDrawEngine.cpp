@@ -84,8 +84,12 @@ long CMapDrawEngine::DrawMap()
 	
 	// _MapRecord pData;
 	// _MapRecord pdatas = *pos;
-	std::cout << pos->header.objType << std::endl;
-	std::cout << eee->header.objType << std::endl;
+	try {
+		std::cout << pos->header.objType << std::endl;
+		std::cout << eee->header.objType << std::endl;
+	} catch(e) {
+		std:: cout << e;
+	}
 	
 	for (pos; pos != eee; pos++) {
 		// pData = *pos; 
