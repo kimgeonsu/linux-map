@@ -65,11 +65,9 @@ long CMapDrawEngine::DrawMap()
 	long	tmpFontSize = 0;
 	long	nIdx = 0;
 	Font	oldFont;
-	std::cout << tmpFontSize << "와웅" << std::endl;
 	/*graphics->FillRectangle(hDC, drawInfo.devRect, m_BACKBRUSH);*/
-	 RectF change = drawInfo.devRect.Rect2RectF();
-		std::cout << tmpFontSize << "211111111111" << std::endl;
-	// graphics->FillRectangle(&m_BACKBRUSH, change);
+	RectF change = drawInfo.devRect.Rect2RectF();
+	graphics->FillRectangle(&m_BACKBRUSH, change);
 		std::cout << tmpFontSize <<"22222222222" << std::endl;
 
 	if (drawInfo.logicalLevel == 0)
