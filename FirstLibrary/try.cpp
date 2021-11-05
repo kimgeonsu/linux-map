@@ -49,7 +49,7 @@ int main()
     cout << engine->GetDeviceRect().left << endl;
     
     engine->DrawMap();
-    mapDrawEngine->WorldToDevice(Point(128.5, 36.5));
+    mapDrawEngine->WorldToDevice(PointF(128.5, 36.5));
     engine->DrawMap();
     
     return 0;
