@@ -38,7 +38,8 @@ public:
 		struct dirent* ent;
 		if ((dir = opendir(searchPath.c_str())) != NULL) {
 			while ((ent = readdir(dir)) != NULL)
-			{
+			{	
+				std::cout << ent->d_name << endl;
 				ReadFile(ent->d_name, &_drawData);
 			}
 			closedir(dir);
