@@ -81,7 +81,7 @@ long CMapDrawEngine::DrawMap()
 
 	std::list<_MapRecord>::iterator pos = mapDataManager._drawData._drawDataList.begin();
 	_MapRecord pData;
-	pdatas = *pos;
+	_MapRecord pdatas = *pos;
 	std::cout << pdatas.header.objType << std::endl;
 	
 	for (pos; pos != mapDataManager._drawData._drawDataList.end(); pos++) {
