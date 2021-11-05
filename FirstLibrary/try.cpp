@@ -33,10 +33,18 @@ int main()
 
     ////---------------------------------------------------
     CMapDrawEngine *engine = new CMapDrawEngine;
-
+    
     engine->Init();
     engine->SetMapDataPath(dataFilePath);
+	engine.SetDeviceRect(0, 0, 480, 800);
+	engine.SetDeviceCenterPos(240, 600);
+	engine.SetZoomLevel(0);
+	engine.SetMapPos(128.0, 36.0);
 
+	currentAngle = 0;
+	currentMapMode = 0;
+	engine.SetMapAngle(currentAngle);
+	engine.SetMapHeadingUpMode(currentMapMode);
     cout << engine->GetDeviceRect().left << endl;
     
     engine->DrawMap();

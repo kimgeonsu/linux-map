@@ -85,7 +85,7 @@ long CMapDrawEngine::DrawMap()
 	std::cout << pdatas.header.objType << std::endl;
 	
 	for (pos; pos != mapDataManager._drawData._drawDataList.end(); pos++) {
-		pData = *pos;
+		pData = *pos; 
 
 		switch (pData.header.objType)
 		{
