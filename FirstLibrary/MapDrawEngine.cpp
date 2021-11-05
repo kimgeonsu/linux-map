@@ -85,8 +85,8 @@ long CMapDrawEngine::DrawMap()
 	// _MapRecord pData;
 	// _MapRecord pdatas = *pos;
 	try {
-		std::cout << pos->header.objType << std::endl;
-		std::cout << eee->header.objType << std::endl;
+		// std::cout << pos->header.objType << std::endl;
+		// std::cout << eee->header.objType << std::endl;
 	} catch(e) {
 		std::cout << "메세지\n";
 	}
