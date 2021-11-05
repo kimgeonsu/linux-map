@@ -81,11 +81,11 @@ long CMapDrawEngine::DrawMap()
 	std::list<_MapRecord>::iterator eee = mapDataManager._drawData._drawDataList.end();
 	
 	_MapRecord pData;
-	
+	std::cout << *pos.header.objType;
 	for (pos; pos != eee; pos++) {
 		pData = *pos; 
 		std::cout << "for문이다냥\n";
-		switch (pos->header.objType)
+		switch (pData.header.objType)
 		{
 		case 1:
 			std::cout << "DrawPOI(&pData, drawInfo.mapAngle, nIdx);\n";
