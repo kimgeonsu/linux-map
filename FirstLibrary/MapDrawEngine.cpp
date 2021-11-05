@@ -88,7 +88,7 @@ long CMapDrawEngine::DrawMap()
 		std::cout << pos->header.objType << std::endl;
 		std::cout << eee->header.objType << std::endl;
 	} catch(e) {
-		std:: cout << e;
+		std::cout << "메세지\n";
 	}
 	
 	for (pos; pos != eee; pos++) {
