@@ -87,12 +87,15 @@ long CMapDrawEngine::DrawMap()
 		{
 		case 1:
 			DrawPOI(&pData, drawInfo.mapAngle, nIdx);
+			std::cout << "DrawPOI(&pData, drawInfo.mapAngle, nIdx);\n";
 			break;
 		case 3:
 			DrawPolyline(&pData, drawInfo.mapAngle, nIdx);
+			std::cout << "DrawPolyline(&pData, drawInfo.mapAngle, nIdx);\n";
 			break;
 		case 5:
 			DrawPolygon(&pData, drawInfo.mapAngle, nIdx);
+			std::cout << "DrawPolygon(&pData, drawInfo.mapAngle, nIdx);\n";
 			break;
 		default:
 			break;
@@ -498,6 +501,9 @@ long CMapDrawEngine::DrawPolyline(_MapRecord* pData, double angle, long bufferId
 	}
 
 	graphics->DrawLines(&drawPen, g_DrawBuffer, 8192);
+	for (int i = 0; i < 30; i++) {
+		std:: cout << g_DrawBuffer[i].x << " " << g_DrawBuffer[i].y << std::endl; 
+	}
 
 	if (designInfo != NULL)
 	{

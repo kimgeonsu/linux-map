@@ -51,7 +51,7 @@ public:
 		}
 
 		std::string designFileName;
-		designFileName = _mapDataPath + "\\Lv1_info.ddf";
+		designFileName = _mapDataPath + "/Lv1_info.ddf";
 		_designRecordMng.LoadDesignFile(designFileName);
 
 		return true;
