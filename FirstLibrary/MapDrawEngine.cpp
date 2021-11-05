@@ -82,7 +82,7 @@ long CMapDrawEngine::DrawMap()
 	
 	_MapRecord pData;
 	
-	for (; pos != eee; pos++) {
+	for (pos; pos != eee; pos++) {
 		pData = *pos; 
 		std::cout << "for문이다냥\n";
 		switch (pos->header.objType)
