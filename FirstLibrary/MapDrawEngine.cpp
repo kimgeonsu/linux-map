@@ -651,7 +651,7 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 	graphics->DrawString(FieldValue.c_str(), FieldValue.length(), &font, tmp, &fillBrush);
 
 	//SetTextColor(hDC, oldTextColor);
-	std::cout << "POINT ==> mapType : " <<  maptype  <<  ", displayCode : " << pData->header.code <<std::endl;  
+	std::cout << "POINT ==> ( " << tmp.X << ", " << tmp.Y  << ")" << std::endl;  
 #if MAP_DISPLAY_DEBUG_MSG
 	TRACE("POINT ==> mapType : %d, displayCode : %d\n", mapType, pData->header.code);
 	
