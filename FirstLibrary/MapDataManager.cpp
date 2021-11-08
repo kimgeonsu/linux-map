@@ -55,8 +55,10 @@ long MapDataManager::ReadFile(std::string fileName, CDrawData *drawData)
 		if (mapFile != NULL)
 			fclose(mapFile);
 	}
-	else
+	else {
 		return false;
+		std::cout << "퉤퉤퉤\n";
+	}
 
 	return true;
 }

@@ -48,7 +48,6 @@ int main()
     
     // cout << engine->GetDeviceRect().left << endl;
     
-    engine->DrawMap();
     _dPoint dp;
     dp.x = 128.5;
     dp.y = 36.5;
