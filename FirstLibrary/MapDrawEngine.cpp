@@ -81,7 +81,7 @@ long CMapDrawEngine::DrawMap()
 	std::list<_MapRecord>::iterator eee = mapDataManager._drawData._drawDataList.end();
 	
 	_MapRecord pData;
-	
+
 	for (pos; pos != eee; pos++) {
 		pData = *pos; 
 		switch (pData.header.objType)
@@ -502,9 +502,6 @@ long CMapDrawEngine::DrawPolyline(_MapRecord* pData, double angle, long bufferId
 	}
 
 	graphics->DrawLines(&drawPen, g_DrawBuffer, 8192);
-	for (int i = 0; i < 30; i++) {
-		std:: cout << g_DrawBuffer[i].X << " " << g_DrawBuffer[i].Y << std::endl; 
-	}
 
 	if (designInfo != NULL)
 	{
