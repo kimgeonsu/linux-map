@@ -338,6 +338,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	}
 	std::cout <<"디벙깅 5\n";
 	graphics->DrawPolygon(&(drawPen), g_DrawBuffer, nIdx);
+	std::cout <<"디벙깅 6\n";
 
 	// Text Output
 	if ((textData.length() > 0) && (designInfo != NULL))
@@ -377,6 +378,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		//SetTextColor(hDC, oldTextColor);
 	}
 
+	std::cout <<"디벙깅 7\n";
 
 	//SelectObject(hDC, oldBrush);
 
@@ -392,6 +394,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		//GlReleaseHOBJ(&drawPen);
 	}
 
+	std::cout <<"디벙깅 8\n";
 
 #if MAP_DISPLAY_DEBUG_MSG
 	TRACE("POLYGON ==> mapType : %d, displayCode : %d\n", mapType, pData->header.code);
