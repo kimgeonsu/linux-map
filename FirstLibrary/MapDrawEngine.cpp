@@ -81,11 +81,9 @@ long CMapDrawEngine::DrawMap()
 	std::list<_MapRecord>::iterator eee = mapDataManager._drawData._drawDataList.end();
 	
 	_MapRecord pData;
-	std::cout << "pospos: " << (*pos).header.objType <<std::endl; 
-	std::cout << mapDataManager._drawData._drawDataList.size() << std::endl;
+	
 	for (pos; pos != eee; pos++) {
 		pData = *pos; 
-		std::cout << "for문이다냥\n";
 		switch (pData.header.objType)
 		{
 		case 1:
