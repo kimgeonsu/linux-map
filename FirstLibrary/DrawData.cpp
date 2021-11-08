@@ -21,7 +21,7 @@ void CDrawData::Init()
 void CDrawData::AddDataList(_MapRecord* inData)
 {
 	std::list<_MapRecord>::iterator	listPos;
-
+	std::cout << "AddDataList 실행\n";
 	//_MapRecord pData;
 	bool isInsert = false;
 
