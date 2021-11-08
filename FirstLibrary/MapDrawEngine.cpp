@@ -490,7 +490,7 @@ long CMapDrawEngine::DrawPolyline(_MapRecord* pData, double angle, long bufferId
 		PointF tmp;
 		if (drawInfo.headingUpMode == 1)
 		{
-			//g_DrawBuffer[nIdx] = Rotate(outPoint, centerPoint, (long)angle);
+			g_DrawBuffer[nIdx] = Rotate(outPoint, centerPoint, (long)angle).Point2PointF();
 			Point temp = Rotate(outPoint, centerPoint, (long)angle);
 			tmp.X = temp.x;
 			tmp.Y = temp.y;
@@ -498,7 +498,7 @@ long CMapDrawEngine::DrawPolyline(_MapRecord* pData, double angle, long bufferId
 		}
 		else
 		{
-			//g_DrawBuffer[nIdx] = outPoint;
+			g_DrawBuffer[nIdx] = outPoint.Point2PointF();
 			tmp.X = outPoint.x;
 			tmp.Y = outPoint.y;
 			g_DrawBuffer[nIdx] = tmp;
