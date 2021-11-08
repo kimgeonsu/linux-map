@@ -26,7 +26,8 @@ void CDrawData::AddDataList(_MapRecord* inData)
 	//_MapRecord pData;
 	bool isInsert = false;
 	std::cout << "사이즈 : "<< _drawDataList.size() << std::endl;
-
+	if (listPos == end)
+		std::cout << "we're same~~\n";
 	for (; listPos != end; listPos++) {
 		//pData = *listPos;
 		std::cout << "여기도 안되려나.......\n";
