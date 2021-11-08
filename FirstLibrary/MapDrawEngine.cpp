@@ -406,6 +406,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 #if MAP_DISPLAY_DEBUG_MSG
 	TRACE("POLYGON ==> mapType : %d, displayCode : %d\n", mapType, pData->header.code);
 #endif
+	std::cout <<"디벙깅 9\n";
 
 	return true;
 }
