@@ -17,6 +17,14 @@ typedef struct Point {
 		x = x_val;
 		y = y_val;
 	}
+
+	PointF Point2PointF() {
+		PointF tmp;
+		tmp.X = x;
+		tmp.Y = y;
+
+		return tmp;
+	}
 } Point;
 
 typedef struct _dPoint {
