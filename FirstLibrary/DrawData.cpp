@@ -21,14 +21,14 @@ void CDrawData::Init()
 void CDrawData::AddDataList(_MapRecord* inData)
 {
 	std::list<_MapRecord>::iterator	listPos;
-	std::list<_MapRecord>::iterator	oldListPos;
+
 	//_MapRecord pData;
 	bool isInsert = false;
 
 
 	for (listPos = _drawDataList.begin(); listPos != _drawDataList.end(); listPos++) {
 		//pData = *listPos;
-
+	std::cout << "drawOrder : " << inData->header.drawOrder << std::endl;
 		if (listPos->header.drawOrder > inData->header.drawOrder) {
 			_drawDataList.push_front(*inData);
 			isInsert = true;
