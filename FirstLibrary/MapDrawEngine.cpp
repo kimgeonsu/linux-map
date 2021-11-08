@@ -88,11 +88,11 @@ long CMapDrawEngine::DrawMap()
 		{
 		case 1:
 			std::cout << "DrawPOI(&pData, drawInfo.mapAngle, nIdx);\n";
-			// DrawPOI(&pData, drawInfo.mapAngle, nIdx);
+			DrawPOI(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 3:
 			std::cout << "DrawPolyline(&pData, drawInfo.mapAngle, nIdx);\n";
-			DrawPolyline(&pData, drawInfo.mapAngle, nIdx);
+			// DrawPolyline(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 5:
 			std::cout << "DrawPolygon(&pData, drawInfo.mapAngle, nIdx);\n";
@@ -651,9 +651,10 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 	graphics->DrawString(FieldValue.c_str(), FieldValue.length(), &font, tmp, &fillBrush);
 
 	//SetTextColor(hDC, oldTextColor);
-
+	std::cout << "POINT ==> mapType : " <<  maptype  <<  ", displayCode : " << pData->header.code <<std::endl;  
 #if MAP_DISPLAY_DEBUG_MSG
 	TRACE("POINT ==> mapType : %d, displayCode : %d\n", mapType, pData->header.code);
+	
 #endif
 
 	return true;
