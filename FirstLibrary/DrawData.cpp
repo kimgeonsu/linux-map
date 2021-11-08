@@ -39,8 +39,9 @@ void CDrawData::AddDataList(_MapRecord* inData)
 		}
 	}
 
-	if (isInsert == false)
+	if (isInsert == false) {
+		std::cout <<"내가 다 문제야\n";
 		_drawDataList.push_back(*inData);
-
+	}
 	return;
 }
