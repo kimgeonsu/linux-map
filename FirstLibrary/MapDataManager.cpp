@@ -25,10 +25,11 @@ long MapDataManager::ReadFile(std::string fileName, CDrawData *drawData)
 {
 	FILE* mapFile = NULL;
 	_MapRecord* pData = NULL;
-	std::cout << "데이터 넣기" << std::endl;
+
 	mapFile = fopen(fileName.c_str(), "r+b");
 	if (mapFile != NULL)
 	{
+		std::cout << "설마 여기도??\n";
 		do
 		{
 			pData = new _MapRecord();
