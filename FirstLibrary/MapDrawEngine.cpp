@@ -290,7 +290,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		PointF tmp;
 		if (drawInfo.headingUpMode == 1)
 		{
-			//g_DrawBuffer[nIdx] = Rotate(outPoint, centerPoint, (long)angle);
+			g_DrawBuffer[nIdx] = Rotate(outPoint, centerPoint, (long)angle);
 			Point temp = Rotate(outPoint, centerPoint, (long)angle);
 			tmp.X = temp.x;
 			tmp.Y = temp.y;
@@ -298,7 +298,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		}
 		else
 		{
-			//g_DrawBuffer[nIdx] = outPoint;
+			g_DrawBuffer[nIdx] = outPoint;
 			tmp.X = outPoint.x;
 			tmp.Y = outPoint.y;
 			g_DrawBuffer[nIdx] = tmp;
@@ -374,12 +374,12 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		//oldTextColor = GetTextColor(hDC);
 		// SetTextColor(hDC, RGB(150, 79, 223));
 		//SetTextColor(hDC, designInfo->_fontStyle[drawInfo.dayNightMode].color);
-		PointF tmp;
-		tmp.X = textRect.TopLeft().x;
-		tmp.Y = textRect.TopLeft().y;
+		// PointF tmp;
+		// tmp.X = textRect.TopLeft().x;
+		// tmp.Y = textRect.TopLeft().y;
 		std::cout << "textData가 문제인가? 4\n";
-		std::cout << textData.length() << std::endl;
-		// graphics->DrawString(pData->header.textData, -1, &font, tmp, &fillBrush);
+		// std::cout << textData.length() << std::endl;
+		graphics->DrawString(pData->header.textData, -1, &font, textPoint, &fillBrush);
 		//SetTextColor(hDC, oldTextColor);
 		std::cout << "textData가 문제인가? 5\n";
 
