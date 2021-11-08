@@ -501,7 +501,7 @@ long CMapDrawEngine::DrawPolyline(_MapRecord* pData, double angle, long bufferId
 		oldPen = drawPen;
 	}
 
-	graphics->DrawLines(&drawPen, g_DrawBuffer, 8192);
+	graphics->DrawLines(&drawPen, g_DrawBuffer, pData->header.pointCount);
 	for (int i = 0; i < 30; i++) {
 		std:: cout << g_DrawBuffer[i].X << " " << g_DrawBuffer[i].Y << std::endl; 
 	}
