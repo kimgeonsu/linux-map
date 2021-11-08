@@ -25,7 +25,7 @@ long MapDataManager::ReadFile(std::string fileName, CDrawData *drawData)
 {
 	FILE* mapFile = NULL;
 	_MapRecord* pData = NULL;
-	std::cout << "For test : " <<_mapDataPath + "/Lv1/0_0/" + fileName << std::endl;
+
 	mapFile = fopen((_mapDataPath + "/Lv1/0_0/" + fileName).c_str(), "r+b");
 	if (mapFile != NULL)
 	{
@@ -35,19 +35,19 @@ long MapDataManager::ReadFile(std::string fileName, CDrawData *drawData)
 			pData = new _MapRecord();
 			if (fread(&pData->header, sizeof(_MapRecordHeader), 1, mapFile) != 1)
 			{
+				std::cout << "멈춤 요인 1 \n";
 				fclose(mapFile);
 				mapFile = NULL;
 				break;
-				std::cout << "멈춤 요인 1 \n";
 			}
 
 			pData->pointList = new Point[pData->header.pointCount];
 			if (fread(pData->pointList, sizeof(Point), pData->header.pointCount, mapFile) != (unsigned int)pData->header.pointCount)
 			{
+				std::cout << "멈춤 요인 2 \n";
 				fclose(mapFile);
 				mapFile = NULL;
 				break;
-				std::cout << "멈춤 요인 2 \n";
 			}
 			std::cout << "데이터 넣기" << std::endl;
 			drawData->AddDataList(pData);
