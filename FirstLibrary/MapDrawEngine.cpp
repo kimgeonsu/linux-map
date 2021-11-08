@@ -494,7 +494,7 @@ long CMapDrawEngine::DrawPolyline(_MapRecord* pData, double angle, long bufferId
 		else
 		{
 			//drawPen = CreatePen(designInfo->_line[drawInfo.dayNightMode].type, designInfo->_line[drawInfo.dayNightMode].width, designInfo->_line[drawInfo.dayNightMode].color);
-			Color color = Color(0, 256, 0);
+			Color color = Color(256, 0, 0);
 			drawPen = Pen(color, 1);
 		}
 
