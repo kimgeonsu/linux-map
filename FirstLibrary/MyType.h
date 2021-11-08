@@ -7,8 +7,8 @@
 #include "./include/type.h"
 
 typedef struct Point {
-	long x;
-	long y;
+	int x;
+	int y;
 	Point() : x(0), y(0) {};
 
 	Point(int x_val, int y_val) : x(x_val), y(y_val){}
@@ -136,7 +136,7 @@ typedef struct _MapRecord
 
 	long getBuffer(unsigned int bufferSize)
 	{
-		// ÀÌÀü¿¡ »ý¼ºµÈ ¸Þ¸ð¸® ÇØÁ¦
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 		GlReleaseMem(&pointList);
 		pointList = new Point[bufferSize];
 		return true;
@@ -159,7 +159,7 @@ typedef struct _MapFactorInfo
 	int			_levelGapTable[2][16];
 	double			_levelFactorTable[2][16];
 
-	// 1/8 ÃÊ ´ÜÀ§·Î ÀúÀå
+	// 1/8 ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	_MapFactorInfo() : _basePoint(3456000, 940800), _baseLevelIdx(0), _levelIdxGap(2), _levelIdxCount(4)
 	{
 		for (unsigned int tblIndex = 0; tblIndex < 16; tblIndex++)
@@ -224,11 +224,11 @@ typedef struct _MapFactorInfo
 
 typedef struct _MapDrawInfo
 {
-	long		physicalLevel;			// ¹°¸®Àû ·¹º§
-	long		logicalLevel;			// ³í¸®Àû ·¹º§
+	long		physicalLevel;			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	long		logicalLevel;			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	long		mapAngle;
-	long		headingUpMode;			// Çìµù¾÷ ¸ðµå
-	long		dayNightMode;			// ¾ß°£ ¸ðµå
+	long		headingUpMode;			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	long		dayNightMode;			// ï¿½ß°ï¿½ ï¿½ï¿½ï¿½
 	_dPoint		mapCenterPos;			// Map Center Point
 	Point		mapCenterPos4096;		// Map Center Point 4096
 	Rect		drawRect;				// 4096 RectF
