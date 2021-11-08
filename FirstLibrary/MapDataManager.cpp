@@ -25,7 +25,7 @@ long MapDataManager::ReadFile(std::string fileName, CDrawData *drawData)
 {
 	FILE* mapFile = NULL;
 	_MapRecord* pData = NULL;
-
+	std::cout << fileName << std::endl;
 	mapFile = fopen(fileName.c_str(), "r+b");
 	if (mapFile != NULL)
 	{
