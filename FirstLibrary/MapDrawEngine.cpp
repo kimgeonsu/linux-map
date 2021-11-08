@@ -228,7 +228,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	drawRect.SetRect(tmpCenterPoint.x - drawInfo.drawRect.CenterPoint().x, tmpCenterPoint.y - drawInfo.drawRect.CenterPoint().y,
 		tmpCenterPoint.x + drawInfo.drawRect.CenterPoint().x, tmpCenterPoint.y + drawInfo.drawRect.CenterPoint().y);
 
-	std::cout <<"디벙깅 1n";
+	std::cout <<"디벙깅 1\n";
 
 	textPoint = objRect.CenterPoint();
 	checkRect = drawRect;
@@ -251,13 +251,16 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 
 	if (drawInfo.headingUpMode == 1)
 	{
+		std::cout<< "혹시 너? 11\n";
 		objRect = GetBoundaryRect(objRect, (long)angle);
+		std::cout<< "혹시 너? 22\n";
 		checkRect = GetBoundaryRect(checkRect, (long)angle);
 	}
+	std::cout<< "혹시 너? 33\n";
 
 	// Text Point Calculate
 	textData = pData->header.textData;
-
+	std::cout<< "혹시 너? 44\n";
 	if (!rectBuffer.IntersectRect(&checkRect, &objRect))
 	{
 		return false;
