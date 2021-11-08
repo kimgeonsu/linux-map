@@ -403,9 +403,9 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 
 	std::cout <<"디벙깅 8\n";
 
-#if MAP_DISPLAY_DEBUG_MSG
-	TRACE("POLYGON ==> mapType : %d, displayCode : %d\n", mapType, pData->header.code);
-#endif
+// #if MAP_DISPLAY_DEBUG_MSG
+// 	TRACE("POLYGON ==> mapType : %d, displayCode : %d\n", mapType, pData->header.code);
+// #endif
 	std::cout <<"디벙깅 9\n";
 
 	return true;
@@ -534,9 +534,9 @@ long CMapDrawEngine::DrawPolyline(_MapRecord* pData, double angle, long bufferId
 	}
 
 
-#if MAP_DISPLAY_DEBUG_MSG
-	TRACE("ARC ==> mapType : %d, displayCode : %d\n", mapType, pData->header.code);
-#endif
+// #if MAP_DISPLAY_DEBUG_MSG
+// 	TRACE("ARC ==> mapType : %d, displayCode : %d\n", mapType, pData->header.code);
+// #endif
 	return true;
 }
 
@@ -564,15 +564,15 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 	memset(&wBuffer, 0, sizeof(wBuffer));
 
 	// Multibyte to Widechar
-#if	defined(_UNICODE)
-	long		textLength;
+// #if	defined(_UNICODE)
+// 	long		textLength;
 
-	textLength = MultiByteToWideChar(CP_ACP, 0, pData->header.textData, (long)strlen(pData->header.textData), NULL, NULL);
-	MultiByteToWideChar(CP_ACP, 0, pData->header.textData, (long)strlen(pData->header.textData), wBuffer, textLength);
-	FieldValue.Format(L"%s", wBuffer);
-#else
-	FieldValue = pData->header.textData;
-#endif
+// 	textLength = MultiByteToWideChar(CP_ACP, 0, pData->header.textData, (long)strlen(pData->header.textData), NULL, NULL);
+// 	MultiByteToWideChar(CP_ACP, 0, pData->header.textData, (long)strlen(pData->header.textData), wBuffer, textLength);
+// 	FieldValue.Format(L"%s", wBuffer);
+// #else
+// 	FieldValue = pData->header.textData;
+// #endif
 
 	centerPoint = drawInfo.devCenterPos;
 
