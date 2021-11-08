@@ -259,7 +259,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	std::cout<< "혹시 너? 33\n";
 
 	// Text Point Calculate
-	// textData = pData->header.textData;
+	textData = pData->header.textData;
 	std::cout<< "혹시 너? 44\n";
 	if (!rectBuffer.IntersectRect(&checkRect, &objRect))
 	{
