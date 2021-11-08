@@ -379,7 +379,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		tmp.Y = textRect.TopLeft().y;
 		std::cout << "textData가 문제인가? 4\n";
 
-		graphics->DrawString(textData.c_str(), textData.length(), &font, tmp, &fillBrush);
+		graphics->DrawString(textData.c_str(), -1, &font, tmp, &fillBrush);
 		//SetTextColor(hDC, oldTextColor);
 		std::cout << "textData가 문제인가? 5\n";
 
