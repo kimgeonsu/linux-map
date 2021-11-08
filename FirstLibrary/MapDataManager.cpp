@@ -40,7 +40,7 @@ long MapDataManager::ReadFile(std::string fileName, CDrawData *drawData)
 			}
 
 			pData->pointList = new Point[pData->header.pointCount];
-			if (fread(&pData->pointList, sizeof(Point), pData->header.pointCount, mapFile) != (unsigned int)pData->header.pointCount)
+			if (fread(pData->pointList, sizeof(Point), pData->header.pointCount, mapFile) != (unsigned int)pData->header.pointCount)
 			{
 				fclose(mapFile);
 				mapFile = NULL;
