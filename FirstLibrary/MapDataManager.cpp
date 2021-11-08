@@ -50,7 +50,7 @@ long MapDataManager::ReadFile(std::string fileName, CDrawData *drawData)
 				break;
 			}
 			std::cout << "데이터 넣기" << std::endl;
-			drawData->AddDataList(pData);
+			drawData->AddDataList(&pData);
 
 		} while (1);
 
