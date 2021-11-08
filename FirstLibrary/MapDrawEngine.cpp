@@ -651,11 +651,6 @@ std::cout << "Step 11111" << std::endl;
 	PointF tmp;
 	tmp.X = textRect.TopLeft().x;
 	tmp.Y = textRect.TopLeft().y;
-
-std::cout << "Step 11111" << std::endl;
-	const char* ss = FieldValue.c_str();
-	graphics->DrawString(ss, FieldValue.length(), &font, tmp, &fillBrush);
-std::cout << "Step 111111" << std::endl;
 	graphics->DrawString(FieldValue.c_str(), FieldValue.length(), &font, tmp, &fillBrush);
 std::cout << "Step 111111" << std::endl;
 	//SetTextColor(hDC, oldTextColor);
