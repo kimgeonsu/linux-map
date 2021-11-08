@@ -21,12 +21,13 @@ void CDrawData::Init()
 void CDrawData::AddDataList(_MapRecord* inData)
 {
 	std::list<_MapRecord>::iterator	listPos = _drawDataList.begin();
+	std::list<_MapRecord>::iterator end = _drawDataList.end(); 
 	std::cout << "AddDataList 실행\n";
 	//_MapRecord pData;
 	bool isInsert = false;
 
 
-	for (; listPos != _drawDataList.end(); listPos++) {
+	for (; listPos != end; listPos++) {
 		//pData = *listPos;
 		std::cout << "여기도 안되려나.......\n";
 		std::cout << "drawOrder : " << inData->header.drawOrder << std::endl;
