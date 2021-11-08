@@ -35,7 +35,6 @@ void CDrawData::AddDataList(_MapRecord* inData)
 	}
 
 	if (isInsert == false) {
-		std::cout << *inData->header.textData << std::endl;
 		_drawDataList.push_back(*inData);
 	}
 	return;
