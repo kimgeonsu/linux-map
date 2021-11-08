@@ -228,6 +228,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	drawRect.SetRect(tmpCenterPoint.x - drawInfo.drawRect.CenterPoint().x, tmpCenterPoint.y - drawInfo.drawRect.CenterPoint().y,
 		tmpCenterPoint.x + drawInfo.drawRect.CenterPoint().x, tmpCenterPoint.y + drawInfo.drawRect.CenterPoint().y);
 
+	std::cout <<"디벙깅 1n";
 
 	textPoint = objRect.CenterPoint();
 	checkRect = drawRect;
@@ -246,6 +247,8 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	checkRect.right += xGap;
 	checkRect.bottom += yGap;
 
+	std::cout <<"디벙깅 2\n";
+
 	if (drawInfo.headingUpMode == 1)
 	{
 		objRect = GetBoundaryRect(objRect, (long)angle);
@@ -259,6 +262,8 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	{
 		return false;
 	}
+
+	std::cout <<"디벙깅 3\n";
 
 	memset(&g_DrawBuffer, 0, sizeof(PointF) * MAX_DRAW_POINT_COUNT);
 	for (nIdx = 0; nIdx < pData->header.pointCount; nIdx++)
@@ -297,6 +302,8 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		}
 	}
 
+	std::cout <<"디벙깅 4\n";
+
 	if (designInfo != NULL)
 	{
 		if (designInfo->objType == '2')
@@ -326,7 +333,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	{
 		oldBrush = m_NULLBRUSH;
 	}
-
+	std::cout <<"디벙깅 5\n";
 	graphics->DrawPolygon(&(drawPen), g_DrawBuffer, nIdx);
 
 	// Text Output
@@ -488,7 +495,7 @@ long CMapDrawEngine::DrawPolyline(_MapRecord* pData, double angle, long bufferId
 	{
 		if (designInfo->_line[drawInfo.dayNightMode].type == 5)
 		{
-			Color color = Color(256, 256, 256);
+			Color color = Color(0, 0, 0);
 			drawPen = Pen(color, 0);
 		}
 		else
