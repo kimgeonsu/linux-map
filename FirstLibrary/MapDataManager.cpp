@@ -37,6 +37,7 @@ long MapDataManager::ReadFile(std::string fileName, CDrawData *drawData)
 				fclose(mapFile);
 				mapFile = NULL;
 				break;
+				std::cout << "멈춤 요인 1 \n";
 			}
 
 			pData->pointList = new Point[pData->header.pointCount];
@@ -45,6 +46,7 @@ long MapDataManager::ReadFile(std::string fileName, CDrawData *drawData)
 				fclose(mapFile);
 				mapFile = NULL;
 				break;
+				std::cout << "멈춤 요인 2 \n";
 			}
 			std::cout << "데이터 넣기" << std::endl;
 			drawData->AddDataList(pData);
