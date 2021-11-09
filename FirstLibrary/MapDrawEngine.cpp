@@ -61,7 +61,7 @@ long CMapDrawEngine::Init()
 
 long CMapDrawEngine::DrawMap()
 { 
-	
+	std::cout << "Hi I'm drawmap func\n";
 	long	tmpFontSize = 0;
 	long	nIdx = 0;
 	Font	oldFont;

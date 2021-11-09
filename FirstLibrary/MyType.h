@@ -146,8 +146,8 @@ typedef struct _MapRecordHeader
 
 	_MapRecordHeader() : designCode(0), objType(0), pointCount(0), drawOrder(0)
 	{
-		// memset(&textData, 0, sizeof(textData));
-		// memset(&textLayerDes, 0, sizeof(textLayerDes));
+		memset(&textData, 0, sizeof(textData));
+		memset(&textLayerDes, 0, sizeof(textLayerDes));
 	};
 
 } _MapRecordHeader;
