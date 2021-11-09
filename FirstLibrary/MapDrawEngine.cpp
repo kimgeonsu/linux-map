@@ -573,7 +573,7 @@ std::cout << "Step 1" << std::endl;
 // 	MultiByteToWideChar(CP_ACP, 0, pData->header.textData, (long)strlen(pData->header.textData), wBuffer, textLength);
 // 	FieldValue.Format(L"%s", wBuffer);
 // #else
-// 	FieldValue = pData->header.textData;
+	FieldValue = pData->header.textData;
 // #endif
 
 	centerPoint = drawInfo.devCenterPos;
@@ -650,7 +650,10 @@ std::cout << "Step 11111" << std::endl;
 	PointF tmp;
 	tmp.X = textRect.TopLeft().x;
 	tmp.Y = textRect.TopLeft().y;
-	graphics->DrawString(FieldValue.c_str(), FieldValue.length(), &font, tmp, &fillBrush);
+
+std::cout << "Step 11111" << std::endl;
+	char* ss = FieldValue.c_str()
+	graphics->DrawString(ss, FieldValue.length(), &font, tmp, &fillBrush);
 std::cout << "Step 111111" << std::endl;
 	//SetTextColor(hDC, oldTextColor);
 	std::cout << "POINT ==> ( " << tmp.X << ", " << tmp.Y  << ")" << std::endl;  
