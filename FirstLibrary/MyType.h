@@ -33,10 +33,10 @@ typedef struct _dPoint {
 } _dPoint;
 
 typedef struct Rect {
-	long top;
-	long left;
-	long bottom;
-	long right;
+	int top;
+	int left;
+	int bottom;
+	int right;
 
 	int Height() {
 		return top - bottom;
@@ -98,6 +98,26 @@ typedef struct Rect {
 	}
 } Rect;
 
+typedef struct RectL {
+	long top;
+	long bottom;
+	long left;
+	long right;
+
+	Rect RectL2Rect() {
+		Rect tmp;
+		tmp.left = left;
+		tmp.right = right;
+		tmp.top = top;
+		tmp.bottom = bottom;
+	}
+} RectL;
+
+typedef struct PointL {
+	long x;
+	long y;
+}
+
 typedef union _MapCode
 {
 	char codeArray[8];
@@ -118,7 +138,7 @@ typedef struct _MapRecordHeader
 	int		objType;
 	int		pointCount;
 	int		drawOrder;
-	Rect	boundaryRect;
+	RectL	boundaryRect;
 	char			textLayerDes[32];
 	char			textData[32];
 

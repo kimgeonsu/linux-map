@@ -413,7 +413,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 
 long CMapDrawEngine::DrawPolyline(_MapRecord* pData, double angle, long bufferIdx)
 {
-	Rect		objRect = pData->header.boundaryRect;
+	Rect		objRect = pData->header.boundaryRect.RectL2Rect();
 	Rect		drawRect;
 	Rect		checkRect;
 	Rect		rectBuffer;
