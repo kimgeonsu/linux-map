@@ -33,10 +33,10 @@ typedef struct _dPoint {
 } _dPoint;
 
 typedef struct Rect {
-	int top;
-	int left;
-	int bottom;
-	int right;
+	long top;
+	long left;
+	long bottom;
+	long right;
 
 	int Height() {
 		return top - bottom;
