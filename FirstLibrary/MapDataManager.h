@@ -30,11 +30,6 @@ public:
 	
 		searchPath = _mapDataPath + "/Lv1/0_0";
 
-		/*for (const fs::directory_entry& entry : fs::directory_iterator(searchPath)) {
-			fileName = entry.path().string();
-			ReadFile(fileName, &_drawData);
-			std::cout << fileName << std::endl;
-		}*/
 		DIR* dir; 
 		struct dirent* ent;
 		if ((dir = opendir(searchPath.c_str())) != NULL) {
