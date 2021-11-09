@@ -110,13 +110,15 @@ typedef struct RectL {
 		tmp.right = right;
 		tmp.top = top;
 		tmp.bottom = bottom;
+
+		return tmp;
 	}
 } RectL;
 
 typedef struct PointL {
 	long x;
 	long y;
-}
+} PointL;
 
 typedef union _MapCode
 {
