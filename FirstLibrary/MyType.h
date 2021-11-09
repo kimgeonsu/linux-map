@@ -140,7 +140,7 @@ typedef struct _MapRecordHeader
 	int		objType;
 	int		pointCount;
 	int		drawOrder;
-	Rect	boundaryRect;
+	RectL	boundaryRect;
 	char			textLayerDes[32];
 	char			textData[32];
 
