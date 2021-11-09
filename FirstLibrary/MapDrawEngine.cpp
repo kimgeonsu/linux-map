@@ -61,7 +61,7 @@ long CMapDrawEngine::Init()
 
 long CMapDrawEngine::DrawMap()
 { 
-	
+	std::cout << "Hi I'm drawmap func\n";
 	long	tmpFontSize = 0;
 	long	nIdx = 0;
 	Font	oldFont;
@@ -77,8 +77,8 @@ long CMapDrawEngine::DrawMap()
 	{
 		oldFont = m_MapFont[1];
 	}
-	std::list<_MapRecord>::iterator pos = mapDataManager._drawData._drawDataList.begin();
-	std::list<_MapRecord>::iterator eee = mapDataManager._drawData._drawDataList.end();
+	std::vector<_MapRecord>::iterator pos = mapDataManager._drawData._drawDataList.begin();
+	std::vector<_MapRecord>::iterator eee = mapDataManager._drawData._drawDataList.end();
 	
 	_MapRecord pData;
 	
@@ -561,9 +561,9 @@ std::cout << "Step 1" << std::endl;
 	Font font = Font("폰트폰트", 1);
 	Brush fillBrush = Brush(Color(0, 0, 0));
 
-	wchar_t		wBuffer[32];
+	// wchar_t		wBuffer[32];
 
-	memset(&wBuffer, 0, sizeof(wBuffer));
+	// memset(&wBuffer, 0, sizeof(wBuffer));
 
 	// Multibyte to Widechar
 // #if	defined(_UNICODE)
@@ -573,7 +573,8 @@ std::cout << "Step 1" << std::endl;
 // 	MultiByteToWideChar(CP_ACP, 0, pData->header.textData, (long)strlen(pData->header.textData), wBuffer, textLength);
 // 	FieldValue.Format(L"%s", wBuffer);
 // #else
-// 	FieldValue = pData->header.textData;
+	FieldValue = pData->header.textData;
+	std::cout << "도대체 이게 뭐라고 세그폴트를 내는거니;;;;;;;\n";
 // #endif
 
 	centerPoint = drawInfo.devCenterPos;
@@ -650,7 +651,10 @@ std::cout << "Step 11111" << std::endl;
 	PointF tmp;
 	tmp.X = textRect.TopLeft().x;
 	tmp.Y = textRect.TopLeft().y;
-	graphics->DrawString(FieldValue.c_str(), FieldValue.length(), &font, tmp, &fillBrush);
+
+std::cout << "Step 11111" << std::endl;
+	const char* ss = FieldValue.c_str();
+	graphics->DrawString(ss, FieldValue.length(), &font, tmp, &fillBrush);
 std::cout << "Step 111111" << std::endl;
 	//SetTextColor(hDC, oldTextColor);
 	std::cout << "POINT ==> ( " << tmp.X << ", " << tmp.Y  << ")" << std::endl;  

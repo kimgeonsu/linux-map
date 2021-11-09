@@ -98,6 +98,28 @@ typedef struct Rect {
 	}
 } Rect;
 
+typedef struct RectL {
+	long top;
+	long bottom;
+	long left;
+	long right;
+
+	Rect RectL2Rect() {
+		Rect tmp;
+		tmp.left = left;
+		tmp.right = right;
+		tmp.top = top;
+		tmp.bottom = bottom;
+
+		return tmp;
+	}
+} RectL;
+
+typedef struct PointL {
+	long x;
+	long y;
+} PointL;
+
 typedef union _MapCode
 {
 	char codeArray[8];
@@ -138,7 +160,6 @@ typedef struct _MapRecord
 	_MapRecord() : pointList(0) { };
 	~_MapRecord()
 	{
-		
 		GlReleaseMem(&pointList);
 	}
 
