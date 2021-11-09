@@ -33,7 +33,7 @@ void CDrawData::AddDataList(_MapRecord* inData)
 			break;
 		}
 	}
-
+  
 	if (isInsert == false) {
 		_drawDataList.push_back(*inData);
 	}
