@@ -52,6 +52,7 @@ int main()
     dp.x = 128.5;
     dp.y = 36.5;
     engine->WorldToDevice(dp);
+    std::cout << "안녕~~\n";
     engine->DrawMap();
     
     return 0;
