@@ -18,19 +18,18 @@ void CDrawData::Init()
 	_level = 0;
 }
 
-void CDrawData::AddDataList(_MapRecord inData)
+void CDrawData::AddDataList(_MapRecord* inData)
 {
 	std::cout << "AddDataList\n";
 	std::vector<_MapRecord>::iterator	listPos = _drawDataList.begin();
 	std::vector<_MapRecord>::iterator   end = _drawDataList.end(); 
-	_MapRecord pData;
+	_MapRecord* pData;
 	bool isInsert = false;
 
 	for (; listPos != end; listPos++) {
-		pData = *listPos;
-		if (pData.header.drawOrder > inData.header.drawOrder) {
+		if (listPos->header.drawOrder > inData->header.drawOrder) {
 			std::cout << "You? 1\n";
-			_drawDataList.insert(listPos-1, inData);
+			_drawDataList.insert(listPos-1, *inData);
 			isInsert = true;
 			break;
 		}
@@ -40,7 +39,7 @@ void CDrawData::AddDataList(_MapRecord inData)
 	if (isInsert == false) {
 			std::cout << "You? 2\n";
 			std::cout << _drawDataList.size() << std::endl;
-		_drawDataList.push_back(inData);
+		_drawDataList.push_back(*inData);
 			std::cout << "You? 3\n";
 	}
 	return;
