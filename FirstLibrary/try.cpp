@@ -27,7 +27,7 @@ using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    std::cout << "돌아와!\n";
 
     std::string dataFilePath = "../Output";
 
