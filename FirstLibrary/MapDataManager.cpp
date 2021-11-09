@@ -48,7 +48,7 @@ long MapDataManager::ReadFile(std::string fileName, CDrawData *drawData)
 				break;
 			}
 			std::cout << "Are you Problem? 3 \n";
-			drawData->AddDataList(pData);
+			drawData->AddDataList(*pData);
 			std::cout << "Are you Problem? 4 \n";
 
 		} while (1);

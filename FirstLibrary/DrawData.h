@@ -13,7 +13,7 @@ public:
 	std::list<_MapRecord> _drawDataList;
 
 public:
-	void AddDataList(_MapRecord* inData);
+	void AddDataList(_MapRecord inData);
 
 	void SetLevel(long level)
 	{
