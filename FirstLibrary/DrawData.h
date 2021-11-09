@@ -1,7 +1,7 @@
 #pragma once
 
 #include "MyType.h"
-#include <list>
+#include <vector>
 
 class CDrawData {
 private:
@@ -10,7 +10,7 @@ private:
 	Point _parcelID;
 
 public:
-	std::list<_MapRecord> _drawDataList;
+	std::vector<_MapRecord> _drawDataList;
 
 public:
 	void AddDataList(_MapRecord* inData);
