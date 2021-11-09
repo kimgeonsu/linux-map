@@ -77,8 +77,8 @@ long CMapDrawEngine::DrawMap()
 	{
 		oldFont = m_MapFont[1];
 	}
-	std::list<_MapRecord>::iterator pos = mapDataManager._drawData._drawDataList.begin();
-	std::list<_MapRecord>::iterator eee = mapDataManager._drawData._drawDataList.end();
+	std::vector<_MapRecord>::iterator pos = mapDataManager._drawData._drawDataList.begin();
+	std::vector<_MapRecord>::iterator eee = mapDataManager._drawData._drawDataList.end();
 	
 	_MapRecord pData;
 	

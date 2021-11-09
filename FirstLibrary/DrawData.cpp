@@ -21,8 +21,8 @@ void CDrawData::Init()
 void CDrawData::AddDataList(_MapRecord inData)
 {
 	std::cout << "AddDataList\n";
-	std::list<_MapRecord>::iterator	listPos = _drawDataList.begin();
-	std::list<_MapRecord>::iterator end = _drawDataList.end(); 
+	std::vector<_MapRecord>::iterator	listPos = _drawDataList.begin();
+	std::vector<_MapRecord>::iterator   end = _drawDataList.end(); 
 	_MapRecord pData;
 	bool isInsert = false;
 
@@ -30,11 +30,12 @@ void CDrawData::AddDataList(_MapRecord inData)
 		pData = *listPos;
 		if (pData.header.drawOrder > inData.header.drawOrder) {
 			std::cout << "You? 1\n";
-			_drawDataList.push_front(inData);
+			_drawDataList.insert(listPos-1, inData);
 			isInsert = true;
 			break;
 		}
 	}
+
 
 	if (isInsert == false) {
 			std::cout << "You? 2\n";
