@@ -33,18 +33,26 @@ int main()
 
     ////---------------------------------------------------
     CMapDrawEngine *engine = new CMapDrawEngine;
-    
+    cout << "언 놈이 문제냐 1\n";
     engine->Init();
+    cout << "언 놈이 문제냐 2\n";
     engine->SetMapDataPath(dataFilePath);
+    cout << "언 놈이 문제냐 3\n";
 	engine->SetDeviceRect(0, 0, 480, 800);
+    cout << "언 놈이 문제냐 4\n";
 	engine->SetDeviceCenterPos(240, 400);
+    cout << "언 놈이 문제냐 5\n";
 	engine->SetZoomLevel(0);
+    cout << "언 놈이 문제냐 6\n";
 	engine->SetMapPos(128.0, 36.0);
+    cout << "언 놈이 문제냐 7\n";
 
 	int currentAngle = 0;
 	int currentMapMode = 0;
 	engine->SetMapAngle(currentAngle);
+    cout << "언 놈이 문제냐 8\n";
 	engine->SetMapHeadingUpMode(currentMapMode);
+    cout << "언 놈이 문제냐 9\n";
     
     // cout << engine->GetDeviceRect().left << endl;
     
