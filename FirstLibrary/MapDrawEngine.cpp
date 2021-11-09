@@ -561,9 +561,9 @@ std::cout << "Step 1" << std::endl;
 	Font font = Font("폰트폰트", 1);
 	Brush fillBrush = Brush(Color(0, 0, 0));
 
-	wchar_t		wBuffer[32];
+	// wchar_t		wBuffer[32];
 
-	memset(&wBuffer, 0, sizeof(wBuffer));
+	// memset(&wBuffer, 0, sizeof(wBuffer));
 
 	// Multibyte to Widechar
 // #if	defined(_UNICODE)
@@ -573,7 +573,8 @@ std::cout << "Step 1" << std::endl;
 // 	MultiByteToWideChar(CP_ACP, 0, pData->header.textData, (long)strlen(pData->header.textData), wBuffer, textLength);
 // 	FieldValue.Format(L"%s", wBuffer);
 // #else
-	FieldValue = pData->header.textData;
+	FieldValue = pData->header.tex tData;
+	std::cout << "도대체 이게 뭐라고 세그폴트를 내는거니;;;;;;;\n";
 // #endif
 
 	centerPoint = drawInfo.devCenterPos;
