@@ -573,7 +573,7 @@ std::cout << "Step 1" << std::endl;
 // 	MultiByteToWideChar(CP_ACP, 0, pData->header.textData, (long)strlen(pData->header.textData), wBuffer, textLength);
 // 	FieldValue.Format(L"%s", wBuffer);
 // #else
-	FieldValue = pData->header.tex tData;
+	FieldValue = pData->header.textData;
 	std::cout << "도대체 이게 뭐라고 세그폴트를 내는거니;;;;;;;\n";
 // #endif
 
