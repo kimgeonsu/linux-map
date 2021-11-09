@@ -31,7 +31,7 @@ long MapDataManager::ReadFile(std::string fileName, CDrawData *drawData)
 	{
 		do
 		{
-			std::cout << "Are you Problem? 1 \n"
+			std::cout << "Are you Problem? 1 \n";
 			pData = new _MapRecord();
 			if (fread(&pData->header, sizeof(_MapRecordHeader), 1, mapFile) != 1)
 			{
@@ -39,7 +39,7 @@ long MapDataManager::ReadFile(std::string fileName, CDrawData *drawData)
 				mapFile = NULL;
 				break;
 			}
-			std::cout << "Are you Problem? 2 \n"
+			std::cout << "Are you Problem? 2 \n";
 			pData->pointList = new Point[pData->header.pointCount];
 			if (fread(pData->pointList, sizeof(PointL), pData->header.pointCount, mapFile) != (unsigned int)pData->header.pointCount)
 			{
