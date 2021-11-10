@@ -268,33 +268,33 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 
 	std::cout <<"디벙깅 3\n";
 
-	memset(&g_DrawBuffer, 0, sizeof(PointF) * MAX_DRAW_POINT_COUNT);
-	for (nIdx = 0; nIdx < pData->header.pointCount; nIdx++)
-	{
-		inPoint = pData->pointList[nIdx];
+	// memset(&g_DrawBuffer, 0, sizeof(PointF) * MAX_DRAW_POINT_COUNT);
+	// for (nIdx = 0; nIdx < pData->header.pointCount; nIdx++)
+	// {
+	// 	inPoint = pData->pointList[nIdx];
 
-		inPoint.x <<= drawInfo.logicalLevel;
-		inPoint.y <<= drawInfo.logicalLevel;
+	// 	inPoint.x <<= drawInfo.logicalLevel;
+	// 	inPoint.y <<= drawInfo.logicalLevel;
 
-		inPoint.x -= drawRect.left;
-		inPoint.y -= drawRect.top;
+	// 	inPoint.x -= drawRect.left;
+	// 	inPoint.y -= drawRect.top;
 
-		outPoint.x = (long)((800. / 4096.) * inPoint.x);
-		outPoint.y = (long)((800. / 4096.) * inPoint.y);
-		outPoint.y = drawInfo.devRect.bottom - outPoint.y;
+	// 	outPoint.x = (long)((800. / 4096.) * inPoint.x);
+	// 	outPoint.y = (long)((800. / 4096.) * inPoint.y);
+	// 	outPoint.y = drawInfo.devRect.bottom - outPoint.y;
 
-		outPoint.x = outPoint.x + (drawInfo.devCenterPos.x - drawInfo.devRect.CenterPoint().x);
-		outPoint.y = outPoint.y + (drawInfo.devCenterPos.y - drawInfo.devRect.CenterPoint().y);
+	// 	outPoint.x = outPoint.x + (drawInfo.devCenterPos.x - drawInfo.devRect.CenterPoint().x);
+	// 	outPoint.y = outPoint.y + (drawInfo.devCenterPos.y - drawInfo.devRect.CenterPoint().y);
 
-		if (drawInfo.headingUpMode == 1)
-		{
-			g_DrawBuffer[nIdx] = Rotate(outPoint, centerPoint, (long)angle).Point2PointF();
-		}
-		else
-		{
-			g_DrawBuffer[nIdx] = outPoint.Point2PointF();
-		}
-	}
+	// 	if (drawInfo.headingUpMode == 1)
+	// 	{
+	// 		g_DrawBuffer[nIdx] = Rotate(outPoint, centerPoint, (long)angle).Point2PointF();
+	// 	}
+	// 	else
+	// 	{
+	// 		g_DrawBuffer[nIdx] = outPoint.Point2PointF();
+	// 	}
+	// }
 
 	std::cout <<"디벙깅 4\n";
 
