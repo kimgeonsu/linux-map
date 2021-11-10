@@ -198,7 +198,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	Point		inPoint;
 	Point		textPoint;
 	Rect		textRect;
-	Point		tmpCenterPoint(drawInfo.mapCenterPos4096);
+	// Point		tmpCenterPoint(drawInfo.mapCenterPos4096);
 	long		nIdx = 0;
 
 	Point		textSize;
