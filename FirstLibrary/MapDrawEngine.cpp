@@ -304,38 +304,38 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 
 	std::cout <<"디벙깅 4\n";
 
-	// if (designInfo != NULL)
-	// {
-	// 	if (designInfo->objType == (unsigned char)2)
-	// 	{
-	// 		Color color = Color(0, 256, 0);
-	// 		fillBrush = Brush(color);
-	// 		oldBrush = fillBrush;
-	// 	}
-	// 	else
-	// 	{
-	// 		oldBrush = m_NULLBRUSH;
-	// 	}
+	if (designInfo != NULL)
+	{
+		if (designInfo->objType == (unsigned char)2)
+		{
+			Color color = Color(0, 256, 0);
+			fillBrush = Brush(color);
+			oldBrush = fillBrush;
+		}
+		else
+		{
+			oldBrush = m_NULLBRUSH;
+		}
 
-	// 	if (designInfo->_line[drawInfo.dayNightMode].type == '5')
-	// 	{
-	// 		Color color = Color(256, 256, 256);
-	// 		drawPen = Pen(color, 0);
-	// 	}
-	// 	else
-	// 	{
-	// 		Color color = Color(0, 0, 0);
-	// 		drawPen = Pen(color, 1);
-	// 	}
-	// 	oldPen = drawPen;
-	// }
-	// else
-	// {
-	// 	oldBrush = m_NULLBRUSH;
-	// }
-	// std::cout <<"디벙깅 5\n";
-	// // graphics->DrawPolygon(&(drawPen), g_DrawBuffer, nIdx);
-	// std::cout <<"디벙깅 6\n";
+		if (designInfo->_line[drawInfo.dayNightMode].type == '5')
+		{
+			Color color = Color(256, 256, 256);
+			drawPen = Pen(color, 0);
+		}
+		else
+		{
+			Color color = Color(0, 0, 0);
+			drawPen = Pen(color, 1);
+		}
+		oldPen = drawPen;
+	}
+	else
+	{
+		oldBrush = m_NULLBRUSH;
+	}
+	std::cout <<"디벙깅 5\n";
+	graphics->DrawPolygon(&(drawPen), g_DrawBuffer, nIdx);
+	std::cout <<"디벙깅 6\n";
 
 	// Text Output
 	// if ((textData.length() > 0) && (designInfo != NULL))
