@@ -27,7 +27,6 @@ int main()
 {
     std::string dataFilePath = "../Output";
 
-    ////---------------------------------------------------
     CMapDrawEngine *engine = new CMapDrawEngine;
     engine->Init();
     engine->SetMapDataPath(dataFilePath);

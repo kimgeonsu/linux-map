@@ -53,7 +53,7 @@ long CMapDrawEngine::DrawMap()
 	long	nIdx = 0;
 	Font	oldFont;
 
-	graphics->FillRectangle(&m_BACKBRUSH, drawInfo.devRect.Rect2RectF());
+	// graphics->FillRectangle(&m_BACKBRUSH, drawInfo.devRect.Rect2RectF());
 
 	if (drawInfo.logicalLevel == 0)
 	{
