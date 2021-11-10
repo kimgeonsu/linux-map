@@ -221,56 +221,56 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 
 	_DesignRecord* designInfo = mapDataManager._designRecordMng.GetRecordData(pData->header.designCode);
 
-	// centerPoint = drawInfo.devCenterPos;
+	centerPoint = drawInfo.devCenterPos;
 
-	// tmpCenterPoint.x <<= drawInfo.logicalLevel;
-	// tmpCenterPoint.y <<= drawInfo.logicalLevel;
+	tmpCenterPoint.x <<= drawInfo.logicalLevel;
+	tmpCenterPoint.y <<= drawInfo.logicalLevel;
 
-	// objRect.left <<= drawInfo.logicalLevel;
-	// objRect.right <<= drawInfo.logicalLevel;
-	// objRect.top <<= drawInfo.logicalLevel;
-	// objRect.bottom <<= drawInfo.logicalLevel;
+	objRect.left <<= drawInfo.logicalLevel;
+	objRect.right <<= drawInfo.logicalLevel;
+	objRect.top <<= drawInfo.logicalLevel;
+	objRect.bottom <<= drawInfo.logicalLevel;
 
-	// drawRect.SetRect(tmpCenterPoint.x - drawInfo.drawRect.CenterPoint().x, tmpCenterPoint.y - drawInfo.drawRect.CenterPoint().y,
-	// 	tmpCenterPoint.x + drawInfo.drawRect.CenterPoint().x, tmpCenterPoint.y + drawInfo.drawRect.CenterPoint().y);
+	drawRect.SetRect(tmpCenterPoint.x - drawInfo.drawRect.CenterPoint().x, tmpCenterPoint.y - drawInfo.drawRect.CenterPoint().y,
+		tmpCenterPoint.x + drawInfo.drawRect.CenterPoint().x, tmpCenterPoint.y + drawInfo.drawRect.CenterPoint().y);
 
-	// std::cout <<"디벙깅 1\n";
+	std::cout <<"디벙깅 1\n";
 
-	// textPoint = objRect.CenterPoint();
-	// checkRect = drawRect;
-	// long xGap = centerPoint.x - drawInfo.devRect.CenterPoint().x;
-	// long yGap = centerPoint.y - drawInfo.devRect.CenterPoint().y;
+	textPoint = objRect.CenterPoint();
+	checkRect = drawRect;
+	long xGap = centerPoint.x - drawInfo.devRect.CenterPoint().x;
+	long yGap = centerPoint.y - drawInfo.devRect.CenterPoint().y;
 
-	// if (xGap < 0)
-	// 	xGap = -xGap;
-	// if (yGap < 0)
-	// 	yGap = -yGap;
+	if (xGap < 0)
+		xGap = -xGap;
+	if (yGap < 0)
+		yGap = -yGap;
 
-	// xGap = (long)(4096. * xGap / 800.);
-	// yGap = (long)(4096. * yGap / 800.);
-	// checkRect.left -= xGap;
-	// checkRect.top -= yGap;
-	// checkRect.right += xGap;
-	// checkRect.bottom += yGap;
+	xGap = (long)(4096. * xGap / 800.);
+	yGap = (long)(4096. * yGap / 800.);
+	checkRect.left -= xGap;
+	checkRect.top -= yGap;
+	checkRect.right += xGap;
+	checkRect.bottom += yGap;
 
-	// std::cout <<"디벙깅 2\n";
+	std::cout <<"디벙깅 2\n";
 
-	// if (drawInfo.headingUpMode == 1)
-	// {
-	// 	std::cout<< "혹시 너? 11\n";
-	// 	objRect = GetBoundaryRect(objRect, (long)angle);
-	// 	std::cout<< "혹시 너? 22\n";
-	// 	checkRect = GetBoundaryRect(checkRect, (long)angle);
-	// }
-	// std::cout<< "혹시 너? 33\n";
+	if (drawInfo.headingUpMode == 1)
+	{
+		std::cout<< "혹시 너? 11\n";
+		objRect = GetBoundaryRect(objRect, (long)angle);
+		std::cout<< "혹시 너? 22\n";
+		checkRect = GetBoundaryRect(checkRect, (long)angle);
+	}
+	std::cout<< "혹시 너? 33\n";
 
-	// // Text Point Calculate
-	// // textData = pData->header.textData;
-	// std::cout<< "혹시 너? 44\n";
-	// if (!rectBuffer.IntersectRect(&checkRect, &objRect))
-	// {
-	// 	return false;
-	// }
+	// Text Point Calculate
+	textData = pData->header.textData;
+	std::cout<< "혹시 너? 44\n";
+	if (!rectBuffer.IntersectRect(&checkRect, &objRect))
+	{
+		return false;
+	}
 
 	std::cout <<"디벙깅 3\n";
 
