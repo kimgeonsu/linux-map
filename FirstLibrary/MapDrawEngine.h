@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+
 #include "MyType.h"
 #include "MapDataManager.h"
 #include "iCoord.h"
@@ -98,7 +99,6 @@ public:
 
 	void GetMapAngle(long& Angle)
 	{
-		// ���� ������ �ݴ� �������� ���� ����.
 		Angle = 360 - drawInfo.mapAngle;
 		if (Angle == 360)
 			Angle = 0;
@@ -113,7 +113,6 @@ public:
 	};
 	void SetMapAngle(long Angle)
 	{
-		// ���� ������ �ݴ� �������� ���� ����.
 		Angle %= 360;
 		drawInfo.mapAngle = 360 - Angle;
 		if (drawInfo.mapAngle == 360)
@@ -205,14 +204,13 @@ public:
 
 		drawInfo.mapCenterPos = DeviceToWorldMove(tmpPoint, centerPoint);
 
-		//TRACE("<%f, %f>\n", drawInfo.mapCenterPos.y, drawInfo.mapCenterPos.x);
 		std::cout << "<" << drawInfo.mapCenterPos.y << ", " << drawInfo.mapCenterPos.x << ">\n";
 		return SetMapPos(drawInfo.mapCenterPos);
 	}
 
 	long DrawMap();					// Shape Data Draw
 	long DrawPolygon( _MapRecord* pData, double angle, long bufferIdx);						// Polygon Draw
-	long DrawPolyline(_MapRecord* pData, double angle, long bufferIdx);	// Polyline Draw
+	long DrawPolyline(_MapRecord* pData, double angle, long bufferIdx);						// Polyline Draw
 	long DrawPOI(_MapRecord* pData, double angle, long bufferIdx);							// POI Data Draw
 	bool IsDrawObject(Rect drawRect, Rect objRect);
 
@@ -224,12 +222,12 @@ public:
 
 	_dPoint DeviceToWorldMove(const Point _inPoint, Point centerPoint);
 
-	long GetUTM(_dPoint inPoint, _dPoint& utmPoint, long param = 0);	// ��ǥ ��ȯ (WGS84 -> UTM)
-	long GetUTM2KW(long izone, _dPoint utmPoint, KW& kw); // ��ǥ ��ȯ (UTM -> WGS84)
+	long GetUTM(_dPoint inPoint, _dPoint& utmPoint, long param = 0);
+	long GetUTM2KW(long izone, _dPoint utmPoint, KW& kw);
 
-	std::string GetGP2MGRS(_dPoint inPoint);					// ��ǥ ��ȯ (WGS84 -> MGRS)
+	std::string GetGP2MGRS(_dPoint inPoint);				
 	std::string GetUTM2MGRS(int zone, _dPoint utmPoint);
-	bool GetMGRS2KW(std::string mgrs, KW& kw);				// ��ǥ ��ȯ (MGRS -> WGS84)
+	bool GetMGRS2KW(std::string mgrs, KW& kw);			
 	bool GetMGRS2UTM(std::string mgrs, _dPoint& utmPoint);
 
 
@@ -246,7 +244,7 @@ public:
 
 	long					m_CosValue[360];
 	long					m_SinValue[360];
-	CGeoCoordinate			m_Coordinate;				// ��ǥ��ȯ 
+	CGeoCoordinate			m_Coordinate;			
 	int						m_BaseZone;
 
 	Graphics				*graphics;

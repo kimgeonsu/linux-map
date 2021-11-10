@@ -255,8 +255,8 @@ std::string CGeoCoordinate::gp2mgrs(int tawon, double lat, double lon)
 	zoneSubValue = yIdx + 12;
 
 	_dCentralKd = 127;
-	slam = GetRadian(tmpKW.kd, tmpKW.kb, tmpKW.kc);	// °æµµ
-	sphi = GetRadian(tmpKW.wd, tmpKW.wb, tmpKW.wc);	// À§µµ
+	slam = GetRadian(tmpKW.kd, tmpKW.kb, tmpKW.kc);	// ï¿½æµµ
+	sphi = GetRadian(tmpKW.wd, tmpKW.wb, tmpKW.wc);	// ï¿½ï¿½ï¿½ï¿½
 
 	GetTawon2utm(tawon, sphi, slam, &tmpZone, &tutmy, &tutmx, 0);
 
@@ -455,7 +455,6 @@ std::string CGeoCoordinate::utm2mgrs(int tawon, int zone, double tutmx, double t
 		mgrsx = -mgrsx;
 	if (mgrsy < 0)
 		mgrsy = -mgrsy;
-	//retValue.Format(TEXT("%s%s %s %05d %05d"), zoneValue, zoneSubValue, gridValue, mgrsx, mgrsy);
 	retValue = zoneSubValue + zoneSubValue + " " + gridValue + " " + std::to_string(mgrsx) + " " + std::to_string(mgrsy);
 
 	return retValue;

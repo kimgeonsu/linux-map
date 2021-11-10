@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 #include <list>
-#include <dirent.h
+#include <dirent.h>
 
 #include "MyType.h"
 #include "DesignRecordManager.h"

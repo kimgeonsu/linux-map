@@ -58,7 +58,6 @@ public:
 
 	double		m_phi; //0916 junga
 private:
-	//double m_phi ; //origin
 	double		m_radian;
 	std::string		m_MGRSText;
 	std::string		m_MGRSTextY;

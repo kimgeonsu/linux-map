@@ -12,22 +12,8 @@ CMapDataRecord::~CMapDataRecord()
 
 void CMapDataRecord::Init()
 {
-	//POSITION	listPos		= NULL;
 	_MapRecord	*pData		= NULL;
-	
-	//listPos = _drawDataList.GetHeadPosition();
-	
-	/*while(listPos != NULL)
-	{
-		pData = (_MapRecord *)_drawDataList.GetNext(listPos);
-		delete pData;
-		pData = NULL;
-	}*/
-	
-	//_drawDataList.RemoveAll();
-
-	//_drawDataList.clear();
-	
+		
 	_level = 0;
 	_parcelID.x = 0;
 	_parcelID.y = 0;

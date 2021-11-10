@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <cstring>
 
 #include "AppLibrary.h"
 #include "./include/type.h"

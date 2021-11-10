@@ -5,7 +5,6 @@
 
 MapDataManager::MapDataManager()
 {
-
 }
 
 
