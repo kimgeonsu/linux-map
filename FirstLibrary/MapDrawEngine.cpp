@@ -11,10 +11,10 @@ PointF g_DrawBuffer[MAX_DRAW_POINT_COUNT];
 CMapDrawEngine::CMapDrawEngine()
 {
 	Color color = Color(0, 0, 0);
-	Color color2 = Color(256, 0, 256);
+	Color color2 = Color(256, 0, 0);
 	m_NULLPEN = Pen(color, 1.0);
-	m_NULLBRUSH = Brush(color, 1);
-	m_BACKBRUSH = Brush(color2, 1);
+	m_NULLBRUSH = Brush(color);
+	m_BACKBRUSH = Brush(color2);
 
 	graphics = new Graphics("/dev/fb0");
 
@@ -53,7 +53,7 @@ long CMapDrawEngine::DrawMap()
 	long	nIdx = 0;
 	Font	oldFont;
 
-	// graphics->FillRectangle(&m_BACKBRUSH, drawInfo.devRect.Rect2RectF());
+	graphics->FillRectangle(&m_BACKBRUSH, drawInfo.devRect.Rect2RectF());
 
 	if (drawInfo.logicalLevel == 0)
 	{
