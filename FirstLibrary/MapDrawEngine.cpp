@@ -87,8 +87,8 @@ long CMapDrawEngine::DrawMap()
 		switch (pData.header.objType)
 		{
 		case 1:
-			// std::cout << "DrawPOI( " << drawInfo.mapAngle << ", " << nIdx << std::endl;
-			// DrawPOI(&pData, drawInfo.mapAngle, nIdx);
+			std::cout << "DrawPOI( " << drawInfo.mapAngle << ", " << nIdx << std::endl;
+			DrawPOI(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 3:
 			// std::cout << "DrawPolyline(&pData, drawInfo.mapAngle, nIdx);\n";
@@ -338,35 +338,34 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	std::cout <<"디벙깅 6\n";
 
 	// Text Output
-	// if ((textData.length() > 0) && (designInfo != NULL))
-	// {
-	// 	std::cout << "textData가 문제인가? 1\n";
-	// 	textPoint.x -= drawRect.left;
-	// 	textPoint.y -= drawRect.top;
+	if ((textData.length() > 0) && (designInfo != NULL))
+	{
+		std::cout << "textData가 문제인가? 1\n";
+		textPoint.x -= drawRect.left;
+		textPoint.y -= drawRect.top;
 
-	// 	textPoint.x = (long)((800. / 4096.) * textPoint.x);
-	// 	textPoint.y = (long)((800. / 4096.) * textPoint.y);
-	// 	textPoint.y = drawInfo.devRect.bottom - textPoint.y;
-	// 	std::cout << "textData가 문제인가? 2\n";
+		textPoint.x = (long)((800. / 4096.) * textPoint.x);
+		textPoint.y = (long)((800. / 4096.) * textPoint.y);
+		textPoint.y = drawInfo.devRect.bottom - textPoint.y;
+		std::cout << "textData가 문제인가? 2\n";
 
-	// 	textPoint.x = textPoint.x + (drawInfo.devCenterPos.x - drawInfo.devRect.CenterPoint().x);
-	// 	textPoint.y = textPoint.y + (drawInfo.devCenterPos.y - drawInfo.devRect.CenterPoint().y);
+		textPoint.x = textPoint.x + (drawInfo.devCenterPos.x - drawInfo.devRect.CenterPoint().x);
+		textPoint.y = textPoint.y + (drawInfo.devCenterPos.y - drawInfo.devRect.CenterPoint().y);
 
 	// 	// ������ϰ��
-	// 	if (drawInfo.headingUpMode == 1)
-	// 	{
-	// 		textPoint = Rotate(textPoint, centerPoint, (long)angle);
-	// 	}
-	// 	std::cout << "textData가 문제인가? 3\n";
+		if (drawInfo.headingUpMode == 1)
+		{
+			textPoint = Rotate(textPoint, centerPoint, (long)angle);
+		}
+		std::cout << "textData가 문제인가? 3\n";
+		//GetTextExtentPoint(hDC, textData, textData.length(), &textSize);
+		textSize.x += 4;
+		textSize.y += 4;
 
-	// 	//GetTextExtentPoint(hDC, textData, textData.length(), &textSize);
-	// 	textSize.x += 4;
-	// 	textSize.y += 4;
-
-	// 	textRect.left = textPoint.x - (int)(textSize.x / 2) - 1;
-	// 	textRect.right = textPoint.x + (int)(textSize.x / 2) + 1;
-	// 	textRect.top = textPoint.y - (int)(textSize.y / 2) - 1;
-	// 	textRect.bottom = textPoint.y + (int)(textSize.y / 2) + 1;
+		textRect.left = textPoint.x - (int)(textSize.x / 2) - 1;
+		textRect.right = textPoint.x + (int)(textSize.x / 2) + 1;
+		textRect.top = textPoint.y - (int)(textSize.y / 2) - 1;
+		textRect.bottom = textPoint.y + (int)(textSize.y / 2) + 1;
 
 	// 	//oldTextColor = GetTextColor(hDC);
 	// 	// SetTextColor(hDC, RGB(150, 79, 223));
@@ -381,7 +380,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	// 	//SetTextColor(hDC, oldTextColor);
 	// 	std::cout << "textData가 문제인가? 5\n";
 
-	// }
+	}
 
 	std::cout <<"디벙깅 7\n";
 
