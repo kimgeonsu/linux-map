@@ -234,7 +234,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	drawRect.SetRect(tmpCenterPoint.x - drawInfo.drawRect.CenterPoint().x, tmpCenterPoint.y - drawInfo.drawRect.CenterPoint().y,
 		tmpCenterPoint.x + drawInfo.drawRect.CenterPoint().x, tmpCenterPoint.y + drawInfo.drawRect.CenterPoint().y);
 
-	std::cout <<"디벙깅 1\n";
+
 
 	textPoint = objRect.CenterPoint();
 	checkRect = drawRect;
@@ -253,26 +253,20 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	checkRect.right += xGap;
 	checkRect.bottom += yGap;
 
-	std::cout <<"디벙깅 2\n";
 
 	if (drawInfo.headingUpMode == 1)
 	{
-		std::cout<< "혹시 너? 11\n";
 		objRect = GetBoundaryRect(objRect, (long)angle);
-		std::cout<< "혹시 너? 22\n";
 		checkRect = GetBoundaryRect(checkRect, (long)angle);
 	}
-	std::cout<< "혹시 너? 33\n";
 
 	// Text Point Calculate
 	textData = pData->header.textData;
-	std::cout<< "혹시 너? 44\n";
 	if (!rectBuffer.IntersectRect(&checkRect, &objRect))
 	{
 		return false;
 	}
 
-	std::cout <<"디벙깅 3\n";
 
 	memset(&g_DrawBuffer, 0, sizeof(PointF) * MAX_DRAW_POINT_COUNT);
 	for (nIdx = 0; nIdx < pData->header.pointCount; nIdx++)
@@ -302,7 +296,6 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		}
 	}
 
-	std::cout <<"디벙깅 4\n";
 
 	if (designInfo != NULL)
 	{
@@ -333,21 +326,17 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	{
 		oldBrush = m_NULLBRUSH;
 	}
-	std::cout <<"디벙깅 5\n";
 	graphics->DrawPolygon(&(drawPen), g_DrawBuffer, nIdx);
-	std::cout <<"디벙깅 6\n";
 
 	// Text Output
 	if ((textData.length() > 0) && (designInfo != NULL))
 	{
-		std::cout << "textData가 문제인가? 1\n";
 		textPoint.x -= drawRect.left;
 		textPoint.y -= drawRect.top;
 
 		textPoint.x = (long)((800. / 4096.) * textPoint.x);
 		textPoint.y = (long)((800. / 4096.) * textPoint.y);
 		textPoint.y = drawInfo.devRect.bottom - textPoint.y;
-		std::cout << "textData가 문제인가? 2\n";
 
 		textPoint.x = textPoint.x + (drawInfo.devCenterPos.x - drawInfo.devRect.CenterPoint().x);
 		textPoint.y = textPoint.y + (drawInfo.devCenterPos.y - drawInfo.devRect.CenterPoint().y);
@@ -357,7 +346,6 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		{
 			textPoint = Rotate(textPoint, centerPoint, (long)angle);
 		}
-		std::cout << "textData가 문제인가? 3\n";
 		//GetTextExtentPoint(hDC, textData, textData.length(), &textSize);
 		textSize.x += 4;
 		textSize.y += 4;
@@ -382,7 +370,6 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 
 	}
 
-	std::cout <<"디벙깅 7\n";
 
 	//SelectObject(hDC, oldBrush);
 
@@ -417,8 +404,12 @@ long CMapDrawEngine::DrawPolyline(_MapRecord* pData, double angle, long bufferId
 	Point		inPoint;
 	Point		tmpCenterPoint = drawInfo.mapCenterPos4096;
 	long		nIdx = 0;
+	Color color;
+	color = Color(0,0,256);
 	Pen		drawPen;
+	drawPen = Pen(color, 1.0);
 	Pen		oldPen;
+	oldPen = Pen(color, 1.0);
 	_DesignRecord* designInfo = mapDataManager._designRecordMng.GetRecordData(pData->header.designCode);
 
 
@@ -554,8 +545,10 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 std::cout << "Step 1" << std::endl;
 
 	Font font = Font("폰트폰트", 1);
-	Brush fillBrush = Brush(Color(0, 0, 0));
-
+	Color color;
+	color = Color(0,0,256);
+	Brush fillBrush;
+	fillBrush = Brush(color);
 	wchar_t		wBuffer[32];
 
 	memset(&wBuffer, 0, sizeof(wBuffer));
