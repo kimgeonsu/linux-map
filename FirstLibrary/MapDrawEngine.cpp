@@ -80,7 +80,7 @@ long CMapDrawEngine::DrawMap()
 			DrawPolyline(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 5:
-			DrawPolygon(&pData, drawInfo.mapAngle, nIdx);
+			// DrawPolygon(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		default:
 			break;
