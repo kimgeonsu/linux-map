@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/try.dir/try.cpp.o -o out/try  -Llib -lLinuxMap -lgeminit-gn-gdi -lpng16 -ljpeg 

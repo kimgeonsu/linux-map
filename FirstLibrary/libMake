@@ -1,0 +1,20 @@
+#!/bin/bash
+git pull
+rm MapDrawEngine.o
+rm MapDataManager.o
+rm MapDataRecord.o
+rm DrawData.o
+rm iCoord.o
+rm DesignRecordManager.o
+gcc -c MapDataManager.cpp
+gcc -c DrawData.cpp
+gcc -c MapDataRecord.cpp
+gcc -c iCoord.cpp
+gcc -c DesignRecordManager.cpp
+gcc -c MapDrawEngine.cpp -L./lib -l geminit-gn-gdi
+rm -rf ./lib/libLinuxMap.a ./out/try
+ar rc libLinuxMap.a MapDrawEngine.o MapDataManager.o DrawData.o iCoord.o DesignRecordManager.o MapDataRecord.o
+mv libLinuxMap.a ./lib/
+make
+cd ./out
+./try
