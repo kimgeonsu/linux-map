@@ -544,11 +544,11 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 
 	std::cout << "Step 1" << std::endl;
 
-	Font font = Font("폰트폰트", 1);
-	Color color;
-	color = Color(0,0,256);
-	Brush fillBrush;
-	fillBrush = Brush(color);
+	// Font font = Font("폰트폰트", 1);
+	// Color color;
+	// color = Color(0,0,256);
+	// Brush fillBrush;
+	// fillBrush = Brush(color);
 
 	// Multibyte to Widechar
 // #if	defined(_UNICODE)
@@ -626,12 +626,11 @@ std::cout << "Step 1111" << std::endl;
 
 std::cout << "Step 11111" << std::endl;
 	// graphics->DrawString(sss /*FieldValue.c_str()*/, -1, &font, tmp, &fillBrush);
-std::cout << "Step 111111" << std::endl;
 	//SetTextColor(hDC, oldTextColor);
-#if MAP_DISPLAY_DEBUG_MSG
-	TRACE("POINT ==> mapType : %d, displayCode : %d\n", mapType, pData->header.code);
+// #if MAP_DISPLAY_DEBUG_MSG
+// 	TRACE("POINT ==> mapType : %d, displayCode : %d\n", mapType, pData->header.code);
 	
-#endif
+// #endif
 
 	return true;
 }
