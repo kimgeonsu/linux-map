@@ -91,12 +91,12 @@ long CMapDrawEngine::DrawMap()
 			DrawPOI(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 3:
-			std::cout << "DrawPolyline(&pData, drawInfo.mapAngle, nIdx);\n";
-			DrawPolyline(&pData, drawInfo.mapAngle, nIdx);
+			// std::cout << "DrawPolyline(&pData, drawInfo.mapAngle, nIdx);\n";
+			// DrawPolyline(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 5:
-			std::cout << "DrawPolygon(&pData, drawInfo.mapAngle, nIdx);\n";
-			DrawPolygon(&pData, drawInfo.mapAngle, nIdx);
+			// std::cout << "DrawPolygon(&pData, drawInfo.mapAngle, nIdx);\n";
+			// DrawPolygon(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		default:
 			break;
