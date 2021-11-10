@@ -544,11 +544,11 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 
 	std::cout << "Step 1" << std::endl;
 
-	Font font = Font("폰트폰트", 1);
-	// Color color;
-	// color = Color(0,0,256);
-	// Brush fillBrush;
-	// fillBrush = Brush(color);
+	// Font font = Font("폰트폰트", 10);
+	Color color;
+	color = Color(0,0,256);
+	Brush fillBrush;
+	fillBrush = Brush(color);
 
 	// Multibyte to Widechar
 // #if	defined(_UNICODE)
