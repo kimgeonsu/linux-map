@@ -298,84 +298,84 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 
 	std::cout <<"디벙깅 4\n";
 
-	if (designInfo != NULL)
-	{
-		if (designInfo->objType == (unsigned char)2)
-		{
-			Color color = Color(0, 256, 0);
-			fillBrush = Brush(color);
-			oldBrush = fillBrush;
-		}
-		else
-		{
-			oldBrush = m_NULLBRUSH;
-		}
+	// if (designInfo != NULL)
+	// {
+	// 	if (designInfo->objType == (unsigned char)2)
+	// 	{
+	// 		Color color = Color(0, 256, 0);
+	// 		fillBrush = Brush(color);
+	// 		oldBrush = fillBrush;
+	// 	}
+	// 	else
+	// 	{
+	// 		oldBrush = m_NULLBRUSH;
+	// 	}
 
-		if (designInfo->_line[drawInfo.dayNightMode].type == '5')
-		{
-			Color color = Color(256, 256, 256);
-			drawPen = Pen(color, 0);
-		}
-		else
-		{
-			Color color = Color(0, 0, 0);
-			drawPen = Pen(color, 1);
-		}
-		oldPen = drawPen;
-	}
-	else
-	{
-		oldBrush = m_NULLBRUSH;
-	}
-	std::cout <<"디벙깅 5\n";
-	// graphics->DrawPolygon(&(drawPen), g_DrawBuffer, nIdx);
-	std::cout <<"디벙깅 6\n";
+	// 	if (designInfo->_line[drawInfo.dayNightMode].type == '5')
+	// 	{
+	// 		Color color = Color(256, 256, 256);
+	// 		drawPen = Pen(color, 0);
+	// 	}
+	// 	else
+	// 	{
+	// 		Color color = Color(0, 0, 0);
+	// 		drawPen = Pen(color, 1);
+	// 	}
+	// 	oldPen = drawPen;
+	// }
+	// else
+	// {
+	// 	oldBrush = m_NULLBRUSH;
+	// }
+	// std::cout <<"디벙깅 5\n";
+	// // graphics->DrawPolygon(&(drawPen), g_DrawBuffer, nIdx);
+	// std::cout <<"디벙깅 6\n";
 
 	// Text Output
-	if ((textData.length() > 0) && (designInfo != NULL))
-	{
-		std::cout << "textData가 문제인가? 1\n";
-		textPoint.x -= drawRect.left;
-		textPoint.y -= drawRect.top;
+	// if ((textData.length() > 0) && (designInfo != NULL))
+	// {
+	// 	std::cout << "textData가 문제인가? 1\n";
+	// 	textPoint.x -= drawRect.left;
+	// 	textPoint.y -= drawRect.top;
 
-		textPoint.x = (long)((800. / 4096.) * textPoint.x);
-		textPoint.y = (long)((800. / 4096.) * textPoint.y);
-		textPoint.y = drawInfo.devRect.bottom - textPoint.y;
-		std::cout << "textData가 문제인가? 2\n";
+	// 	textPoint.x = (long)((800. / 4096.) * textPoint.x);
+	// 	textPoint.y = (long)((800. / 4096.) * textPoint.y);
+	// 	textPoint.y = drawInfo.devRect.bottom - textPoint.y;
+	// 	std::cout << "textData가 문제인가? 2\n";
 
-		textPoint.x = textPoint.x + (drawInfo.devCenterPos.x - drawInfo.devRect.CenterPoint().x);
-		textPoint.y = textPoint.y + (drawInfo.devCenterPos.y - drawInfo.devRect.CenterPoint().y);
+	// 	textPoint.x = textPoint.x + (drawInfo.devCenterPos.x - drawInfo.devRect.CenterPoint().x);
+	// 	textPoint.y = textPoint.y + (drawInfo.devCenterPos.y - drawInfo.devRect.CenterPoint().y);
 
-		// ������ϰ��
-		if (drawInfo.headingUpMode == 1)
-		{
-			textPoint = Rotate(textPoint, centerPoint, (long)angle);
-		}
-		std::cout << "textData가 문제인가? 3\n";
+	// 	// ������ϰ��
+	// 	if (drawInfo.headingUpMode == 1)
+	// 	{
+	// 		textPoint = Rotate(textPoint, centerPoint, (long)angle);
+	// 	}
+	// 	std::cout << "textData가 문제인가? 3\n";
 
-		//GetTextExtentPoint(hDC, textData, textData.length(), &textSize);
-		textSize.x += 4;
-		textSize.y += 4;
+	// 	//GetTextExtentPoint(hDC, textData, textData.length(), &textSize);
+	// 	textSize.x += 4;
+	// 	textSize.y += 4;
 
-		textRect.left = textPoint.x - (int)(textSize.x / 2) - 1;
-		textRect.right = textPoint.x + (int)(textSize.x / 2) + 1;
-		textRect.top = textPoint.y - (int)(textSize.y / 2) - 1;
-		textRect.bottom = textPoint.y + (int)(textSize.y / 2) + 1;
+	// 	textRect.left = textPoint.x - (int)(textSize.x / 2) - 1;
+	// 	textRect.right = textPoint.x + (int)(textSize.x / 2) + 1;
+	// 	textRect.top = textPoint.y - (int)(textSize.y / 2) - 1;
+	// 	textRect.bottom = textPoint.y + (int)(textSize.y / 2) + 1;
 
-		//oldTextColor = GetTextColor(hDC);
-		// SetTextColor(hDC, RGB(150, 79, 223));
-		//SetTextColor(hDC, designInfo->_fontStyle[drawInfo.dayNightMode].color);
-		// PointF tmp;
-		// tmp.X = textRect.TopLeft().x;
-		// tmp.Y = textRect.TopLeft().y;
-		std::cout << "textData가 문제인가? 4\n";
+	// 	//oldTextColor = GetTextColor(hDC);
+	// 	// SetTextColor(hDC, RGB(150, 79, 223));
+	// 	//SetTextColor(hDC, designInfo->_fontStyle[drawInfo.dayNightMode].color);
+	// 	// PointF tmp;
+	// 	// tmp.X = textRect.TopLeft().x;
+	// 	// tmp.Y = textRect.TopLeft().y;
+	// 	std::cout << "textData가 문제인가? 4\n";
 		
-		// std::cout << textData.length() << std::endl;
-		// graphics->DrawString(pData->header.textData, -1, &font, textPoint.Point2PointF(), &fillBrush);
-		//SetTextColor(hDC, oldTextColor);
-		std::cout << "textData가 문제인가? 5\n";
+	// 	// std::cout << textData.length() << std::endl;
+	// 	// graphics->DrawString(pData->header.textData, -1, &font, textPoint.Point2PointF(), &fillBrush);
+	// 	//SetTextColor(hDC, oldTextColor);
+	// 	std::cout << "textData가 문제인가? 5\n";
 
-	}
+	// }
 
 	std::cout <<"디벙깅 7\n";
 
