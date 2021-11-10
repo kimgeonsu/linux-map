@@ -87,16 +87,16 @@ long CMapDrawEngine::DrawMap()
 		switch (pData.header.objType)
 		{
 		case 1:
-			std::cout << "DrawPOI( " << drawInfo.mapAngle << ", " << nIdx << std::endl;
+			// std::cout << "DrawPOI( " << drawInfo.mapAngle << ", " << nIdx << std::endl;
 			DrawPOI(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 3:
 			// std::cout << "DrawPolyline(&pData, drawInfo.mapAngle, nIdx);\n";
-			// DrawPolyline(&pData, drawInfo.mapAngle, nIdx);
+			DrawPolyline(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 5:
 			// std::cout << "DrawPolygon(&pData, drawInfo.mapAngle, nIdx);\n";
-			// DrawPolygon(&pData, drawInfo.mapAngle, nIdx);
+			DrawPolygon(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		default:
 			break;
@@ -383,12 +383,10 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	// 	GlReleaseHOBJ(&drawPen);
 	// }
 
-	std::cout <<"디벙깅 8\n";
 	// std::cout << pData->header.textData << std::endl;
 // #if MAP_DISPLAY_DEBUG_MSG
 // 	TRACE("POLYGON ==> mapType : %d, displayCode : %d\n", mapType, pData->header.code);
 // #endif
-	std::cout <<"디벙깅 9\n";
 
 	return true;
 }
@@ -509,9 +507,6 @@ long CMapDrawEngine::DrawPolyline(_MapRecord* pData, double angle, long bufferId
 	}
 
 	graphics->DrawLines(&drawPen, g_DrawBuffer, pData->header.pointCount);
-	for (int i = 0; i < 2; i++) {
-		std:: cout << g_DrawBuffer[i].X << " " << g_DrawBuffer[i].Y << std::endl; 
-	}
 
 	if (designInfo != NULL)
 	{
@@ -542,7 +537,6 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 	std::string		FieldValue;
 	//unsigned long	oldTextColor;
 
-	std::cout << "Step 1" << std::endl;
 
 	// Font font = Font("폰트폰트", 10);
 	Color color;
@@ -582,12 +576,10 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 		checkRect = GetBoundaryRect(drawRect, (long)angle);
 		objRect = GetBoundaryRect(objRect, (long)angle);
 	}
-std::cout << "Step 11" << std::endl;
 	if (!rectBuffer.IntersectRect(&checkRect, &objRect))
 	{
 		return false;
 	}
-std::cout << "Step 111" << std::endl;
 	inPoint.x -= drawRect.left;
 	inPoint.y -= drawRect.top;
 
@@ -606,7 +598,6 @@ std::cout << "Step 111" << std::endl;
 	{
 		g_DrawBuffer[0] = outPoint.Point2PointF();
 	}
-std::cout << "Step 1111" << std::endl;
 	//GetTextExtentPoint(hDC, FieldValue, FieldValue.length(), &textSize);
 	textSize.x += 4;
 	textSize.y += 4;
@@ -619,12 +610,11 @@ std::cout << "Step 1111" << std::endl;
 
 	//oldTextColor = GetTextColor(hDC);
 	// SetTextColor(hDC, RGB(150, 79, 223));
-	// if (drawInfo.dayNightMode == 0)
-	// 	color = Color(0, 0, 0);
-	// else
-	// 	color = Color(255, 255, 255);
+	if (drawInfo.dayNightMode == 0)
+		color = Color(0, 0, 0);
+	else
+		color = Color(255, 255, 255);
 
-std::cout << "Step 11111" << std::endl;
 	// graphics->DrawString(sss /*FieldValue.c_str()*/, -1, &font, tmp, &fillBrush);
 	//SetTextColor(hDC, oldTextColor);
 // #if MAP_DISPLAY_DEBUG_MSG
