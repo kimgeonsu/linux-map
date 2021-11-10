@@ -458,7 +458,8 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 	Rect		textRect;
 	std::string		FieldValue;
 
-	Font font = Font("폰트폰트", 10);
+	// Font font = Font("폰트폰트", 10);
+	Font font = Font("포온트", 0);
 	Color color;
 	color = Color(0,0,256);
 	Brush fillBrush;
