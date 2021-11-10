@@ -18,15 +18,7 @@ CMapDrawEngine::CMapDrawEngine()
 
 	graphics = new Graphics("/dev/fb0");
 
-	//LOGFONT		FontInfo;
-	//memset(&FontInfo, 0, sizeof(LOGFONT));
-	//FontInfo.lfHeight = 8;
-	//FontInfo.lfWeight = 500;
-	//FontInfo.lfCharSet = 1;
-	//FontInfo.lfFaceName = "Tahoma";
 	m_MapFont[0] = Font("fontName1", 8);
-
-	/*FontInfo.lfHeight = 12;*/
 	m_MapFont[1] = Font("fontName2", 12);
 
 
@@ -44,11 +36,6 @@ CMapDrawEngine::CMapDrawEngine()
 
 CMapDrawEngine::~CMapDrawEngine()
 {
-	//GlReleaseHOBJ(&m_NULLPEN);
-	//GlReleaseHOBJ(&m_NULLBRUSH);
-	//GlReleaseHOBJ(&m_BACKBRUSH);
-	//GlReleaseHOBJ(&m_MapFont[0]);
-	//GlReleaseHOBJ(&m_MapFont[1]);
 }
 
 long CMapDrawEngine::Init()
@@ -65,9 +52,8 @@ long CMapDrawEngine::DrawMap()
 	long	tmpFontSize = 0;
 	long	nIdx = 0;
 	Font	oldFont;
-	/*graphics->FillRectangle(hDC, drawInfo.devRect, m_BACKBRUSH);*/
-	RectF change = drawInfo.devRect.Rect2RectF();
-	graphics->FillRectangle(&m_BACKBRUSH, change);
+
+	graphics->FillRectangle(&m_BACKBRUSH, drawInfo.devRect.Rect2RectF());
 
 	if (drawInfo.logicalLevel == 0)
 	{
@@ -77,34 +63,30 @@ long CMapDrawEngine::DrawMap()
 	{
 		oldFont = m_MapFont[1];
 	}
+
 	std::list<_MapRecord>::iterator pos = mapDataManager._drawData._drawDataList.begin();
 	std::list<_MapRecord>::iterator eee = mapDataManager._drawData._drawDataList.end();
-	
 	_MapRecord pData;
 	
-	for (pos; pos != eee; pos++) {
+	for (pos; pos != eee; pos++) 
+	{
 		pData = *pos; 
 		switch (pData.header.objType)
 		{
 		case 1:
-			// std::cout << "DrawPOI( " << drawInfo.mapAngle << ", " << nIdx << std::endl;
 			DrawPOI(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 3:
-			// std::cout << "DrawPolyline(&pData, drawInfo.mapAngle, nIdx);\n";
 			DrawPolyline(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 5:
-			// std::cout << "DrawPolygon(&pData, drawInfo.mapAngle, nIdx);\n";
 			DrawPolygon(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		default:
 			break;
 		}
-
 	}
 
-	//SelectObject(hDC, oldFont);
 
 	Color red = Color(255, 0, 0);
 	Brush testBrush = Brush(red, 1);
@@ -114,9 +96,8 @@ long CMapDrawEngine::DrawMap()
 	tmpRect.right = drawInfo.devCenterPos.x + 5;
 	tmpRect.bottom = drawInfo.devCenterPos.y + 5;
 
-	RectF Convert = tmpRect.Rect2RectF();
-	graphics->FillRectangle(&testBrush, Convert);
-	//GlReleaseHOBJ(&testBrush);
+	graphics->FillRectangle(&testBrush, tmpRect.Rect2RectF());
+
 	return true;
 }
 
@@ -200,23 +181,14 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	Rect		textRect;
 	Point		tmpCenterPoint(drawInfo.mapCenterPos4096);
 	long		nIdx = 0;
-
 	Point		textSize;
-	/*long		oldTextColor;*/
-
 	std::string		textData;
 
-	Color color;
-	color = Color(0,0,256);
-	Brush		oldBrush;
-	oldBrush = Brush(color);
-	Brush		fillBrush;
-	fillBrush = Brush(color);
-	Pen		drawPen;
-	drawPen = Pen(color, 1.0);
-	Pen		oldPen;
-	oldPen = Pen(color, 1.0);
-
+	Color color = Color(0,0,256);
+	Brush oldBrush = Brush(color);
+	Brush fillBrush = Brush(color);
+	Pen	drawPen = Pen(color, 1.0);
+	Pen	oldPen = Pen(color, 1.0);
 	Font font = Font("포온트", 0);
 
 	_DesignRecord* designInfo = mapDataManager._designRecordMng.GetRecordData(pData->header.designCode);
@@ -233,8 +205,6 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 
 	drawRect.SetRect(tmpCenterPoint.x - drawInfo.drawRect.CenterPoint().x, tmpCenterPoint.y - drawInfo.drawRect.CenterPoint().y,
 		tmpCenterPoint.x + drawInfo.drawRect.CenterPoint().x, tmpCenterPoint.y + drawInfo.drawRect.CenterPoint().y);
-
-
 
 	textPoint = objRect.CenterPoint();
 	checkRect = drawRect;
@@ -341,12 +311,10 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		textPoint.x = textPoint.x + (drawInfo.devCenterPos.x - drawInfo.devRect.CenterPoint().x);
 		textPoint.y = textPoint.y + (drawInfo.devCenterPos.y - drawInfo.devRect.CenterPoint().y);
 
-	// 	// ������ϰ��
 		if (drawInfo.headingUpMode == 1)
 		{
 			textPoint = Rotate(textPoint, centerPoint, (long)angle);
 		}
-		//GetTextExtentPoint(hDC, textData, textData.length(), &textSize);
 		textSize.x += 4;
 		textSize.y += 4;
 
@@ -358,36 +326,11 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	// 	//oldTextColor = GetTextColor(hDC);
 	// 	// SetTextColor(hDC, RGB(150, 79, 223));
 	// 	//SetTextColor(hDC, designInfo->_fontStyle[drawInfo.dayNightMode].color);
-	// 	// PointF tmp;
-	// 	// tmp.X = textRect.TopLeft().x;
-	// 	// tmp.Y = textRect.TopLeft().y;
-	// 	std::cout << "textData가 문제인가? 4\n";
-		
-	// 	// std::cout << textData.length() << std::endl;
 	// 	// graphics->DrawString(pData->header.textData, -1, &font, textPoint.Point2PointF(), &fillBrush);
 	// 	//SetTextColor(hDC, oldTextColor);
-	// 	std::cout << "textData가 문제인가? 5\n";
 
 	}
-
-
-	//SelectObject(hDC, oldBrush);
-
-	// if (designInfo != NULL)
-	// {
-	// 	SelectObject(hDC, oldPen);
-	// 	if (designInfo->objType == 2)
-	// 	{
-	// 		GlReleaseHOBJ(&fillBrush);
-	// 	}
-	// 	GlReleaseHOBJ(&drawPen);
-	// }
-
-	// std::cout << pData->header.textData << std::endl;
-// #if MAP_DISPLAY_DEBUG_MSG
-// 	TRACE("POLYGON ==> mapType : %d, displayCode : %d\n", mapType, pData->header.code);
-// #endif
-
+	
 	return true;
 }
 
