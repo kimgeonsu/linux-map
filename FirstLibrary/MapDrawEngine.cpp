@@ -341,7 +341,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	std::cout <<"디벙깅 6\n";
 
 	// Text Output
-	if ((textData.length() > 0) && (designInfo != NULL))
+	if (/*(textData.length() > 0* && */(designInfo != NULL))
 	{
 		std::cout << "textData가 문제인가? 1\n";
 		textPoint.x -= drawRect.left;
@@ -378,7 +378,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		// tmp.X = textRect.TopLeft().x;
 		// tmp.Y = textRect.TopLeft().y;
 		std::cout << "textData가 문제인가? 4\n";
-		std::cout << pData->header.textData << std::endl;
+		
 		// std::cout << textData.length() << std::endl;
 		// graphics->DrawString(pData->header.textData, -1, &font, textPoint.Point2PointF(), &fillBrush);
 		//SetTextColor(hDC, oldTextColor);
@@ -403,7 +403,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	}
 
 	std::cout <<"디벙깅 8\n";
-
+	std::cout << pData->header.textData << std::endl;
 // #if MAP_DISPLAY_DEBUG_MSG
 // 	TRACE("POLYGON ==> mapType : %d, displayCode : %d\n", mapType, pData->header.code);
 // #endif
