@@ -204,7 +204,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	Point		textSize;
 	/*long		oldTextColor;*/
 
-	// std::string		textData(pData->header.textData);
+	std::string		textData);
 	Brush		oldBrush;
 
 	Brush		fillBrush;
@@ -378,6 +378,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		// tmp.X = textRect.TopLeft().x;
 		// tmp.Y = textRect.TopLeft().y;
 		std::cout << "textData가 문제인가? 4\n";
+		std::cout << pData->header.textData << std::endl;
 		// std::cout << textData.length() << std::endl;
 		// graphics->DrawString(pData->header.textData, -1, &font, textPoint.Point2PointF(), &fillBrush);
 		//SetTextColor(hDC, oldTextColor);
