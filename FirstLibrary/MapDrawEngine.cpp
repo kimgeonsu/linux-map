@@ -189,7 +189,7 @@ bool CMapDrawEngine::IsDrawObject(Rect drawRect, Rect objRect)
 long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx)
 {
 	// for intersect calculation..
-	Rect		objRect(pData->header.boundaryRect);
+	// Rect		objRect(pData->header.boundaryRect);
 	Rect		drawRect;
 	Rect		checkRect;
 	Rect		rectBuffer;
