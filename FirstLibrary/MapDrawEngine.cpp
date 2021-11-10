@@ -330,7 +330,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	// 	//SetTextColor(hDC, oldTextColor);
 
 	}
-	
+
 	return true;
 }
 
@@ -345,12 +345,11 @@ long CMapDrawEngine::DrawPolyline(_MapRecord* pData, double angle, long bufferId
 	Point		inPoint;
 	Point		tmpCenterPoint = drawInfo.mapCenterPos4096;
 	long		nIdx = 0;
-	Color color;
-	color = Color(0,0,256);
-	Pen		drawPen;
-	drawPen = Pen(color, 1.0);
-	Pen		oldPen;
-	oldPen = Pen(color, 1.0);
+
+	Color color = Color(0,0,256);
+	Pen	drawPen = Pen(color, 1.0);
+	Pen	oldPen = Pen(color, 1.0);
+
 	_DesignRecord* designInfo = mapDataManager._designRecordMng.GetRecordData(pData->header.designCode);
 
 
@@ -406,7 +405,6 @@ long CMapDrawEngine::DrawPolyline(_MapRecord* pData, double angle, long bufferId
 		inPoint.x -= drawRect.left;
 		inPoint.y -= drawRect.top;
 
-
 		outPoint.x = (long)((800. / 4096.) * inPoint.x);
 		outPoint.y = (long)((800. / 4096.) * inPoint.y);
 		outPoint.y = drawInfo.devRect.bottom - outPoint.y;
@@ -414,21 +412,13 @@ long CMapDrawEngine::DrawPolyline(_MapRecord* pData, double angle, long bufferId
 		outPoint.x = outPoint.x + (drawInfo.devCenterPos.x - drawInfo.devRect.CenterPoint().x);
 		outPoint.y = outPoint.y + (drawInfo.devCenterPos.y - drawInfo.devRect.CenterPoint().y);
 
-		PointF tmp;
 		if (drawInfo.headingUpMode == 1)
 		{
 			g_DrawBuffer[nIdx] = Rotate(outPoint, centerPoint, (long)angle).Point2PointF();
-			Point temp = Rotate(outPoint, centerPoint, (long)angle);
-			tmp.X = temp.x;
-			tmp.Y = temp.y;
-			g_DrawBuffer[nIdx] = tmp;
 		}
 		else
 		{
 			g_DrawBuffer[nIdx] = outPoint.Point2PointF();
-			tmp.X = outPoint.x;
-			tmp.Y = outPoint.y;
-			g_DrawBuffer[nIdx] = tmp;
 		}
 	}
 
@@ -451,16 +441,6 @@ long CMapDrawEngine::DrawPolyline(_MapRecord* pData, double angle, long bufferId
 
 	graphics->DrawLines(&drawPen, g_DrawBuffer, pData->header.pointCount);
 
-	if (designInfo != NULL)
-	{
-		//SelectObject(hDC, oldPen);
-		//GlReleaseHOBJ(&drawPen);
-	}
-
-
-// #if MAP_DISPLAY_DEBUG_MSG
-// 	TRACE("ARC ==> mapType : %d, displayCode : %d\n", mapType, pData->header.code);
-// #endif
 	return true;
 }
 
@@ -474,12 +454,9 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 	Point		outPoint;
 	Point		inPoint;
 	Point		tmpCenterPoint = drawInfo.mapCenterPos4096;
-
 	Point		textSize;
 	Rect		textRect;
 	std::string		FieldValue;
-	//unsigned long	oldTextColor;
-
 
 	// Font font = Font("폰트폰트", 10);
 	Color color;
@@ -487,16 +464,8 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 	Brush fillBrush;
 	fillBrush = Brush(color);
 
-	// Multibyte to Widechar
-// #if	defined(_UNICODE)
-// 	long		textLength;
 
-// 	textLength = MultiByteToWideChar(CP_ACP, 0, pData->header.textData, (long)strlen(pData->header.textData), NULL, NULL);
-// 	MultiByteToWideChar(CP_ACP, 0, pData->header.textData, (long)strlen(pData->header.textData), wBuffer, textLength);
-// 	FieldValue.Format(L"%s", wBuffer);
-// #else
 	FieldValue = pData->header.textData;
-// #endif
 
 	centerPoint = drawInfo.devCenterPos;
 
