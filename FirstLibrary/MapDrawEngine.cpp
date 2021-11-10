@@ -619,10 +619,10 @@ std::cout << "Step 1111" << std::endl;
 
 	//oldTextColor = GetTextColor(hDC);
 	// SetTextColor(hDC, RGB(150, 79, 223));
-	if (drawInfo.dayNightMode == 0)
-		color = Color(0, 0, 0);
-	else
-		color = Color(255, 255, 255);
+	// if (drawInfo.dayNightMode == 0)
+	// 	color = Color(0, 0, 0);
+	// else
+	// 	color = Color(255, 255, 255);
 
 std::cout << "Step 11111" << std::endl;
 	// graphics->DrawString(sss /*FieldValue.c_str()*/, -1, &font, tmp, &fillBrush);
