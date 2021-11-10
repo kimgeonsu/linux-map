@@ -328,7 +328,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		oldBrush = m_NULLBRUSH;
 	}
 	std::cout <<"디벙깅 5\n";
-	graphics->DrawPolygon(&(drawPen), g_DrawBuffer, nIdx);
+	// graphics->DrawPolygon(&(drawPen), g_DrawBuffer, nIdx);
 	std::cout <<"디벙깅 6\n";
 
 	// Text Output
