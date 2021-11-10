@@ -459,17 +459,11 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 	std::string		FieldValue;
 
 	// Font font = Font("폰트폰트", 10);
-	Font font = Font("포온트", 0);
-	Color color;
-	color = Color(0,0,256);
-	Brush fillBrush;
-	fillBrush = Brush(color);
-
+	Color color = Color(0,0,256);
+	Brush fillBrush = Brush(color);
 
 	FieldValue = pData->header.textData;
-
 	centerPoint = drawInfo.devCenterPos;
-
 	inPoint = pData->pointList[0];
 
 	tmpCenterPoint.x <<= drawInfo.logicalLevel;
@@ -479,7 +473,6 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 	inPoint.y <<= drawInfo.logicalLevel;
 
 	objRect.SetRect(inPoint.x - 1, inPoint.y - 1, inPoint.x + 1, inPoint.y + 1);
-
 	drawRect.SetRect(tmpCenterPoint.x - drawInfo.drawRect.CenterPoint().x, tmpCenterPoint.y - drawInfo.drawRect.CenterPoint().y,
 		tmpCenterPoint.x + drawInfo.drawRect.CenterPoint().x, tmpCenterPoint.y + drawInfo.drawRect.CenterPoint().y);
 
@@ -511,7 +504,6 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 	{
 		g_DrawBuffer[0] = outPoint.Point2PointF();
 	}
-	//GetTextExtentPoint(hDC, FieldValue, FieldValue.length(), &textSize);
 	textSize.x += 4;
 	textSize.y += 4;
 
@@ -530,11 +522,7 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 
 	// graphics->DrawString(sss /*FieldValue.c_str()*/, -1, &font, tmp, &fillBrush);
 	//SetTextColor(hDC, oldTextColor);
-// #if MAP_DISPLAY_DEBUG_MSG
-// 	TRACE("POINT ==> mapType : %d, displayCode : %d\n", mapType, pData->header.code);
 	
-// #endif
-
 	return true;
 }
 
