@@ -35,10 +35,10 @@ int main()
     engine->SetMapDataPath(dataFilePath);
 	engine->SetDeviceRect(0, 0, 480, 800);
 	engine->SetDeviceCenterPos(240, 400);
-	engine->SetZoomLevel(2);
+	engine->SetZoomLevel(1);
 	engine->SetMapPos(127.0, 37.0);
 
-	int currentAngle = 180;
+	int currentAngle = 90;
 	int currentMapMode = 0;
 	engine->SetMapAngle(currentAngle);
 	engine->SetMapHeadingUpMode(currentMapMode);
