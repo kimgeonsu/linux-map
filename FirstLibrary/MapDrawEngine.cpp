@@ -210,9 +210,12 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	color = Color(0,0,256);
 	Brush		oldBrush;
 	oldBrush = Brush(color);
-	// Brush		fillBrush;
-	// Pen		drawPen;
-	// Pen		oldPen;
+	Brush		fillBrush;
+	fillBrush = Brush(color);
+	Pen		drawPen;
+	drawPen = Pen(color, 1.0);
+	Pen		oldPen;
+	oldPen = Pen(color, 1.0);
 
 	// Font font = Font("포온트", 0);
 
