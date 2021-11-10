@@ -23,7 +23,6 @@ private:
 public:
 	long Init();
 	long LoadMapData() {
-		std::cout << "MapDataManager::LoadMapData\n"; 
 		std::string searchPath;
 		Point parcelID;
 		std::string fileName;
