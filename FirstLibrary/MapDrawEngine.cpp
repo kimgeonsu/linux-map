@@ -542,7 +542,7 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 	std::string		FieldValue;
 	//unsigned long	oldTextColor;
 
-std::cout << "Step 1" << std::endl;
+	std::cout << "Step 1" << std::endl;
 
 	Font font = Font("폰트폰트", 1);
 	Color color;
@@ -561,7 +561,7 @@ std::cout << "Step 1" << std::endl;
 // 	MultiByteToWideChar(CP_ACP, 0, pData->header.textData, (long)strlen(pData->header.textData), wBuffer, textLength);
 // 	FieldValue.Format(L"%s", wBuffer);
 // #else
-// 	FieldValue = pData->header.textData;
+	FieldValue = pData->header.textData;
 // #endif
 
 	centerPoint = drawInfo.devCenterPos;
@@ -601,19 +601,13 @@ std::cout << "Step 111" << std::endl;
 	outPoint.x = outPoint.x + (drawInfo.devCenterPos.x - drawInfo.devRect.CenterPoint().x);
 	outPoint.y = outPoint.y + (drawInfo.devCenterPos.y - drawInfo.devRect.CenterPoint().y);
 
-	PointF ttt;
 	if (drawInfo.headingUpMode == 1)
 	{
-		Point temp = Rotate(outPoint, centerPoint, (long)angle);
-		ttt.X = temp.x;
-		ttt.Y = temp.y;
-		g_DrawBuffer[0] = ttt;
+		g_DrawBuffer[0] = Rotate(outPoint, centerPoint, (long)angle).Point2PointF();
 	}
 	else
 	{
-		ttt.X = outPoint.x;
-		ttt.Y = outPoint.y;
-		g_DrawBuffer[0] = ttt;
+		g_DrawBuffer[0] = outPoint.Point2PointF();
 	}
 std::cout << "Step 1111" << std::endl;
 	//GetTextExtentPoint(hDC, FieldValue, FieldValue.length(), &textSize);
@@ -634,14 +628,9 @@ std::cout << "Step 1111" << std::endl;
 		color = Color(255, 255, 255);
 
 std::cout << "Step 11111" << std::endl;
-	PointF tmp;
-	tmp.X = textRect.TopLeft().x;
-	tmp.Y = textRect.TopLeft().y;
-	const WCHAR* sss = "a";
 	// graphics->DrawString(sss /*FieldValue.c_str()*/, -1, &font, tmp, &fillBrush);
 std::cout << "Step 111111" << std::endl;
 	//SetTextColor(hDC, oldTextColor);
-	std::cout << "POINT ==> ( " << tmp.X << ", " << tmp.Y  << ")" << std::endl;  
 #if MAP_DISPLAY_DEBUG_MSG
 	TRACE("POINT ==> mapType : %d, displayCode : %d\n", mapType, pData->header.code);
 	
