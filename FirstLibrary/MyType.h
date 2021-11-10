@@ -1,9 +1,8 @@
 #pragma once
 
-#include "AppLibrary.h"
 #include <string>
-#include <cstring>
 
+#include "AppLibrary.h"
 #include "./include/type.h"
 
 typedef struct Point {
@@ -144,7 +143,6 @@ typedef struct _MapRecord
 
 	long getBuffer(unsigned int bufferSize)
 	{
-		// ������ ������ �޸� ����
 		GlReleaseMem(&pointList);
 		pointList = new Point[bufferSize];
 		return true;
@@ -163,11 +161,10 @@ typedef struct _MapFactorInfo
 	int			_levelIdxGap;
 	int			_levelIdxCount;
 
-	Point			_basePoint;
+	Point		_basePoint;
 	int			_levelGapTable[2][16];
-	double			_levelFactorTable[2][16];
+	double		_levelFactorTable[2][16];
 
-	// 1/8 �� ������ ����
 	_MapFactorInfo() : _basePoint(3456000, 940800), _baseLevelIdx(0), _levelIdxGap(2), _levelIdxCount(4)
 	{
 		for (unsigned int tblIndex = 0; tblIndex < 16; tblIndex++)
@@ -229,14 +226,13 @@ typedef struct _MapFactorInfo
 
 } _MapFactorInfo;
 
-
 typedef struct _MapDrawInfo
 {
-	long		physicalLevel;			// ������ ����
-	long		logicalLevel;			// ������ ����
+	long		physicalLevel;			
+	long		logicalLevel;			
 	long		mapAngle;
-	long		headingUpMode;			// ����� ���
-	long		dayNightMode;			// �߰� ���
+	long		headingUpMode;	
+	long		dayNightMode;		
 	_dPoint		mapCenterPos;			// Map Center Point
 	Point		mapCenterPos4096;		// Map Center Point 4096
 	Rect		drawRect;				// 4096 RectF

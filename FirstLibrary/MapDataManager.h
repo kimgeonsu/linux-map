@@ -3,14 +3,12 @@
 #include <iostream>
 #include <string>
 #include <list>
-#include <iostream>
-//#include <experimental/filesystem>
-#include <dirent.h>
+#include <dirent.h
+
 #include "MyType.h"
 #include "DesignRecordManager.h"
 #include "DrawData.h"
 
-//namespace fs = std::experimental::filesystem;
 
 class MapDataManager {
 public:
