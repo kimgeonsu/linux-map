@@ -549,9 +549,6 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 	color = Color(0,0,256);
 	Brush fillBrush;
 	fillBrush = Brush(color);
-	wchar_t		wBuffer[32];
-
-	memset(&wBuffer, 0, sizeof(wBuffer));
 
 	// Multibyte to Widechar
 // #if	defined(_UNICODE)
