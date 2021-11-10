@@ -392,7 +392,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	// }
 
 	std::cout <<"디벙깅 8\n";
-	std::cout << pData->header.textData << std::endl;
+	// std::cout << pData->header.textData << std::endl;
 // #if MAP_DISPLAY_DEBUG_MSG
 // 	TRACE("POLYGON ==> mapType : %d, displayCode : %d\n", mapType, pData->header.code);
 // #endif
