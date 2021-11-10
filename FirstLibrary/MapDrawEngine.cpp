@@ -189,29 +189,29 @@ bool CMapDrawEngine::IsDrawObject(Rect drawRect, Rect objRect)
 long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx)
 {
 	// for intersect calculation..
-	// Rect		objRect(pData->header.boundaryRect);
-	// Rect		drawRect;
-	// Rect		checkRect;
-	// Rect		rectBuffer;
-	// Point		centerPoint;
-	// Point		outPoint;
-	// Point		inPoint;
-	// Point		textPoint;
-	// Rect		textRect;
-	// Point		tmpCenterPoint(drawInfo.mapCenterPos4096);
-	// long		nIdx = 0;
+	Rect		objRect(pData->header.boundaryRect);
+	Rect		drawRect;
+	Rect		checkRect;
+	Rect		rectBuffer;
+	Point		centerPoint;
+	Point		outPoint;
+	Point		inPoint;
+	Point		textPoint;
+	Rect		textRect;
+	Point		tmpCenterPoint(drawInfo.mapCenterPos4096);
+	long		nIdx = 0;
 
-	// Point		textSize;
-	// /*long		oldTextColor;*/
+	Point		textSize;
+	/*long		oldTextColor;*/
 
-	// std::string		textData;
+	std::string		textData;
 
-	// Brush		oldBrush;
-	// Brush		fillBrush;
-	// Pen		drawPen;
-	// Pen		oldPen;
+	Brush		oldBrush;
+	Brush		fillBrush;
+	Pen		drawPen;
+	Pen		oldPen;
 
-	// Font font = Font("포온트", 0);
+	Font font = Font("포온트", 0);
 
 	// _DesignRecord* designInfo = mapDataManager._designRecordMng.GetRecordData(pData->header.designCode);
 
@@ -392,7 +392,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	// }
 
 	std::cout <<"디벙깅 8\n";
-	// std::cout << pData->header.textData << std::endl;
+	std::cout << pData->header.textData << std::endl;
 // #if MAP_DISPLAY_DEBUG_MSG
 // 	TRACE("POLYGON ==> mapType : %d, displayCode : %d\n", mapType, pData->header.code);
 // #endif
