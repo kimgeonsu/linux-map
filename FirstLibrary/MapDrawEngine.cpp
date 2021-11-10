@@ -11,7 +11,7 @@ PointF g_DrawBuffer[MAX_DRAW_POINT_COUNT];
 CMapDrawEngine::CMapDrawEngine()
 {
 	Color color = Color(0, 0, 0);
-	Color color2 = Color(128, 0, 0);
+	Color color2 = Color(256, 0, 256);
 	m_NULLPEN = Pen(color, 1.0);
 	m_NULLBRUSH = Brush(color, 1);
 	m_BACKBRUSH = Brush(color2, 1);
@@ -88,8 +88,8 @@ long CMapDrawEngine::DrawMap()
 	}
 
 
-	Color red = Color(255, 0, 0);
-	Brush testBrush = Brush(red, 1);
+	Color red = Color(256, 0, 0);
+	Brush testBrush = Brush(red);
 	Rect tmpRect;
 	tmpRect.left = drawInfo.devCenterPos.x - 5;
 	tmpRect.top = drawInfo.devCenterPos.y - 5;
@@ -522,7 +522,7 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 
 	// graphics->DrawString(sss /*FieldValue.c_str()*/, -1, &font, tmp, &fillBrush);
 	//SetTextColor(hDC, oldTextColor);
-	
+
 	return true;
 }
 
@@ -535,15 +535,12 @@ Point CMapDrawEngine::Rotate(Point inPoint, Point centerPoint, long angle)
 	long cosValue = m_CosValue[angle];
 	long sinValue = m_SinValue[angle];
 
-	// ȸ���߽��� center�� ����  O�� ��ġ�ϵ��� ȸ���� �� inPoint�� �Բ� �����̵�
 	inPoint.x -= centerPoint.x;
 	inPoint.y -= centerPoint.y;
 
-	// ���� O�� ���Ͽ� ȸ���� �� inPoint�� angle ���� ��ŭ ȸ��
 	outPoint.x = (inPoint.x * cosValue - inPoint.y * sinValue) / 10000;
 	outPoint.y = (inPoint.y * cosValue + inPoint.x * sinValue) / 10000;
 
-	// ���� O�� ������ ȸ�� �߽��� centerPoint�� ��ġ�ϵ��� ȸ���� �� outPoint�� �Բ� �̵�
 	outPoint.x += centerPoint.x;
 	outPoint.y += centerPoint.y;
 
@@ -617,8 +614,8 @@ long CMapDrawEngine::GetUTM(_dPoint inPoint, _dPoint& utmPoint, long param)
 
 	m_Coordinate._dCentralKd = 127;
 	m_Coordinate.GetKwbyXY(inPoint.y, inPoint.x, &kw);
-	slam = m_Coordinate.GetRadian(kw.kd, kw.kb, kw.kc);	// �浵
-	sphi = m_Coordinate.GetRadian(kw.wd, kw.wb, kw.wc);	// ����
+	slam = m_Coordinate.GetRadian(kw.kd, kw.kb, kw.kc);
+	sphi = m_Coordinate.GetRadian(kw.wd, kw.wb, kw.wc);	
 
 	m_Coordinate.GetTawon2utm(0, sphi, slam, &m_BaseZone, &tutmy, &tutmx, 0);
 
