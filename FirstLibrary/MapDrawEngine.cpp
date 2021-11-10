@@ -189,7 +189,7 @@ bool CMapDrawEngine::IsDrawObject(Rect drawRect, Rect objRect)
 long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx)
 {
 	// for intersect calculation..
-	Rect		objRect = pData->header.boundaryRect;
+	Rect		objRect(pData->header.boundaryRect);
 	Rect		drawRect;
 	Rect		checkRect;
 	Rect		rectBuffer;
@@ -198,22 +198,22 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	Point		inPoint;
 	Point		textPoint;
 	Rect		textRect;
-	Point		tmpCenterPoint = drawInfo.mapCenterPos4096;
+	Point		tmpCenterPoint(drawInfo.mapCenterPos4096);
 	long		nIdx = 0;
 
 	Point		textSize;
 	/*long		oldTextColor;*/
 
 	std::string		textData;
-	Brush		oldBrush;
 
+	Brush		oldBrush;
 	Brush		fillBrush;
 	Pen		drawPen;
 	Pen		oldPen;
 
 	Font font = Font("포온트", 0);
 
-	_DesignRecord* designInfo = mapDataManager._designRecordMng.GetRecordData(pData->header.designCode);
+	_DesignRecord* designInfo = mapDataManager._designRecoredMng.GetRecordData(pData->header.designCode);
 
 	centerPoint = drawInfo.devCenterPos;
 
@@ -286,22 +286,13 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		outPoint.x = outPoint.x + (drawInfo.devCenterPos.x - drawInfo.devRect.CenterPoint().x);
 		outPoint.y = outPoint.y + (drawInfo.devCenterPos.y - drawInfo.devRect.CenterPoint().y);
 
-		// ������ϰ��
-		PointF tmp;
 		if (drawInfo.headingUpMode == 1)
 		{
 			g_DrawBuffer[nIdx] = Rotate(outPoint, centerPoint, (long)angle).Point2PointF();
-			Point temp = Rotate(outPoint, centerPoint, (long)angle);
-			tmp.X = temp.x;
-			tmp.Y = temp.y;
-			g_DrawBuffer[nIdx] = tmp;
 		}
 		else
 		{
 			g_DrawBuffer[nIdx] = outPoint.Point2PointF();
-			tmp.X = outPoint.x;
-			tmp.Y = outPoint.y;
-			g_DrawBuffer[nIdx] = tmp;
 		}
 	}
 
@@ -309,7 +300,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 
 	if (designInfo != NULL)
 	{
-		if (designInfo->objType == '2')
+		if (designInfo->objType == (unsigned char)2)
 		{
 			Color color = Color(0, 256, 0);
 			fillBrush = Brush(color);
@@ -341,7 +332,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	std::cout <<"디벙깅 6\n";
 
 	// Text Output
-	if (/*(textData.length() > 0* && */(designInfo != NULL))
+	if ((textData.length() > 0) && (designInfo != NULL))
 	{
 		std::cout << "textData가 문제인가? 1\n";
 		textPoint.x -= drawRect.left;
@@ -390,17 +381,15 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 
 	//SelectObject(hDC, oldBrush);
 
-	if (designInfo != NULL)
-	{
-		//SelectObject(hDC, oldPen);
-
-		if (designInfo->objType == 2)
-		{
-			//GlReleaseHOBJ(&fillBrush);
-		}
-
-		//GlReleaseHOBJ(&drawPen);
-	}
+	// if (designInfo != NULL)
+	// {
+	// 	SelectObject(hDC, oldPen);
+	// 	if (designInfo->objType == 2)
+	// 	{
+	// 		GlReleaseHOBJ(&fillBrush);
+	// 	}
+	// 	GlReleaseHOBJ(&drawPen);
+	// }
 
 	std::cout <<"디벙깅 8\n";
 	std::cout << pData->header.textData << std::endl;
