@@ -33,7 +33,7 @@ public:
 			while ((ent = readdir(dir)) != NULL)
 			{	
 				std::cout << ent->d_name << std::endl;
-				ReadFile(ent->d_name, &_drawData);
+				ReadFile(ent->d_name);
 			}
 			closedir(dir);
 		}
