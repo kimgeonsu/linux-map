@@ -40,7 +40,7 @@ int main()
 	int currentMapMode = 0;
 	engine->SetMapAngle(currentAngle);
 	engine->SetMapHeadingUpMode(currentMapMode);
-    engine->MoveMap(100, 10);
+    engine->MoveMap(10, 100);
     
     _dPoint dp;
     dp.x = 128.5;
