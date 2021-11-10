@@ -57,7 +57,7 @@ public:
 		return _mapDataPath;
 	}
 
-	long ReadFile(std::string fileName, CDrawData *drawData);
+	long ReadFile(std::string fileName);
 
 public :
 	CDrawData _drawData;

@@ -20,7 +20,7 @@ long MapDataManager::Init()
 	return true;
 }
 
-long MapDataManager::ReadFile(std::string fileName, CDrawData *drawData)
+long MapDataManager::ReadFile(std::string fileName)
 {
 	FILE* mapFile = NULL;
 	_MapRecord* pData = NULL;
@@ -45,7 +45,7 @@ long MapDataManager::ReadFile(std::string fileName, CDrawData *drawData)
 				mapFile = NULL;
 				break;
 			}
-			drawData->AddDataList(pData);
+			_drawData->AddDataList(pData);
 
 		} while (1);
 
