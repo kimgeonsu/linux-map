@@ -87,8 +87,8 @@ long CMapDrawEngine::DrawMap()
 		switch (pData.header.objType)
 		{
 		case 1:
-			std::cout << "DrawPOI( " << drawInfo.mapAngle << ", " << nIdx << std::endl;
-			DrawPOI(&pData, drawInfo.mapAngle, nIdx);
+			// std::cout << "DrawPOI( " << drawInfo.mapAngle << ", " << nIdx << std::endl;
+			// DrawPOI(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 3:
 			// std::cout << "DrawPolyline(&pData, drawInfo.mapAngle, nIdx);\n";
