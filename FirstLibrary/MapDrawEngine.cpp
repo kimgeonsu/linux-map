@@ -87,12 +87,12 @@ long CMapDrawEngine::DrawMap()
 		switch (pData.header.objType)
 		{
 		case 1:
-			// std::cout << "DrawPOI( " << drawInfo.mapAngle << ", " << nIdx << std::endl;
-			// DrawPOI(&pData, drawInfo.mapAngle, nIdx);
+			std::cout << "DrawPOI( " << drawInfo.mapAngle << ", " << nIdx << std::endl;
+			DrawPOI(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 3:
-			// std::cout << "DrawPolyline(&pData, drawInfo.mapAngle, nIdx);\n";
-			// DrawPolyline(&pData, drawInfo.mapAngle, nIdx);
+			std::cout << "DrawPolyline(&pData, drawInfo.mapAngle, nIdx);\n";
+			DrawPolyline(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 5:
 			std::cout << "DrawPolygon(&pData, drawInfo.mapAngle, nIdx);\n";
@@ -625,7 +625,6 @@ std::cout << "Step 1111" << std::endl;
 	textRect.top = g_DrawBuffer[0].Y - (int)(textSize.y / 2) - 1;
 	textRect.bottom = g_DrawBuffer[0].Y + (int)(textSize.y / 2) + 1;
 
-	Color color;
 
 	//oldTextColor = GetTextColor(hDC);
 	// SetTextColor(hDC, RGB(150, 79, 223));
