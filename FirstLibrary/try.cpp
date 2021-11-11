@@ -32,7 +32,7 @@ int main()
     engine->SetMapDataPath(dataFilePath);
 	engine->SetDeviceRect(0, 0, 480, 800);
 	engine->SetDeviceCenterPos(240, 400);
-	engine->SetZoomLevel(1);
+	engine->SetZoomLevel(0);
 	engine->SetMapPos(128.0, 36.0);
 
 	int currentAngle = 90;
@@ -40,7 +40,7 @@ int main()
 	engine->SetMapAngle(currentAngle);
 	engine->SetMapHeadingUpMode(currentMapMode);
     engine->SetMapDayNightMode(1);
-    engine->MoveMap(10, 100);
+    // engine->MoveMap(10, 100);
 
     _dPoint dp;
     dp.x = 128.5;
