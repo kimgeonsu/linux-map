@@ -45,7 +45,10 @@ int main()
     _dPoint dp;
     dp.x = 128.5;
     dp.y = 36.5;
+    Point ip = Point(10,10);
     engine->WorldToDevice(dp);
+    engine->SetDeviceToWorldMove(ip, ip);
+    
     engine->DrawMap();
     
     return 0;
