@@ -48,7 +48,7 @@ int main()
     Point ip = Point(10,10);
     engine->WorldToDevice(dp);
     engine->DeviceToWorldMove(ip, ip);
-
+    cout << "GetUTM : " << engine->GetUTM(dp, &dp, 0) << endl;
     engine->DrawMap();
     
     return 0;
