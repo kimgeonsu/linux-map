@@ -34,8 +34,8 @@ int main()
 	engine->SetZoomLevel(0);
 	engine->SetMapPos(128.0, 36.0);
 
-	int currentAngle = 30;
-	int currentMapMode = 1;
+	int currentAngle = 0;
+	int currentMapMode = 0;
 	engine->SetMapAngle(currentAngle);
 	engine->SetMapHeadingUpMode(currentMapMode);
     engine->SetMapDayNightMode(1);
