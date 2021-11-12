@@ -26,7 +26,7 @@ using namespace std;
 int main()
 {
     std::string dataFilePath = "../Output";
-
+    cout << "용량 왜 이렇게 작냐구...........\n";
     CMapDrawEngine *engine = new CMapDrawEngine;
     engine->Init();
     engine->SetMapDataPath(dataFilePath);
