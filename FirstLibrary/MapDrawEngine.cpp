@@ -74,7 +74,7 @@ long CMapDrawEngine::DrawMap()
 		switch (pData.header.objType)
 		{
 		case 1:
-			DrawPOI(&pData, drawInfo.mapAngle, nIdx);
+			// DrawPOI(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 3:
 			DrawPolyline(&pData, drawInfo.mapAngle, nIdx);
@@ -520,7 +520,7 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 	else
 		color = Color(255, 255, 255);
 
-	RectF tmpRectF = textRect.Rect2RectF();
+	// RectF tmpRectF = textRect.Rect2RectF();
 	// graphics->DrawString(FieldValue.c_str(), -1, &font,  PointF(10,10), &fillBrush);
 	//SetTextColor(hDC, oldTextColor);
 
