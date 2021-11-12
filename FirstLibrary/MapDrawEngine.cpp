@@ -326,7 +326,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	// 	//oldTextColor = GetTextColor(hDC);
 	// 	// SetTextColor(hDC, RGB(150, 79, 223));
 	// 	//SetTextColor(hDC, designInfo->_fontStyle[drawInfo.dayNightMode].color);
-		graphics->DrawString(pData->header.textData, -1, &font, textPoint.Point2PointF(), &fillBrush);
+	//	graphics->DrawString(pData->header.textData, -1, &font, textPoint.Point2PointF(), &fillBrush);
 	// 	//SetTextColor(hDC, oldTextColor);
 
 	}
