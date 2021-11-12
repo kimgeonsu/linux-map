@@ -18,8 +18,8 @@ CMapDrawEngine::CMapDrawEngine()
 
 	graphics = new Graphics("/dev/fb0");
 
-	m_MapFont[0] = Font("fontName1", 8);
-	m_MapFont[1] = Font("fontName2", 12);
+	m_MapFont[0] = Font("./Font/Sans_Regular_10.bdf", 8);
+	m_MapFont[1] = Font("./Font/Sans_Regular_10.bdf", 12);
 
 
 	m_BaseZone = 52;
@@ -189,7 +189,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	Brush fillBrush = Brush(color);
 	Pen	drawPen = Pen(color, 1.0);
 	Pen	oldPen = Pen(color, 1.0);
-	Font font = Font("포온트", 0);
+	Font font = Font("./Font/Sans_Regular_10.bdf", 0);
 
 	_DesignRecord* designInfo = mapDataManager._designRecordMng.GetRecordData(pData->header.designCode);
 
@@ -326,7 +326,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	// 	//oldTextColor = GetTextColor(hDC);
 	// 	// SetTextColor(hDC, RGB(150, 79, 223));
 	// 	//SetTextColor(hDC, designInfo->_fontStyle[drawInfo.dayNightMode].color);
-	// 	// graphics->DrawString(pData->header.textData, -1, &font, textPoint.Point2PointF(), &fillBrush);
+		graphics->DrawString(pData->header.textData, -1, &font, textPoint.Point2PointF(), &fillBrush);
 	// 	//SetTextColor(hDC, oldTextColor);
 
 	}
@@ -458,7 +458,7 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 	Rect		textRect;
 	std::string		FieldValue;
 
-	// Font font = Font("폰트폰트", 10);
+	Font font = Font("./Font/Sans_Regular_10.bdf", 10);
 	Color color = Color(0,0,256);
 	Brush fillBrush = Brush(color);
 
@@ -520,7 +520,7 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 	else
 		color = Color(255, 255, 255);
 
-	// graphics->DrawString(sss /*FieldValue.c_str()*/, -1, &font, tmp, &fillBrush);
+	graphics->DrawString(sss /*FieldValue.c_str()*/, -1, &font, tmp, &fillBrush);
 	//SetTextColor(hDC, oldTextColor);
 
 	return true;
