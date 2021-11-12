@@ -48,9 +48,6 @@ long CMapDrawEngine::Init()
 
 long CMapDrawEngine::DrawMap()
 { 
-	
-	long	tmpFontSize = 0;
-	long	nIdx = 0;
 	Font	oldFont;
 
 	graphics->FillRectangle(&m_BACKBRUSH, drawInfo.devRect.Rect2RectF());
@@ -237,7 +234,6 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		return false;
 	}
 
-
 	memset(&g_DrawBuffer, 0, sizeof(PointF) * MAX_DRAW_POINT_COUNT);
 	for (nIdx = 0; nIdx < pData->header.pointCount; nIdx++)
 	{
@@ -265,8 +261,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 			g_DrawBuffer[nIdx] = outPoint.Point2PointF();
 		}
 	}
-
-
+ 
 	if (designInfo != NULL)
 	{
 		if (designInfo->objType == (unsigned char)2)
