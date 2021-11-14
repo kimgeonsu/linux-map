@@ -48,6 +48,9 @@ long CMapDrawEngine::Init()
 
 long CMapDrawEngine::DrawMap()
 { 
+	
+	long	tmpFontSize = 0;
+	long	nIdx = 0;
 	Font	oldFont;
 
 	graphics->FillRectangle(&m_BACKBRUSH, drawInfo.devRect.Rect2RectF());
@@ -71,7 +74,7 @@ long CMapDrawEngine::DrawMap()
 		switch (pData.header.objType)
 		{
 		case 1:
-			DrawPOI(&pData, drawInfo.mapAngle);
+			DrawPOI(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 3:
 			DrawPolyline(&pData, drawInfo.mapAngle, nIdx);
@@ -234,6 +237,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		return false;
 	}
 
+
 	memset(&g_DrawBuffer, 0, sizeof(PointF) * MAX_DRAW_POINT_COUNT);
 	for (nIdx = 0; nIdx < pData->header.pointCount; nIdx++)
 	{
@@ -261,7 +265,8 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 			g_DrawBuffer[nIdx] = outPoint.Point2PointF();
 		}
 	}
- 
+
+
 	if (designInfo != NULL)
 	{
 		if (designInfo->objType == (unsigned char)2)
@@ -453,7 +458,7 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 	Rect		textRect;
 	std::string		FieldValue;
 
-	// Font font = Font("./Font/Sans_Regular_10.bdf", 10);
+	Font font = Font("./Font/Sans_Regular_10.bdf", 10);
 	Color color = Color(0,0,256);
 	Brush fillBrush = Brush(color);
 
@@ -515,7 +520,7 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 	else
 		color = Color(255, 255, 255);
 
-	// RectF tmpRectF = textRect.Rect2RectF();
+	RectF tmpRectF = textRect.Rect2RectF();
 	// graphics->DrawString(FieldValue.c_str(), -1, &font,  PointF(10,10), &fillBrush);
 	//SetTextColor(hDC, oldTextColor);
 
