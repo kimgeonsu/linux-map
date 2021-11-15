@@ -8,6 +8,8 @@ PROJECT(try)
 INCLUDE_DIRECTORIES(include/gx/)
 
 FILE(MAKE_DIRECTORY out)
+FILE(MAKE_DIRECTORY out/fonts)
+FILE(COPY fonts/ DESTINATION out/fonts/ )
 
 ADD_EXECUTABLE(try try.cpp)
 
