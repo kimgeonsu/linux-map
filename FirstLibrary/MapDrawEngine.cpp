@@ -521,7 +521,7 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 		color = Color(255, 255, 255);
 
 	RectF tmpRectF = textRect.Rect2RectF();
-	graphics->DrawString(FieldValue.c_str(), -1, &font,  PointF(10,10), &fillBrush);
+	// graphics->DrawString(FieldValue.c_str(), -1, &font,  PointF(10,10), &fillBrush);
 	//SetTextColor(hDC, oldTextColor);
 
 	return true;
