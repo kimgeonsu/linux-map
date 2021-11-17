@@ -325,7 +325,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 
 		std::cout << "what's problem\n";
 		// SetTextColor(hDC, designInfo->_fontStyle[drawInfo.dayNightMode].color);
-		std::cout << designInfo->_fontStyle[0].color
+		std::cout << designInfo->_fontStyle[0].color << std::endl;
 		// graphics->DrawString(pData->header.textData, -1, &font, textPoint.Point2PointF(), &fillBrush);
 	}
 
