@@ -17,7 +17,7 @@ long CDesignRecordMng::LoadDesignFile(std::string fileName)
 {
 	Init();
 
-	FILE* pFile = NULL;
+	FILE* pFile = nullptr;
 	long	fileSize = 0;
 	long	recIdx = 0;
 
