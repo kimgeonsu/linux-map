@@ -18,8 +18,8 @@ CMapDrawEngine::CMapDrawEngine()
 
 	graphics = new Graphics("/dev/fb0");
 
-	m_MapFont[0] = Font("./Font/Sans_Regular_10.bdf", 8);
-	m_MapFont[1] = Font("./Font/Sans_Regular_10.bdf", 12);
+	m_MapFont[0] = Font("./fonts/Sans_Regular_10.bdf", 8);
+	m_MapFont[1] = Font("./fonts/Sans_Regular_10.bdf", 12);
 
 
 	m_BaseZone = 52;
@@ -189,7 +189,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	Brush fillBrush = Brush(color);
 	Pen	drawPen = Pen(color, 1.0);
 	Pen	oldPen = Pen(color, 1.0);
-	Font font = Font("./Font/Sans_Regular_10.bdf", 0);
+	Font font = Font("./fonts/Sans_Regular_10.bdf", 0);
 
 	_DesignRecord* designInfo = mapDataManager._designRecordMng.GetRecordData(pData->header.designCode);
 
@@ -323,16 +323,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		textRect.top = textPoint.y - (int)(textSize.y / 2) - 1;
 		textRect.bottom = textPoint.y + (int)(textSize.y / 2) + 1;
 
-		std::cout << "what's problem\n";
 		// SetTextColor(hDC, designInfo->_fontStyle[drawInfo.dayNightMode].color);
-		std::cout << designInfo->designCode;
-		
-
-		WCHAR *str = "please....";
-		Color ccc = Color(0, 0, 0);
-		Brush bbb = Brush(ccc);
-		Font fff = Font("fonts/Sans_Regular_10.bdf", 10);
-		graphics->DrawString(str, -1, &fff, PointF(10,10), &bbb);
 	
 		// graphics->DrawString(pData->header.textData, -1, &font, textPoint.Point2PointF(), &fillBrush);
 	}
@@ -547,7 +538,7 @@ Point CMapDrawEngine::Rotate(Point inPoint, Point centerPoint, long angle)
 
 	outPoint.x += centerPoint.x;
 	outPoint.y += centerPoint.y;
-
+ 
 	return outPoint;
 }
 
