@@ -323,12 +323,9 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		textRect.top = textPoint.y - (int)(textSize.y / 2) - 1;
 		textRect.bottom = textPoint.y + (int)(textSize.y / 2) + 1;
 
-	// 	//oldTextColor = GetTextColor(hDC);
-	// 	// SetTextColor(hDC, RGB(150, 79, 223));
-	// 	//SetTextColor(hDC, designInfo->_fontStyle[drawInfo.dayNightMode].color);
-		graphics->DrawString(pData->header.textData, -1, &font, textPoint.Point2PointF(), &fillBrush);
-	// 	//SetTextColor(hDC, oldTextColor);
-
+		// SetTextColor(hDC, designInfo->_fontStyle[drawInfo.dayNightMode].color);
+		std::cout << designInfo->_fontStyle[drawInfo.dayNightMode].color
+		// graphics->DrawString(pData->header.textData, -1, &font, textPoint.Point2PointF(), &fillBrush);
 	}
 
 	return true;
@@ -513,8 +510,6 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 	textRect.bottom = g_DrawBuffer[0].Y + (int)(textSize.y / 2) + 1;
 
 
-	//oldTextColor = GetTextColor(hDC);
-	// SetTextColor(hDC, RGB(150, 79, 223));
 	if (drawInfo.dayNightMode == 0)
 		color = Color(0, 0, 0);
 	else
@@ -522,7 +517,6 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 
 	RectF tmpRectF = textRect.Rect2RectF();
 	// graphics->DrawString(FieldValue.c_str(), -1, &font,  PointF(10,10), &fillBrush);
-	//SetTextColor(hDC, oldTextColor);
 
 	return true;
 }
