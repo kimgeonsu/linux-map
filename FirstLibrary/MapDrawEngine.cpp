@@ -323,6 +323,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		textRect.top = textPoint.y - (int)(textSize.y / 2) - 1;
 		textRect.bottom = textPoint.y + (int)(textSize.y / 2) + 1;
 
+		std::cout << "what's problem\n";
 		// SetTextColor(hDC, designInfo->_fontStyle[drawInfo.dayNightMode].color);
 		std::cout << designInfo->_fontStyle[drawInfo.dayNightMode].color;
 		// graphics->DrawString(pData->header.textData, -1, &font, textPoint.Point2PointF(), &fillBrush);
