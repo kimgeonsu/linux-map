@@ -27,8 +27,9 @@ int main(int argc, char *argv[])
 	Font 		 font("Sans-Regular", 10);
 
 	graphics = new Graphics("/dev/fb0");
-	color 	 = Color(0, 0, 0);
-	brush 	 = Brush(color);
+	
+	Brush clear(Color(255, 255, 255));
+	graphics->FillRectangle(&clear, RectF(0, 0, 800, 480));
 
 	WCHAR *str = "Geminit Hello! 1234567890";
 	graphics->DrawString(str, -1, &font, PointF(10, 10), &brush);
