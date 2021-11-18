@@ -191,7 +191,9 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	Pen	oldPen = Pen(color, 1.0);
 	Font font = Font("./fonts/Sans_Regular_10.bdf", 0);
 
-	_DesignRecord* designInfo = mapDataManager._designRecordMng.GetRecordData(pData->header.designCode);
+	_DesignRecord* designInfo;
+	designInfo->initData();
+	designInfo = mapDataManager._designRecordMng.GetRecordData(pData->header.designCode);
 
 	centerPoint = drawInfo.devCenterPos;
 
