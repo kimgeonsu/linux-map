@@ -74,7 +74,7 @@ long CMapDrawEngine::DrawMap()
 		switch (pData.header.objType)
 		{
 		case 1:
-			DrawPOI(&pData, drawInfo.mapAngle, nIdx);
+			// DrawPOI(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 3:
 			DrawPolyline(&pData, drawInfo.mapAngle, nIdx);
@@ -538,7 +538,7 @@ Point CMapDrawEngine::Rotate(Point inPoint, Point centerPoint, long angle)
 
 	outPoint.x += centerPoint.x;
 	outPoint.y += centerPoint.y;
- 
+
 	return outPoint;
 }
 

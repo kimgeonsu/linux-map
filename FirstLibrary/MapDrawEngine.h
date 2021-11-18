@@ -203,8 +203,6 @@ public:
 			tmpPoint = point;
 
 		drawInfo.mapCenterPos = DeviceToWorldMove(tmpPoint, centerPoint);
-
-		std::cout << "<" << drawInfo.mapCenterPos.y << ", " << drawInfo.mapCenterPos.x << ">\n";
 		return SetMapPos(drawInfo.mapCenterPos);
 	}
 
