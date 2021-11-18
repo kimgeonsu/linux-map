@@ -191,10 +191,8 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	Pen	oldPen = Pen(color, 1.0);
 	Font font = Font("./fonts/Sans_Regular_10.bdf", 0);
 
-	_DesignRecord* designInfo;
-	designInfo->initData();
-	designInfo = mapDataManager._designRecordMng.GetRecordData(pData->header.designCode);
-
+	_DesignRecord* designInfo = mapDataManager._designRecordMng.GetRec ordData(pData->header.designCode);
+	
 	centerPoint = drawInfo.devCenterPos;
 
 	tmpCenterPoint.x <<= drawInfo.logicalLevel;
@@ -327,7 +325,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 
 		// SetTextColor(hDC, designInfo->_fontStyle[drawInfo.dayNightMode].color);
 	
-		// graphics->DrawString(pData->header.textData, -1, &font, textPoint.Point2PointF(), &fillBrush);
+		graphics->DrawString(pData->header.textData, -1, &font, textPoint.Point2PointF(), &fillBrush);
 	}
 
 	return true;
@@ -518,7 +516,7 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 		color = Color(255, 255, 255);
 
 	RectF tmpRectF = textRect.Rect2RectF();
-	// graphics->DrawString(FieldValue.c_str(), -1, &font,  PointF(10,10), &fillBrush);
+	graphics->DrawString(FieldValue.c_str(), -1, &font,  PointF(10,10), &fillBrush);
 
 	return true;
 }
