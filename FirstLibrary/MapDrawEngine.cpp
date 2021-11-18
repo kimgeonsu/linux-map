@@ -455,7 +455,7 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 	Rect		textRect;
 	std::string		FieldValue;
 
-	Font font = Font("./Font/Sans_Regular_10.bdf", 10);
+	// Font font = Font("./fonts/Sans_Regular_10.bdf", 10);
 	Color color = Color(0,0,256);
 	Brush fillBrush = Brush(color);
 
