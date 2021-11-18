@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 	Graphics 	*graphics;
 	Color 		 color;
 	Brush 		 brush;
-	Font 		 font("fonts/Sans-Regular_10.bdf", 10);
+	Font 		 font("Sans-Regular", 10);
 
 	graphics = new Graphics("/dev/fb0");
 	color 	 = Color(0, 0, 0);
