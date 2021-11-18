@@ -22,8 +22,8 @@ extern "C" {
 int main(int argc, char *argv[])
 {
 	Graphics 	*graphics;
-	Color 		 color;
-	Brush 		 brush;
+	Color 		 color(0, 0, 0);
+	Brush 		 brush(color);
 	Font 		 font("Sans-Regular", 10);
 
 	graphics = new Graphics("/dev/fb0");
