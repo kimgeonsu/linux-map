@@ -6,8 +6,9 @@
 class Font
 {
 	public:
-		Font();
 		Font(const WCHAR *family, double size);
+		void SetFont(const WCHAR *family);
+		void SetSize(double size);
 };
 
 #endif
