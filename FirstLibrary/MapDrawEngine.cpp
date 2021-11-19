@@ -17,8 +17,11 @@ CMapDrawEngine::CMapDrawEngine()
 
 	graphics = new Graphics("/dev/fb0");
 
-	m_MapFont.SetFont("Sans-Regular");
-	m_MapFont.SetSize(10);
+	m_MapFont[0].SetFont("Sans-Regular");
+	m_MapFont[0].SetSize(10);
+	m_MapFont[1].SetFont("Sans-Regular");
+	m_MapFont[1].SetSize(10);
+
 
 
 	m_BaseZone = 52;
@@ -56,11 +59,11 @@ long CMapDrawEngine::DrawMap()
 
 	if (drawInfo.logicalLevel == 0)
 	{
-		oldFont = m_MapFont;
+		oldFont = m_MapFont[0];
 	}
 	else
 	{
-		oldFont = m_MapFont;
+		oldFont = m_MapFont[1];
 	}
 
 	std::list<_MapRecord>::iterator pos = mapDataManager._drawData._drawDataList.begin();
