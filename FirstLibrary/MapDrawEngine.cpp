@@ -189,7 +189,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	Brush fillBrush = Brush(color);
 	Pen	drawPen = Pen(color, 1.0);
 	Pen	oldPen = Pen(color, 1.0);
-	Font font = Font("./fonts/Sans_Regular_10.bdf", 0);
+	Font font = Font("Sans-Regular", 10);
 
 	_DesignRecord* designInfo = mapDataManager._designRecordMng.GetRec ordData(pData->header.designCode);
 	
@@ -324,7 +324,8 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		textRect.bottom = textPoint.y + (int)(textSize.y / 2) + 1;
 
 		// SetTextColor(hDC, designInfo->_fontStyle[drawInfo.dayNightMode].color);
-	
+		font.SetFont("Sans-Regular");
+		font.SetSize(20);
 		graphics->DrawString(pData->header.textData, -1, &font, textPoint.Point2PointF(), &fillBrush);
 	}
 
@@ -455,7 +456,7 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 	Rect		textRect;
 	std::string		FieldValue;
 
-	// Font font = Font("./fonts/Sans_Regular_10.bdf", 10);
+	Font font = Font("Sans-Regular", 10);
 	Color color = Color(0,0,256);
 	Brush fillBrush = Brush(color);
 
@@ -516,7 +517,9 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 		color = Color(255, 255, 255);
 
 	RectF tmpRectF = textRect.Rect2RectF();
-	graphics->DrawString(FieldValue.c_str(), -1, &font,  PointF(10,10), &fillBrush);
+	font.setFont("Sans-Regular");
+	font.setSize(10);
+	graphics->DrawString(FieldValue.c_str(), -1, &font,  textRect.TopLeft().Point2PointF(), &fillBrush);
 
 	return true;
 }
