@@ -1,1 +1,0 @@
-/usr/bin/c++ -rdynamic CMakeFiles/example_ellipse.dir/src/example_ellipse.cpp.o -o out/example_ellipse  -Llib -lgeminit-gn-gdi -lpng16 -ljpeg 

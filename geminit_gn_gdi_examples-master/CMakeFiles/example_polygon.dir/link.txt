@@ -1,1 +1,0 @@
-/usr/bin/c++ -rdynamic CMakeFiles/example_polygon.dir/src/example_polygon.cpp.o -o out/example_polygon  -Llib -lgeminit-gn-gdi -lpng16 -ljpeg 
