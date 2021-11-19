@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 	Graphics 	*graphics;
 	Color 		 color(0, 0, 0);
 	Brush 		 brush(color);
-	Font 		 font("Mono-Regular", F10);
+	Font 		 font("Sans-Regular", F10);
 
 	graphics = new Graphics("/dev/fb0");
 
@@ -50,17 +50,17 @@ int main(int argc, char *argv[])
 
 	graphics->DrawString(str, -1, &font, PointF(10, 20), &brush);
 
-	font.SetFont("Mono-Regular");
-	font.SetSize(F20);
-	graphics->DrawString(str, -1, &font, PointF(10, 50), &brush);
+	// font.SetFont("Mono-Regular");
+	// font.SetSize(F20);
+	// graphics->DrawString(str, -1, &font, PointF(10, 50), &brush);
 
 	font.SetFont("Sans-Regular");
 	font.SetSize(F20);
 	graphics->DrawString(str, -1, &font, PointF(10, 80), &brush);
 
-	font.SetFont("Serif-Regular");
-	font.SetSize(F20);
-	graphics->DrawString(str, -1, &font, PointF(10, 110), &brush);
+	// font.SetFont("Serif-Regular");
+	// font.SetSize(F20);
+	// graphics->DrawString(str, -1, &font, PointF(10, 110), &brush);
 
 	graphics->~Graphics();
 
