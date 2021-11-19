@@ -238,7 +238,7 @@ public:
 	Pen						m_NULLPEN;
 	Brush					m_NULLBRUSH;
 	Brush					m_BACKBRUSH;
-	Font					m_MapFont[2];
+	Font					m_MapFont("Sans-Regular", 10);
 
 	long					m_CosValue[360];
 	long					m_SinValue[360];

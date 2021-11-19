@@ -1,5 +1,4 @@
-﻿#include "MapDataManager.h"
-#include "MapDrawEngine.h"
+﻿#include "MapDrawEngine.h"
 #include "AppLibrary.h"
 #include "MyType.h"
 
@@ -18,11 +17,8 @@ CMapDrawEngine::CMapDrawEngine()
 
 	graphics = new Graphics("/dev/fb0");
 
-	m_MapFont[0].SetFont("Sans-Regular");
-	m_MapFont[0].SetSize(10);
-	m_MapFont[1].SetFont("Sans-Regular");
-	m_MapFont[1].SetSize(10);
-
+	m_MapFont.SetFont("Sans-Regular");
+	m_MapFont.SetSize(10);
 
 
 	m_BaseZone = 52;
@@ -60,11 +56,11 @@ long CMapDrawEngine::DrawMap()
 
 	if (drawInfo.logicalLevel == 0)
 	{
-		oldFont = m_MapFont[0];
+		oldFont = m_MapFont;
 	}
 	else
 	{
-		oldFont = m_MapFont[1];
+		oldFont = m_MapFont;
 	}
 
 	std::list<_MapRecord>::iterator pos = mapDataManager._drawData._drawDataList.begin();
