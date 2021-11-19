@@ -18,8 +18,8 @@ CMapDrawEngine::CMapDrawEngine()
 
 	graphics = new Graphics("/dev/fb0");
 
-	m_MapFont[0] = Font("Sans-Regular", 8);
-	m_MapFont[1] = Font("Sans-Regular", 12);
+	m_MapFont[0] = font("Sans-Regular", 8);
+	m_MapFont[1] = font("Sans-Regular", 12);
 
 
 	m_BaseZone = 52;
@@ -189,7 +189,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	Brush fillBrush = Brush(color);
 	Pen	drawPen = Pen(color, 1.0);
 	Pen	oldPen = Pen(color, 1.0);
-	Font font = Font("Sans-Regular", 10);
+	Font font = font("Sans-Regular", 10);
 
 	_DesignRecord* designInfo = mapDataManager._designRecordMng.GetRecordData(pData->header.designCode);
 	
@@ -456,7 +456,7 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 	Rect		textRect;
 	std::string		FieldValue;
 
-	Font font = Font("Sans-Regular", 10);
+	Font font = font("Sans-Regular", 10);
 	Color color = Color(0,0,256);
 	Brush fillBrush = Brush(color);
 
