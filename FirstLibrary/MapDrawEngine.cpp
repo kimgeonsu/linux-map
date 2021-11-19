@@ -18,8 +18,8 @@ CMapDrawEngine::CMapDrawEngine()
 
 	graphics = new Graphics("/dev/fb0");
 
-	m_MapFont[0] = Font("./fonts/Sans_Regular_10.bdf", 8);
-	m_MapFont[1] = Font("./fonts/Sans_Regular_10.bdf", 12);
+	m_MapFont[0] = Font("Sans-Regular", 8);
+	m_MapFont[1] = Font("Sans-Regular", 12);
 
 
 	m_BaseZone = 52;
@@ -51,7 +51,7 @@ long CMapDrawEngine::DrawMap()
 	
 	long	tmpFontSize = 0;
 	long	nIdx = 0;
-	Font	oldFont;
+	Font	oldFont("Sans-Regular", 10);
 
 	graphics->FillRectangle(&m_BACKBRUSH, drawInfo.devRect.Rect2RectF());
 
@@ -191,7 +191,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	Pen	oldPen = Pen(color, 1.0);
 	Font font = Font("Sans-Regular", 10);
 
-	_DesignRecord* designInfo = mapDataManager._designRecordMng.GetRec ordData(pData->header.designCode);
+	_DesignRecord* designInfo = mapDataManager._designRecordMng.GetRecordData(pData->header.designCode);
 	
 	centerPoint = drawInfo.devCenterPos;
 
@@ -517,8 +517,8 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 		color = Color(255, 255, 255);
 
 	RectF tmpRectF = textRect.Rect2RectF();
-	font.setFont("Sans-Regular");
-	font.setSize(10);
+	font.SetFont("Sans-Regular");
+	font.SetSize(10);
 	graphics->DrawString(FieldValue.c_str(), -1, &font,  textRect.TopLeft().Point2PointF(), &fillBrush);
 
 	return true;
