@@ -17,10 +17,10 @@ CMapDrawEngine::CMapDrawEngine()
 
 	graphics = new Graphics("/dev/fb0");
 
-	m_MapFont[0].SetFont("Sans-Regular");
-	m_MapFont[0].SetSize(10);
-	m_MapFont[1].SetFont("Sans-Regular");
-	m_MapFont[1].SetSize(10);
+	// m_MapFont[0].SetFont("Sans-Regular");
+	// m_MapFont[0].SetSize(10);
+	// m_MapFont[1].SetFont("Sans-Regular");
+	// m_MapFont[1].SetSize(10);
 
 
 
@@ -57,14 +57,14 @@ long CMapDrawEngine::DrawMap()
 
 	graphics->FillRectangle(&m_BACKBRUSH, drawInfo.devRect.Rect2RectF());
 
-	if (drawInfo.logicalLevel == 0)
-	{
-		oldFont = m_MapFont[0];
-	}
-	else
-	{
-		oldFont = m_MapFont[1];
-	}
+	// if (drawInfo.logicalLevel == 0)
+	// {
+	// 	oldFont = m_MapFont[0];
+	// }
+	// else
+	// {
+	// 	oldFont = m_MapFont[1];
+	// }
 
 	std::list<_MapRecord>::iterator pos = mapDataManager._drawData._drawDataList.begin();
 	std::list<_MapRecord>::iterator eee = mapDataManager._drawData._drawDataList.end();
