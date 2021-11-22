@@ -335,7 +335,8 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		WCHAR *str = "shittttttttttttt";
 		Color ccc(0, 0, 0);
 		Brush bbb(ccc);
-		graphics->DrawString(str, -1, &font, PointF(10, 20), &bbb);
+		Font fff("Sans-Regular", 10);
+		graphics->DrawString(str, -1, &fff, PointF(10, 20), &bbb);
 	}
 
 	return true;
