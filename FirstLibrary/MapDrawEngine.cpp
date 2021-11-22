@@ -325,6 +325,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		font.SetFont("Sans-Regular");
 		font.SetSize(20);
 		std::cout << "Hi~ I'm problem!!\n";
+		std::cout << pData->header.textData[0] << std::endl;
 		graphics->DrawString(pData->header.textData, -1, &font, textPoint.Point2PointF(), &fillBrush);
 	}
 
