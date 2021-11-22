@@ -58,7 +58,7 @@ long CMapDrawEngine::DrawMap()
 	Font	oldFont = Font("Sans-Regular", 10);
 
 	std::cout << "Are you? 1" << std::endl;
-	Color c = Color(255, 0, 0);
+	Color c = Color(0, 0, 0);
 	Brush b = Brush(c);
 	graphics->FillRectangle(&b, drawInfo.devRect.Rect2RectF());
 
@@ -326,13 +326,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		// SetTextColor(hDC, designInfo->_fontStyle[drawInfo.dayNightMode].color);
 		font.SetFont("Sans-Regular");
 		font.SetSize(20);
-		std::cout << "Hi~ I'm problem!!\n";
-		// for (int i = 0; i < 32; i++) {
-		// 	std::cout << pData->header.textData[i];
-		// }
-		// std::cout << '\n';
 
-		WCHAR *str = "shittttttttttttt";
 		Color ccc(0, 0, 0);
 		Brush bbb(ccc);
 		Font fff("Sans-Regular", 10);
