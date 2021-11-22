@@ -55,7 +55,9 @@ long CMapDrawEngine::DrawMap()
 	Font	oldFont = Font("Sans-Regular", 10);
 
 	std::cout << "Are you? 1" << std::endl;
-	graphics->FillRectangle(&m_BACKBRUSH, drawInfo.devRect.Rect2RectF());
+	Color c = Color(255, 0, 0);
+	Brush b = Brush(c);
+	graphics->FillRectangle(&b, drawInfo.devRect.Rect2RectF());
 
 	std::list<_MapRecord>::iterator pos = mapDataManager._drawData._drawDataList.begin();
 	std::list<_MapRecord>::iterator eee = mapDataManager._drawData._drawDataList.end();
