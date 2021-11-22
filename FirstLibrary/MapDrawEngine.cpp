@@ -328,7 +328,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 			std::cout << pData->header.textData[i];
 		}
 		std::cout << '\n';
-		WCHAR *str = "shittttttttttttt"
+		WCHAR *str = "shittttttttttttt";
 		graphics->DrawString(str, -1, &font, textPoint.Point2PointF(), &fillBrush);
 	}
 
