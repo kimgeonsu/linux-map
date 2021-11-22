@@ -52,9 +52,9 @@ long CMapDrawEngine::DrawMap()
 	long	tmpFontSize = 0;
 	long	nIdx = 0;
 
-	std::cout << "I think that font is proble" << std:endl;
+	std::cout << "I think that font is proble" << std::endl;
 	Font	oldFont = Font("Sans-Regular", 10);
-	std::cout << "Isn't it?" << std:endl;
+	std::cout << "Isn't it?" << std::endl;
 
 
 	graphics->FillRectangle(&m_BACKBRUSH, drawInfo.devRect.Rect2RectF());
