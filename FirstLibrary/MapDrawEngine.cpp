@@ -52,11 +52,9 @@ long CMapDrawEngine::DrawMap()
 	long	tmpFontSize = 0;
 	long	nIdx = 0;
 
-	std::cout << "I think that font is proble" << std::endl;
 	Font	oldFont = Font("Sans-Regular", 10);
-	std::cout << "Isn't it?" << std::endl;
 
-
+	std::cout << "Are you? 1" << std::endl;
 	graphics->FillRectangle(&m_BACKBRUSH, drawInfo.devRect.Rect2RectF());
 
 	std::list<_MapRecord>::iterator pos = mapDataManager._drawData._drawDataList.begin();
@@ -69,12 +67,15 @@ long CMapDrawEngine::DrawMap()
 		switch (pData.header.objType)
 		{
 		case 1:
+			std::cout << "Are you? 2" << std::endl;
 			DrawPOI(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 3:
+			std::cout << "Are you? 3" << std::endl;
 			DrawPolyline(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 5:
+			std::cout << "Are you? 4" << std::endl;
 			DrawPolygon(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		default:
