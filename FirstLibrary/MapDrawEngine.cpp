@@ -72,14 +72,12 @@ long CMapDrawEngine::DrawMap()
 		switch (pData.header.objType)
 		{
 		case 1:
-			std::cout << "Are you? 2" << std::endl;
 			DrawPOI(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 3:
 			DrawPolyline(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 5:
-			std::cout << "Are you? 4" << std::endl;
 			DrawPolygon(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		default:
