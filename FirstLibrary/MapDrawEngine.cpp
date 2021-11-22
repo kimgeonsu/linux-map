@@ -57,8 +57,7 @@ long CMapDrawEngine::DrawMap()
 
 	Font	oldFont = Font("Sans-Regular", 10);
 
-	std::cout << "Are you? 1" << std::endl;
-	Color c = Color(0, 0, 0);
+	Color c = Color(255, 255, 255);
 	Brush b = Brush(c);
 	graphics->FillRectangle(&b, drawInfo.devRect.Rect2RectF());
 
