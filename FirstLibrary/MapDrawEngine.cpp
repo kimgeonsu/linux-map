@@ -51,7 +51,7 @@ long CMapDrawEngine::DrawMap()
 	
 	long	tmpFontSize = 0;
 	long	nIdx = 0;
-	Font	oldFont("Sans-Regular", 10);
+	Font	oldFont = Font("Sans-Regular", 10);
 
 	graphics->FillRectangle(&m_BACKBRUSH, drawInfo.devRect.Rect2RectF());
 
