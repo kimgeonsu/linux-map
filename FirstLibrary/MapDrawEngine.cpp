@@ -324,15 +324,20 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		font.SetFont("Sans-Regular");
 		font.SetSize(20);
 		std::cout << "Hi~ I'm problem!!\n";
-		for (int i = 0; i < 32; i++) {
-			std::cout << pData->header.textData[i];
-		}
-		std::cout << '\n';
+		// for (int i = 0; i < 32; i++) {
+		// 	std::cout << pData->header.textData[i];
+		// }
+		// std::cout << '\n';
+
+		Brush clear(Color(255, 255, 255));
+		graphics->FillRectangle(&clear, RectF(0, 0, 800, 480));
+
 		WCHAR *str = "shittttttttttttt";
 		// graphics->DrawString(str, -1, &font, textPoint.Point2PointF(), &fillBrush);
 		Color ccc(0, 0, 0);
 		Brush bbb(ccc);
-		graphics->DrawString(str, -1, &font, PointF(10, 20), &bbb);
+		Font fff("Sans-Regular", 10);
+		graphics->DrawString(str, -1, &fff, PointF(10, 20), &bbb);
 	}
 
 	return true;
