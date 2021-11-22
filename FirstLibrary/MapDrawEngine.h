@@ -235,9 +235,10 @@ public:
 	_MapFactorInfo			_mapFactorInfo;
 	_MapDrawInfo			drawInfo;					// Draw Window Information
 
-	Pen						m_NULLPEN;
-	Brush					m_NULLBRUSH;
-	Brush					m_BACKBRUSH;
+	Color					color(0, 0, 0);
+	Pen						m_NULLPEN(color, 1.0);
+	Brush					m_NULLBRUSH(color);
+	Brush					m_BACKBRUSH(color);
 	Font					m_MapFont[2];
 
 	long					m_CosValue[360];
