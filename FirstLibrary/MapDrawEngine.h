@@ -239,7 +239,7 @@ public:
 	Pen						m_NULLPEN = Pen(color, 1.0);
 	Brush					m_NULLBRUSH = Brush(color);
 	Brush					m_BACKBRUSH = Brush(color);
-	// Font					m_MapFont[2];
+	Font					m_MapFont = Font("Sans-Regular", 10);
 
 	long					m_CosValue[360];
 	long					m_SinValue[360];
