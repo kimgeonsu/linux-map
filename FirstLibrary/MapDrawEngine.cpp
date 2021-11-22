@@ -73,7 +73,6 @@ long CMapDrawEngine::DrawMap()
 			DrawPOI(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 3:
-			std::cout << "Are you? 3" << std::endl;
 			DrawPolyline(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 5:
@@ -325,7 +324,10 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		font.SetFont("Sans-Regular");
 		font.SetSize(20);
 		std::cout << "Hi~ I'm problem!!\n";
-		std::cout << pData->header.textData[0] << std::endl;
+		for (int i = 0; i < 32; i++) {
+			std::cout << pData->header.textData[i];
+		}
+		std::endl;
 		graphics->DrawString(pData->header.textData, -1, &font, textPoint.Point2PointF(), &fillBrush);
 	}
 
