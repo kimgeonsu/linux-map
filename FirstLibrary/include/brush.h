@@ -6,7 +6,6 @@
 class Brush
 {
 	public:
-		Brush();
 		Brush(const Color &color, REAL width = 1.0f);
 };
 
