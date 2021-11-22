@@ -336,7 +336,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		Color ccc(0, 0, 0);
 		Brush bbb(ccc);
 		Font fff("Sans-Regular", 10);
-		graphics->DrawString(str, -1, &fff, textRect.TopLeft().Point2PointF(), &bbb);
+		graphics->DrawString(pData->header.textData, -1, &fff, textRect.TopLeft().Point2PointF(), &bbb);
 	}
 
 	return true;
