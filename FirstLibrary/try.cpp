@@ -31,11 +31,12 @@ int main()
     engine->SetMapDataPath(dataFilePath);
 	engine->SetDeviceRect(0, 0, 480, 800);
 	engine->SetDeviceCenterPos(240, 400);
+
 	engine->SetZoomLevel(2);
 	engine->SetMapPos(128.0, 36.0);
 
 	int currentAngle = 0;
-	int currentMapMode = 3;
+	int currentMapMode = 0;
 	engine->SetMapAngle(currentAngle);
 	engine->SetMapHeadingUpMode(currentMapMode);
     engine->SetMapDayNightMode(1);
