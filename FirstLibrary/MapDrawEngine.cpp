@@ -685,27 +685,15 @@ bool CMapDrawEngine::GetMGRS2UTM(std::string mgrs, _dPoint& utmPoint)
 }
 
 void CMapDrawEngine::colorConverter(int data) {
-	char hexa[8] = {'0','0', '0', '0', '0', '0', '0', '0'};
+	int hexa[8];
 	int decimal = data;
-	int pos = 0;
-	while(1) {
-		int mod = decimal % 16;
-		if (mod < 10) {
-			hexa[pos] = 48+ mod;
-		}
-		else {
-			hexa[pos] = 65 + (mod - 10);
-		}
-		decimal = decimal / 16;
-		pos++;
-
-		if (decimal == 0) {
-			break;
-		}
+	for (int i = 7; i >= 0; i--) {
+		hexa[i] = decimal % 16;
+		decimal /= 16;
 	}
 
-	for (int i =  pos - 1; i >= 0; i--) {
-		std::cout << hexa[i];
+	for (int i = 0; i < 8; i++) {
+		std::cout << hexa[i] << " ";
 	}
 	printf("\n");
 
