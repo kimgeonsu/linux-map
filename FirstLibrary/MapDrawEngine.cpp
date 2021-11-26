@@ -269,8 +269,8 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		if (designInfo->objType == (unsigned char)2)
 		{
 			// fillBursh = CreateSolidBrush(designInfo->_brush[drawInfo.dayNightMode].fillValue.data);
-			Color color = Color(0, 256, 0);
-			fillBrush = Brush(colorConverter(designInfo->_brush[drawInfo.dayNightMode].fillValue.data));
+			Color color = colorConverter(designInfo->_brush[drawInfo.dayNightMode].fillValue.data);
+			fillBrush = Brush(color);
 			oldBrush = fillBrush;
 		}
 		else
@@ -286,8 +286,9 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		else
 		{
 			// drawPen = CreatePen(designInfo->_line[drawInfo.dayNightMode].type, designInfo->_line[drawInfo.dayNightMode].width, designInfo->_line[drawInfo.dayNightMode].color);
-			Color color = Color(0, 0, 0);
-			drawPen = Pen(colorConverter(designInfo->_line[drawInfo.dayNightMode].color), 1);
+			
+			Color color = colorConverter(designInfo->_line[drawInfo.dayNightMode].color);
+			drawPen = Pen(color, 1);
 		}
 		oldPen = drawPen;
 	}
