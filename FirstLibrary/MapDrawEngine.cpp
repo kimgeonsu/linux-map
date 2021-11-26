@@ -298,8 +298,8 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		oldBrush = m_NULLBRUSH;
 		std::cout << "designInfo is NULL\n";
 	}
-	// graphics->DrawPolygon(&(drawPen), g_DrawBuffer, nIdx);
-	graphics->FillPolygon(&(fillBrush), g_DrawBuffer, nIdx);
+	graphics->DrawPolygon(&(drawPen), g_DrawBuffer, nIdx+1);
+	graphics->FillPolygon(&(fillBrush), g_DrawBuffer, nIdx+1);
 
 	// Text Output
 	if ((textData.length() > 0) && (designInfo != NULL))
@@ -444,7 +444,7 @@ long CMapDrawEngine::DrawPolyline(_MapRecord* pData, double angle, long bufferId
 		oldPen = drawPen;
 	}
 
-	graphics->DrawLines(&drawPen, g_DrawBuffer, pData->header.pointCount);
+	graphics->DrawLines(&drawPen, g_DrawBuffer, nIdx+1);
 
 	return true;
 }
