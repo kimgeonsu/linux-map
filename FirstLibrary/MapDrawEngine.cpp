@@ -10,7 +10,7 @@ PointF g_DrawBuffer[MAX_DRAW_POINT_COUNT];
 CMapDrawEngine::CMapDrawEngine()
 {
 	Color color = Color(0, 0, 0);
-	Color color2 = Color(256, 0, 0);
+	Color color2 = Color(128, 255, 255);
 	m_NULLPEN = Pen(color, 1.0);
 	m_NULLBRUSH = Brush(color);
 	m_BACKBRUSH = Brush(color2);
@@ -21,7 +21,7 @@ CMapDrawEngine::CMapDrawEngine()
 	graphics->FillRectangle(&clear, RectF(0, 0, 800, 480));
 
 	m_MapFont.SetFont("Sans-Regular");
-	m_MapFont.SetSize(10);
+	m_MapFont.SetSize(8);
 
 
 
@@ -85,7 +85,7 @@ long CMapDrawEngine::DrawMap()
 	}
 
 
-	Color red = Color(256, 0, 0);
+	Color red = Color(255, 0, 0);
 	Brush testBrush = Brush(red);
 	Rect tmpRect;
 	tmpRect.left = drawInfo.devCenterPos.x - 5;
@@ -268,6 +268,8 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	{
 		if (designInfo->objType == (unsigned char)2)
 		{
+			// fillBursh = CreateSolidBrush(designInfo->_brush[drawInfo.dayNightMode].fillValue.data);
+			std::cout << designInfo->_brush[drawInfo.dayNightMode].fillValue.data << std::endl;
 			Color color = Color(0, 256, 0);
 			fillBrush = Brush(color);
 			oldBrush = fillBrush;
@@ -284,6 +286,8 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		}
 		else
 		{
+			// drawPen = CreatePen(designInfo->_line[drawInfo.dayNightMode].type, designInfo->_line[drawInfo.dayNightMode].width, designInfo->_line[drawInfo.dayNightMode].color);
+			std::cout << designInfo->_line[drawInfo.dayNightMode].color << std::endl;
 			Color color = Color(0, 0, 0);
 			drawPen = Pen(color, 1);
 		}
@@ -292,6 +296,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	else
 	{
 		oldBrush = m_NULLBRUSH;
+		std::cout << "designInfo is NULL\n";
 	}
 	graphics->DrawPolygon(&(drawPen), g_DrawBuffer, nIdx);
 
@@ -524,6 +529,7 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 
 	return true;
 }
+
 
 Point CMapDrawEngine::Rotate(Point inPoint, Point centerPoint, long angle)
 {
