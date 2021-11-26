@@ -280,7 +280,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 
 		if (designInfo->_line[drawInfo.dayNightMode].type == '5')
 		{
-			Color color = Color(256, 256, 256);
+			Color color = Color(255, 255, 255);
 			drawPen = Pen(color, 0);
 		}
 		else
@@ -288,6 +288,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 			// drawPen = CreatePen(designInfo->_line[drawInfo.dayNightMode].type, designInfo->_line[drawInfo.dayNightMode].width, designInfo->_line[drawInfo.dayNightMode].color);
 			
 			Color color = colorConverter(designInfo->_line[drawInfo.dayNightMode].color);
+			std::cout << color.r << " " << color.g << " " << color.b << std::endl;
 			drawPen = Pen(color, 1);
 		}
 		oldPen = drawPen;
