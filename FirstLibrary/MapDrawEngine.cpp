@@ -299,6 +299,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		std::cout << "designInfo is NULL\n";
 	}
 	graphics->DrawPolygon(&(drawPen), g_DrawBuffer, nIdx);
+	graphics->FillPolygon(&(fillBrush), g_DrawBuffer, nIdx);
 
 	// Text Output
 	if ((textData.length() > 0) && (designInfo != NULL))
