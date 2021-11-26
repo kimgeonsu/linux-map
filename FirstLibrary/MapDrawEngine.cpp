@@ -696,7 +696,7 @@ void CMapDrawEngine::colorConverter(int data) {
 		else {
 			hexa[pos] = 65 + (mod - 10);
 		}
-		decimal /= 16;
+		decimal = decimal / 16;
 		pos++;
 
 		if (decimal == 0) {
