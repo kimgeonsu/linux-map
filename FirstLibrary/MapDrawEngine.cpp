@@ -697,7 +697,7 @@ void colorConverter(int data) {
 			hexa[pos] = 65 + (mod - 10);
 		}
 		decimal /= 16;
-		position++;
+		pos++;
 
 		if (decimal == 0) {
 			break;
