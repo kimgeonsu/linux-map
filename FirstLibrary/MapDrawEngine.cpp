@@ -269,7 +269,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		if (designInfo->objType == (unsigned char)2)
 		{
 			// fillBursh = CreateSolidBrush(designInfo->_brush[drawInfo.dayNightMode].fillValue.data);
-			std::hex << designInfo->_brush[drawInfo.dayNightMode].fillValue.data << std::endl;
+			std::cout << std::hex << designInfo->_brush[drawInfo.dayNightMode].fillValue.data << std::endl;
 			Color color = Color(0, 256, 0);
 			fillBrush = Brush(color);
 			oldBrush = fillBrush;
@@ -287,7 +287,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		else
 		{
 			// drawPen = CreatePen(designInfo->_line[drawInfo.dayNightMode].type, designInfo->_line[drawInfo.dayNightMode].width, designInfo->_line[drawInfo.dayNightMode].color);
-			std::hex<< designInfo->_line[drawInfo.dayNightMode].color << std::endl;
+			std::cout << std::hex<< designInfo->_line[drawInfo.dayNightMode].color << std::endl;
 			Color color = Color(0, 0, 0);
 			drawPen = Pen(color, 1);
 		}
