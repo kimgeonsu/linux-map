@@ -685,7 +685,7 @@ bool CMapDrawEngine::GetMGRS2UTM(std::string mgrs, _dPoint& utmPoint)
 }
 
 void CMapDrawEngine::colorConverter(int data) {
-	char hexa[8] = {0, };
+	char hexa[8] = {'0','0', '0', '0', '0', '0', '0', '0'};
 	int decimal = data;
 	int pos = 0;
 	while(1) {
@@ -700,7 +700,6 @@ void CMapDrawEngine::colorConverter(int data) {
 		pos++;
 
 		if (decimal == 0) {
-			hexa[pos] = '0';
 			break;
 		}
 	}
