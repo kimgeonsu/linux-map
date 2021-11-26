@@ -700,6 +700,7 @@ void CMapDrawEngine::colorConverter(int data) {
 		pos++;
 
 		if (decimal == 0) {
+			hexa[pos] = '0';
 			break;
 		}
 	}
