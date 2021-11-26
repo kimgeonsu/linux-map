@@ -57,7 +57,7 @@ long CMapDrawEngine::DrawMap()
 
 	Font	oldFont = Font("Sans-Regular", 10);
 
-	Color c = Color(255, 255, 255);
+	Color c = Color(0, 80, 255);
 	Brush b = Brush(c);
 	graphics->FillRectangle(&b, drawInfo.devRect.Rect2RectF());
 
