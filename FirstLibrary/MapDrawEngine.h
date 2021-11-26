@@ -228,6 +228,7 @@ public:
 	bool GetMGRS2KW(std::string mgrs, KW& kw);			
 	bool GetMGRS2UTM(std::string mgrs, _dPoint& utmPoint);
 
+	void colorConverter(int data);
 
 public:
 

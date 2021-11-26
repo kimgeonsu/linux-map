@@ -684,7 +684,7 @@ bool CMapDrawEngine::GetMGRS2UTM(std::string mgrs, _dPoint& utmPoint)
 	return m_Coordinate.mgrs2utm(0, mgrs, utmPoint.x, utmPoint.y);
 }
 
-void colorConverter(int data) {
+void CMapDrawEngine::colorConverter(int data) {
 	char hexa[8] = {0, };
 	int decimal = data;
 	int pos = 0;
