@@ -269,7 +269,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		if (designInfo->objType == (unsigned char)2)
 		{
 			// fillBursh = CreateSolidBrush(designInfo->_brush[drawInfo.dayNightMode].fillValue.data);
-			std::cout << std::hex << designInfo->_brush[drawInfo.dayNightMode].fillValue.data << std::endl;
+			std::cout << to_string(designInfo->_brush[drawInfo.dayNightMode].fillValue.data) << std::endl;
 			Color color = Color(0, 256, 0);
 			fillBrush = Brush(color);
 			oldBrush = fillBrush;
@@ -287,7 +287,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		else
 		{
 			// drawPen = CreatePen(designInfo->_line[drawInfo.dayNightMode].type, designInfo->_line[drawInfo.dayNightMode].width, designInfo->_line[drawInfo.dayNightMode].color);
-			std::cout << std::hex<< designInfo->_line[drawInfo.dayNightMode].color << std::endl;
+			std::cout << to_string(designInfo->_line[drawInfo.dayNightMode].color) << std::endl;
 			Color color = Color(0, 0, 0);
 			drawPen = Pen(color, 1);
 		}
@@ -682,4 +682,8 @@ std::string CMapDrawEngine::GetUTM2MGRS(int zone, _dPoint utmPoint)
 bool CMapDrawEngine::GetMGRS2UTM(std::string mgrs, _dPoint& utmPoint)
 {
 	return m_Coordinate.mgrs2utm(0, mgrs, utmPoint.x, utmPoint.y);
+}
+
+Color colorConverter(int data) {
+	
 }
