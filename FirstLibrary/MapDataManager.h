@@ -32,14 +32,12 @@ public:
 		if ((dir = opendir(searchPath.c_str())) != NULL) {
 			while ((ent = readdir(dir)) != NULL)
 			{	
-				std::cout << ent->d_name << std::endl;
 				ReadFile(ent->d_name);
 			}
 			closedir(dir);
 		}
 		else {
 			perror("");
-			std::cout << "I can't find.....TT\n";
 			return EXIT_FAILURE;
 		}
 
