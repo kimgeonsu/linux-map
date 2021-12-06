@@ -2,7 +2,6 @@
 
 #pragma warning(suppress : 4996)
 
-
 CDesignRecordMng::CDesignRecordMng() : _recordCount(0), _recordList(NULL)
 {
 
