@@ -12,7 +12,7 @@ CMapDataRecord::~CMapDataRecord()
 
 void CMapDataRecord::Init()
 {
-	_MapRecord	*pData		= NULL;
+	_MapRecord	*pData		= nullptr;
 		
 	_level = 0;
 	_parcelID.x = 0;

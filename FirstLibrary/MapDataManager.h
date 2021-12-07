@@ -29,8 +29,8 @@ public:
 
 		DIR* dir; 
 		struct dirent* ent;
-		if ((dir = opendir(searchPath.c_str())) != NULL) {
-			while ((ent = readdir(dir)) != NULL)
+		if ((dir = opendir(searchPath.c_str())) != nullptr) {
+			while ((ent = readdir(dir)) != nullptr)
 			{	
 				ReadFile(ent->d_name);
 			}

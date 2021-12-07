@@ -24,8 +24,8 @@ public:
 	};
 	_DesignRecord* GetRecordData(long code)
 	{
-		if ((code < 0) || (code >= _recordCount) || (_recordList == NULL))
-			return NULL;
+		if ((code < 0) || (code >= _recordCount) || (_recordList == nullptr))
+			return nullptr;
 
 		return &(_recordList[code]);
 	};

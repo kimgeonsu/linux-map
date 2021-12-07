@@ -2,12 +2,12 @@
 
 #pragma warning(suppress : 4996)
 
-CDesignRecordMng::CDesignRecordMng() : _recordCount(0), _recordList(NULL)
+CDesignRecordMng::CDesignRecordMng() : _recordCount(0), _recordList(nullptr)
 {
 
 }
 
-CDesignRecordMng::~CDesignRecordMng()
+CDesignRecordMng::~CDesignRecordMng() 
 {
 	GlReleaseMem(&_recordList);
 }
@@ -21,7 +21,7 @@ long CDesignRecordMng::LoadDesignFile(std::string fileName)
 	long	recIdx = 0;
 
 	pFile = fopen(fileName.c_str(), "r+b");
-	if (pFile == NULL)
+	if (pFile == nullptr)
 		return false;
 
 	fseek(pFile, 0, SEEK_END);

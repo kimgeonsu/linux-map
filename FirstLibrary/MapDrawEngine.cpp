@@ -264,7 +264,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	}
 
 
-	if (designInfo != NULL)
+	if (designInfo != nullptr)
 	{
 		if (designInfo->objType == (unsigned char)2)
 		{
@@ -300,7 +300,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	graphics->FillPolygon(&(fillBrush), g_DrawBuffer, nIdx);
 
 	// Text Output
-	if ((textData.length() > 0) && (designInfo != NULL))
+	if ((textData.length() > 0) && (designInfo != nullptr))
 	{
 		textPoint.x -= drawRect.left;
 		textPoint.y -= drawRect.top;
@@ -425,7 +425,7 @@ long CMapDrawEngine::DrawPolyline(_MapRecord* pData, double angle, long bufferId
 		}
 	}
 
-	if (designInfo != NULL)
+	if (designInfo != nullptr)
 	{
 		if (designInfo->_line[drawInfo.dayNightMode].type == 5)
 		{

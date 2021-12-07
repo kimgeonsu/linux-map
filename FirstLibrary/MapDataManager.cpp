@@ -22,11 +22,11 @@ long MapDataManager::Init()
 
 long MapDataManager::ReadFile(std::string fileName)
 {
-	FILE* mapFile = NULL;
-	_MapRecord* pData = NULL;
+	FILE* mapFile = nullptr;
+	_MapRecord* pData = nullptr;
 
 	mapFile = fopen((_mapDataPath + "/Lv1/0_0/" + fileName).c_str(), "r+b");
-	if (mapFile != NULL)
+	if (mapFile != nullptr)
 	{
 		do
 		{
@@ -34,7 +34,7 @@ long MapDataManager::ReadFile(std::string fileName)
 			if (fread(&pData->header, sizeof(_MapRecordHeader), 1, mapFile) != 1)
 			{
 				fclose(mapFile);
-				mapFile = NULL;
+				mapFile = nullptr;
 				break;
 			}
 
@@ -42,7 +42,7 @@ long MapDataManager::ReadFile(std::string fileName)
 			if (fread(pData->pointList, sizeof(Point), pData->header.pointCount, mapFile) != (unsigned int)pData->header.pointCount)
 			{
 				fclose(mapFile);
-				mapFile = NULL;
+				mapFile = nullptr;
 				break;
 			}
 			_drawData.AddDataList(pData);
@@ -50,7 +50,7 @@ long MapDataManager::ReadFile(std::string fileName)
 		} while (1);
 
 
-		if (mapFile != NULL)
+		if (mapFile != nullptr)
 			fclose(mapFile);
 	}
 	else {
