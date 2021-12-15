@@ -280,7 +280,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 			std::cout << "2222\n";
 		}
 
-		if (designInfo->_line[drawInfo.dayNightMode].type == '5')
+		if (designInfo->_line[drawInfo.dayNightMode].type == (unsigned char)5)
 		{
 			Color color = Color(255, 255, 255);
 			drawPen = Pen(color, 0);
