@@ -271,6 +271,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 			// fillBursh = CreateSolidBrush(designInfo->_brush[drawInfo.dayNightMode].fillValue.data);
 			Color brushColor = colorConverter(designInfo->_brush[drawInfo.dayNightMode].fillValue.data);
 			fillBrush = Brush(brushColor);
+			std::cout << "hihibooboo\n";
 			oldBrush = fillBrush;
 		}
 		else
@@ -296,9 +297,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	{
 		oldBrush = m_NULLBRUSH;
 	}
-	std::cout << "hihi\n";
 	graphics->FillPolygon(&(fillBrush), g_DrawBuffer, nIdx+1);
-	std::cout << "byebye\n";
 	graphics->DrawPolygon(&(drawPen), g_DrawBuffer, nIdx);
 
 	// Text Output
