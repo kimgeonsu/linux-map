@@ -297,7 +297,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		oldBrush = m_NULLBRUSH;
 	}
 	std::cout << "hihi\n";
-	graphics->FillPolygon(&(fillBrush), g_DrawBuffer, nIdx);
+	graphics->FillPolygon(&(fillBrush), g_DrawBuffer, nIdx+1);
 	std::cout << "byebye\n";
 	graphics->DrawPolygon(&(drawPen), g_DrawBuffer, nIdx);
 
