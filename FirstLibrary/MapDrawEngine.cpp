@@ -181,7 +181,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	Point		textSize;
 	std::string		textData;
 
-	Color color = Color(0,0,0);
+	Color color = Color(255,255,255);
 	Brush oldBrush = Brush(color);
 	Brush fillBrush = Brush(color);
 	Pen	drawPen = Pen(color, 1.0);
