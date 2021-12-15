@@ -296,8 +296,8 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	{
 		oldBrush = m_NULLBRUSH;
 	}
+	graphics->FillPolygon(&(fillBrush), g_DrawBuffer, nIdx);
 	graphics->DrawPolygon(&(drawPen), g_DrawBuffer, nIdx);
-	// graphics->FillPolygon(&(fillBrush), g_DrawBuffer, nIdx);
 
 	// Text Output
 	if ((textData.length() > 0) && (designInfo != nullptr))
