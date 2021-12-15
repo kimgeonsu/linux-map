@@ -277,17 +277,20 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		else
 		{
 			oldBrush = m_NULLBRUSH;
+			std::cout << "2222\n";
 		}
 
 		if (designInfo->_line[drawInfo.dayNightMode].type == '5')
 		{
 			Color color = Color(255, 255, 255);
 			drawPen = Pen(color, 0);
+			std::cout << "333\n";
+
 		}
 		else
 		{
 			// drawPen = CreatePen(designInfo->_line[drawInfo.dayNightMode].type, designInfo->_line[drawInfo.dayNightMode].width, designInfo->_line[drawInfo.dayNightMode].color);
-			
+			std::cout << "4444\n";
 			Color color = colorConverter(designInfo->_line[drawInfo.dayNightMode].color);
 			drawPen = Pen(color, 1);
 		}
