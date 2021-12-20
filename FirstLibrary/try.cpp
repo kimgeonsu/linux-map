@@ -53,10 +53,6 @@ int main()
     sleep(10);
     engine->MoveMap(10, 100);
     
-    dp.x = 128.5; 
-    dp.y = 36.5;
-    engine->WorldToDevice(dp);
-    engine->DeviceToWorldMove(ip, ip);
     engine->DrawMap();
 
 
