@@ -42,16 +42,25 @@ int main()
 	engine->SetMapHeadingUpMode(currentMapMode);
     engine->SetMapDayNightMode(1);
 
-    sleep(10);
-    engine->MoveMap(10, 100);
-
     _dPoint dp;
-    dp.x = 128.5;
+    dp.x = 128.5; 
     dp.y = 36.5;
     Point ip = Point(10,10);
     engine->WorldToDevice(dp);
     engine->DeviceToWorldMove(ip, ip);
     engine->DrawMap();
+
+    sleep(10);
+    engine->MoveMap(10, 100);
     
+    _dPoint dp;
+    dp.x = 128.5; 
+    dp.y = 36.5;
+    Point ip = Point(10,10);
+    engine->WorldToDevice(dp);
+    engine->DeviceToWorldMove(ip, ip);
+    engine->DrawMap();
+
+
     return 0;
 }
