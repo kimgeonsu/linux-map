@@ -51,12 +51,21 @@ int main()
     engine->DrawMap();
 
     sleep(10);
+    std::cout << "MoveMap function executing...\n";
     engine->MoveMap(10, 100);
     engine->DrawMap();
 
     sleep(10);
+    std::cout << "SetMapAngle function executing...\n";
+    engine->SetMapAngle(90);
+    engine->DrawMap();
+
+    sleep(10);
+    std::cout << "SetZoomLevel function executing...\n";
     engine->SetZoomLevel(2);
     engine->DrawMap();
+
+    
 
 
     return 0;
