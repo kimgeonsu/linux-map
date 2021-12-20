@@ -55,6 +55,9 @@ int main()
     
     engine->DrawMap();
 
+    sleep(10);
+    engine->SetMapAngle(90);
+
 
     return 0;
 }
