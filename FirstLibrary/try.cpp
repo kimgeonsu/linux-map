@@ -43,7 +43,7 @@ int main()
     engine->SetMapDayNightMode(1);
 
     sleep(1);
-    engine->MoveMap(10, 100);
+    // engine->MoveMap(10, 100);
 
     _dPoint dp;
     dp.x = 128.5;
