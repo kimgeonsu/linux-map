@@ -65,8 +65,5 @@ int main()
     // engine->SetZoomLevel(2);
     // engine->DrawMap();
 
-    
-
-
     return 0;
 }
