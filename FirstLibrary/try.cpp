@@ -42,7 +42,7 @@ int main()
 	engine->SetMapHeadingUpMode(currentMapMode);
     engine->SetMapDayNightMode(1);
 
-    sleep(1);
+    sleep(10);
     // engine->MoveMap(10, 100);
 
     _dPoint dp;
