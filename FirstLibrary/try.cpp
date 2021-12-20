@@ -52,11 +52,11 @@ int main()
 
     sleep(10);
     engine->MoveMap(10, 100);
-    
     engine->DrawMap();
 
     sleep(10);
-    engine->SetMapAngle(90);
+    engine->SetZoomLevel(2);
+    engine->DrawMap();
 
 
     return 0;
