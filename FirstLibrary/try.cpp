@@ -11,6 +11,7 @@
 #include <iostream>
 #include <fstream>
 #include <cmath>
+#include <unistd.h>
 
 extern "C" {
 #include "./include/type.h"
@@ -32,15 +33,17 @@ int main()
 	engine->SetDeviceRect(0, 0, 480, 800);
 	engine->SetDeviceCenterPos(240, 400);
 
-	engine->SetZoomLevel(2);
+	engine->SetZoomLevel(0);
 	engine->SetMapPos(128.0, 36.0);
 
-	int currentAngle = 90;
+	int currentAngle = 0;
 	int currentMapMode = 0;
 	engine->SetMapAngle(currentAngle);
 	engine->SetMapHeadingUpMode(currentMapMode);
     engine->SetMapDayNightMode(1);
-    // engine->MoveMap(10, 100);
+
+    sleep(1);
+    engine->MoveMap(10, 100);
 
     _dPoint dp;
     dp.x = 128.5;
