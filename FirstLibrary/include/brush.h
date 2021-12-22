@@ -6,7 +6,9 @@
 class Brush
 {
 	public:
-		Brush(const Color &color, REAL width = 1.0f);
+		Brush(const Color &color);
+		void SetColor(const Color &_color);
 };
 
 #endif
+
