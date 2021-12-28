@@ -50,17 +50,17 @@ int main()
     engine->DeviceToWorldMove(ip, ip);
     engine->DrawMap();
 
-    sleep(10);
+    sleep(3);
     std::cout << "MoveMap function executing...\n";
     engine->MoveMap(10, 100);
     engine->DrawMap();
 
-    sleep(10);
+    sleep(3);
     std::cout << "SetMapAngle function executing...\n";
     engine->SetMapAngle(90);
     engine->DrawMap();
 
-    sleep(10);
+    sleep(3);
     std::cout << "SetZoomLevel function executing...\n";
     engine->SetZoomLevel(2);
     engine->DrawMap();
