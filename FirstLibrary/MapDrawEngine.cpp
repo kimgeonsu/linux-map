@@ -318,13 +318,15 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 				std::cout << g_DrawBuffer[idx].X << " , " << g_DrawBuffer[idx].Y << std::endl;
 				break;
 			}
+
 		}
 		if (haveMinus == false) {
 
-			std::cout << g_DrawBuffer[0].X << " , " << g_DrawBuffer[0].Y << std::endl;
+			std::cout << g_DrawBuffer[0].X << " , " << g_DrawBuffer[0].Y << nIdx << std::endl;
 			std::cout << g_DrawBuffer[nIdx-2].X << " , " << g_DrawBuffer[nIdx-2].Y << std::endl;
 			graphics->FillPolygon(&(fillBrush), g_DrawBuffer, nIdx-1);
 		}
+
 		else
 		{
 			std::cout << "Not Draw" << std::endl;
