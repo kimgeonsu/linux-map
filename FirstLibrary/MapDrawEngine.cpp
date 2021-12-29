@@ -2,6 +2,11 @@
 #include "AppLibrary.h"
 #include "MyType.h"
 
+#ifdef _DEBUG
+#undef THIS_FILE
+static char THIS_FILE[]=__FILE__;
+#define new DEBUG_NEW
+#endif
 
 #define MAX_DRAW_POINT_COUNT	8192
 PointF g_DrawBuffer[MAX_DRAW_POINT_COUNT];
@@ -22,7 +27,6 @@ CMapDrawEngine::CMapDrawEngine()
 
 	m_MapFont.SetFont("Sans-Regular");
 	m_MapFont.SetSize(8);
-
 
 
 	m_BaseZone = 52;
