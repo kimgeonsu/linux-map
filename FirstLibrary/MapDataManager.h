@@ -32,7 +32,9 @@ public:
 		if ((dir = opendir(searchPath.c_str())) != nullptr) {
 			while ((ent = readdir(dir)) != nullptr)
 			{	
+				std::cout << "1트\n";
 				ReadFile(ent->d_name);
+				std::cout << "2트\n";
 			}
 			closedir(dir);
 		}
