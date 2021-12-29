@@ -30,7 +30,7 @@ int main()
     CMapDrawEngine *engine = new CMapDrawEngine;
     engine->Init();
     engine->SetMapDataPath(dataFilePath);
-	engine->SetDeviceRect(0, 0, 800, 480);
+	engine->SetDeviceRect(0, 0, 480, 800);
 	engine->SetDeviceCenterPos(240, 400);
 
 	engine->SetZoomLevel(0);
