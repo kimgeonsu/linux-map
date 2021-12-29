@@ -40,7 +40,6 @@ public:
 			perror("");
 			return EXIT_FAILURE;
 		}
-		std::cout << "가능??\n";
 		std::string designFileName;
 		designFileName = _mapDataPath + "/Lv1_info.ddf";
 		_designRecordMng.LoadDesignFile(designFileName);
