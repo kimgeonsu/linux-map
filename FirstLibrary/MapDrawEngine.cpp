@@ -304,7 +304,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		oldBrush = m_NULLBRUSH;
 	}
 
-	if ()	
+
 
 	try {
 		std::cout << g_DrawBuffer[0].X << " , " << g_DrawBuffer[0].Y << std::endl;
