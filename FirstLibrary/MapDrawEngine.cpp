@@ -56,7 +56,7 @@ long CMapDrawEngine::Init()
 long CMapDrawEngine::DrawMap()
 { 
 	
-	ong	tmpFontSize = 0;
+	long	tmpFontSize = 0;
 	long	nIdx = 0;
 
 	Font	oldFont = Font("Sans-Regular", 10);
@@ -75,15 +75,15 @@ long CMapDrawEngine::DrawMap()
 		switch (pData.header.objType)
 		{
 		case 1:
-			std::cout << "drawpo\n";
+			std::cout << "drawpoi\n";
 			DrawPOI(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 3:
-			std::cout << "drawpolylin\n";
+			std::cout << "drawpolyline\n";
 			DrawPolyline(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 5:
-			std::cout << "drawpolygo\n";
+			std::cout << "drawpolygon\n";
 			DrawPolygon(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		default:
@@ -183,7 +183,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	Point		inPoint;
 	Point		textPoint;
 	Rect		textRect;
-	Pont		tmpCenterPoint(drawInfo.mapCenterPos4096);
+	Point		tmpCenterPoint(drawInfo.mapCenterPos4096);
 	long		nIdx = 0;
 	Point		textSize;
 	std::string		textData;
@@ -242,8 +242,8 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	}
 
 
-	emset(&g_rawBuffer, 0, sizeof(PointF) * MX_DRAW_POINT_COUNT);
-	for (nIdx = 0; nIdx < pData->header.pointCount; nIdx+)
+	memset(&g_DrawBuffer, 0, sizeof(PointF) * MAX_DRAW_POINT_COUNT);
+	for (nIdx = 0; nIdx < pData->header.pointCount; nIdx++)
 	{
 		inPoint = pData->pointList[nIdx];
 
@@ -260,11 +260,11 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		outPoint.x = outPoint.x + (drawInfo.devCenterPos.x - drawInfo.devRect.CenterPoint().x);
 		outPoint.y = outPoint.y + (drawInfo.devCenterPos.y - drawInfo.devRect.CenterPoint().y);
 
-		if (drawInfo.headingUpMode == 1
+		if (drawInfo.headingUpMode == 1)
 		{
 			g_DrawBuffer[nIdx] = Rotate(outPoint, centerPoint, (long)angle).Point2PointF();
 		}
-		els
+		else
 		{
 			g_DrawBuffer[nIdx] = outPoint.Point2PointF();
 		}
@@ -308,28 +308,27 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 
 	try {		
 
-		bool outArea = false;
+		bool haveMinus = false;
 		for (int idx = nIdx; idx >= 0; idx--)
 		{
-			outArea = ((g_DrawBuffer[idx].X < 0) || (g_DrawBuffer[idx].Y < 0) ||
-				(g_DrawBuffer[idx].X >= 800) || (g_DrawBuffer[idx].Y >= 480) );
-			if(outArea == true)
+			haveMinus = ((g_DrawBuffer[idx].X < 0) || (g_DrawBuffer[idx].Y < 0));
+			if(haveMinus == true)
 			{
 				std::cout << g_DrawBuffer[idx].X << " , " << g_DrawBuffer[idx].Y << std::endl;
 				break;
 			}
 		}
-		if (outArea == fale) {
+		if (haveMinus == false) {
 			graphics->FillPolygon(&(fillBrush), g_DrawBuffer, nIdx);
 		}
 		else
 		{
-			std::cout << "Not Draw ==>";
+			std::cout << "Not Draw";
 		}
 
 	} catch(std::exception& e) {
 		
-		std::cerr << "Exception caught : " << e.what() << std::end;
+		std::cerr << "Exception caught : " << e.what() << std::endl;
 	}
 	graphics->DrawPolygon(&(drawPen), g_DrawBuffer, nIdx);
 
@@ -380,7 +379,7 @@ long CMapDrawEngine::DrawPolyline(_MapRecord* pData, double angle, long bufferId
 	Point		centerPoint;
 	Point		outPoint;
 	Point		inPoint;
-	Pont		tmpCenterPoint = drawInfo.mapCenterPos4096;
+	Point		tmpCenterPoint = drawInfo.mapCenterPos4096;
 	long		nIdx = 0;
 
 	Color color = Color(0,0,256);
@@ -431,8 +430,8 @@ long CMapDrawEngine::DrawPolyline(_MapRecord* pData, double angle, long bufferId
 		return false;
 	}
 
-	emset(&g_rawBuffer, 0, sizeof(Point) * MA_DRAW_POINT_COUNT);
-	for (nIdx = 0; nIdx < pData->header.pointCount; nIdx+)
+	memset(&g_DrawBuffer, 0, sizeof(Point) * MAX_DRAW_POINT_COUNT);
+	for (nIdx = 0; nIdx < pData->header.pointCount; nIdx++)
 	{
 		inPoint = pData->pointList[nIdx];
 
@@ -449,11 +448,11 @@ long CMapDrawEngine::DrawPolyline(_MapRecord* pData, double angle, long bufferId
 		outPoint.x = outPoint.x + (drawInfo.devCenterPos.x - drawInfo.devRect.CenterPoint().x);
 		outPoint.y = outPoint.y + (drawInfo.devCenterPos.y - drawInfo.devRect.CenterPoint().y);
 
-		if (drawInfo.headingUpMode == 1
+		if (drawInfo.headingUpMode == 1)
 		{
 			g_DrawBuffer[nIdx] = Rotate(outPoint, centerPoint, (long)angle).Point2PointF();
 		}
-		els
+		else
 		{
 			g_DrawBuffer[nIdx] = outPoint.Point2PointF();
 		}
@@ -473,7 +472,7 @@ long CMapDrawEngine::DrawPolyline(_MapRecord* pData, double angle, long bufferId
 			drawPen = Pen(color, 1);
 		}
 
-		oldPen = drawPen
+		oldPen = drawPen;
 	}
 
 	graphics->DrawLines(&drawPen, g_DrawBuffer, nIdx);
