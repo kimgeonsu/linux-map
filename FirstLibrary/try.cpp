@@ -30,7 +30,6 @@ int main()
     CMapDrawEngine *engine = new CMapDrawEngine;
     engine->Init();
     engine->SetMapDataPath(dataFilePath);
-    cout << "너가 문제인거냐!!!!!!\n";
 	engine->SetDeviceRect(0, 0, 480, 900);
 	engine->SetDeviceCenterPos(240, 400);
 
