@@ -29,7 +29,9 @@ int main()
     std::string dataFilePath = "../Output";
     CMapDrawEngine *engine = new CMapDrawEngine;
     engine->Init();
+    cout << "왜 안되는거징.....\n";
     engine->SetMapDataPath(dataFilePath);
+    cout << "너가 문제인거냐!!!!!!\n";
 	engine->SetDeviceRect(0, 0, 480, 800);
 	engine->SetDeviceCenterPos(240, 400);
 
