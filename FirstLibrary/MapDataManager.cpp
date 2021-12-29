@@ -30,6 +30,7 @@ long MapDataManager::ReadFile(std::string fileName)
 	{
 		do
 		{
+			std::cout << "ho ho ho\n";
 			pData = new _MapRecord();
 			if (fread(&pData->header, sizeof(_MapRecordHeader), 1, mapFile) != 1)
 			{
@@ -38,6 +39,7 @@ long MapDataManager::ReadFile(std::string fileName)
 				break;
 			}
 
+			std::cout << "ha ha ha\n";
 			pData->pointList = new Point[pData->header.pointCount];
 			if (fread(pData->pointList, sizeof(Point), pData->header.pointCount, mapFile) != (unsigned int)pData->header.pointCount)
 			{
@@ -54,6 +56,7 @@ long MapDataManager::ReadFile(std::string fileName)
 			fclose(mapFile);
 	}
 	else {
+		std::cout << "mapfile은 null임댱\n";
 		return false;
 	}
 
