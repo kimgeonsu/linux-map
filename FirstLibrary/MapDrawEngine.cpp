@@ -323,7 +323,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 
 			std::cout << g_DrawBuffer[0].X << " , " << g_DrawBuffer[0].Y << std::endl;
 			std::cout << g_DrawBuffer[nIdx-1].X << " , " << g_DrawBuffer[nIdx-1].Y << std::endl;
-			graphics->FillPolygon(&(fillBrush), g_DrawBuffer, nIdx);
+			graphics->FillPolygon(&(fillBrush), g_DrawBuffer, nIdx-1);
 		}
 		else
 		{
@@ -334,7 +334,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		
 		std::cerr << "Exception caught : " << e.what() << std::endl;
 	}
-	graphics->DrawPolygon(&(drawPen), g_DrawBuffer, nIdx);
+	graphics->DrawPolygon(&(drawPen), g_DrawBuffer, nIdx-1);
 
 	// Text Output
 	if ((textData.length() > 0) && (designInfo != nullptr))
