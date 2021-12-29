@@ -22,7 +22,7 @@ class Graphics
 		void DrawLines(const Pen *pen, const PointF *points, INT count);
 
 		void DrawPolygon(const Pen *pen, const PointF *points, INT count);
-		void FillPolygon(const Brush *brush, const PointF *points, INT count, const PointF &start_point);
+		void FillPolygon(const Brush *brush, const PointF *points, INT count);
 
 		void DrawRectangle(const Pen *pen, INT x, INT y, INT width, INT height);
 		void DrawRectangle(const Pen *pen, const RectF &rect);
