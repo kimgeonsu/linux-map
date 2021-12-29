@@ -320,7 +320,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 			}
 		}
 		if (haveMinus == false) {
-			graphics->FillPolygon(&(fillBrush), g_DrawBuffer, nIdx);
+			// graphics->FillPolygon(&(fillBrush), g_DrawBuffer, nIdx);
 		}
 		else
 		{
