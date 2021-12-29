@@ -48,6 +48,7 @@ long MapDataManager::ReadFile(std::string fileName)
 				break;
 			}
 			_drawData.AddDataList(pData);
+			std::cout << "addDataList\n";
 
 		} while (1);
 
