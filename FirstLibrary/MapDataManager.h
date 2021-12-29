@@ -33,6 +33,7 @@ public:
 			while ((ent = readdir(dir)) != nullptr)
 			{	
 				std::cout << "1트\n";
+				std::cout << ent->d_name << std::endl;
 				ReadFile(ent->d_name);
 				std::cout << "2트\n";
 			}
