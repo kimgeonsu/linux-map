@@ -77,7 +77,7 @@ int main()
 	graphics = new Graphics("/dev/fb0");
 
 	//Screen clear.
-	Brush clear(Color(255, 255, 255));
+	Brush clear(Color(255, 192, 0));
 	graphics->FillRectangle(&clear, RectF(0, 0, 800, 480));
 	//
 
