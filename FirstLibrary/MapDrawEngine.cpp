@@ -699,6 +699,5 @@ Color CMapDrawEngine::colorConverter(int data) {
 	int r = hexa[6] * 16 + hexa[7];
 	int g = hexa[4] * 16 + hexa[5];
 	int b = hexa[2] * 16 + hexa[3];
-	std::cout << r << " " << g << " " << b << std::endl;
 	return Color(r, g, b);
 }
