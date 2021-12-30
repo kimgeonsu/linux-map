@@ -182,7 +182,7 @@ int main()
 	//
 
 	//fox
-	brush.SetColor(Color(255,127,39));
+	brush.SetColor(Color(255,192,0));
 
 	x = 250;
 	y = 120;
