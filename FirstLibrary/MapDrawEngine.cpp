@@ -2,10 +2,6 @@
 #include "AppLibrary.h"
 #include "MyType.h"
 
-#undef THIS_FILE
-static char THIS_FILE[]=__FILE__;
-#define new DEBUG_NEW
-#endif
 
 #define MAX_DRAW_POINT_COUNT	8192
 PointF g_DrawBuffer[MAX_DRAW_POINT_COUNT];
