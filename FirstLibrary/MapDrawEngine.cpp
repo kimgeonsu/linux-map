@@ -269,7 +269,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		{
 			// fillBursh = CreateSolidBrush(designInfo->_brush[drawInfo.dayNightMode].fillValue.data);
 			Color brushColor = colorConverter(designInfo->_brush[drawInfo.dayNightMode].fillValue.data);
-			fillBrush = Brush(brushColor);
+			fillBrush.SetColor(brushColor);
 			oldBrush = fillBrush;
 		}
 		else
@@ -287,7 +287,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		{
 			// drawPen = CreatePen(designInfo->_line[drawInfo.dayNightMode].type, designInfo->_line[drawInfo.dayNightMode].width, designInfo->_line[drawInfo.dayNightMode].color);
 			Color color = colorConverter(designInfo->_line[drawInfo.dayNightMode].color);
-			drawPen = Pen(color, 1);
+			drawPen.SetColor(color);
 		}
 		oldPen = drawPen;
 	}
