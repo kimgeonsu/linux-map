@@ -90,8 +90,8 @@ int main()
 
 	PointF fox_pts[] = {
 		PointF(x+30, y), 
-		PointF(x, y+50), 
-		PointF(x+55, y+100), 
+		PointF(x, y+60), 
+		PointF(x+110, y+200), 
 		PointF(x+110, y+50), 
 		PointF(x+80, y),
 		PointF(x+70, y+25),
