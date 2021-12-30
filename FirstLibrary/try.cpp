@@ -85,8 +85,8 @@ int main()
 	//fox
 	brush.SetColor(Color(255,192,0));
 
-	x = 250;
-	y = 120;
+	int x = 250;
+	int y = 120;
 
 	PointF fox_pts[] = {
 		PointF(x+30, y), 
