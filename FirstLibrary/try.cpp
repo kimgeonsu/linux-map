@@ -90,10 +90,12 @@ int main()
 
 	PointF fox_pts[] = {
 		PointF(x+30, y), 
-		PointF(x+100, y), 
-		PointF(x+50, y+100), 
-		PointF(x+80, y+100), 
-
+		PointF(x, y+50), 
+		PointF(x+55, y+100), 
+		PointF(x+110, y+50), 
+		PointF(x+80, y),
+		PointF(x+70, y+25),
+		PointF(x+40, y+25)
 	};
 
 	graphics->FillPolygon(&brush, fox_pts, 7);
