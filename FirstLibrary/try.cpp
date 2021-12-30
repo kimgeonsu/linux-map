@@ -58,7 +58,7 @@ int main()
     string cmd;
 	double data1, data2;
     while (1) {
-        cout << ">";
+        cout << "명령어를 입력하세용 : ";
 		getline(cin, cmd);
 
 		cout << cmd << endl;
