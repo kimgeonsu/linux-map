@@ -66,12 +66,11 @@ long CMapDrawEngine::DrawMap()
 	std::list<_MapRecord>::iterator eee = mapDataManager._drawData._drawDataList.end();
 	_MapRecord pData;
 	
-	vector<pair<int, int>> dictionary;
 	for (pos; pos != eee; pos++) 
 	{
 		pData = *pos;
 		std::cout << pData.header.designCode << std::endl;
-		if ()
+
 		switch (pData.header.objType)
 		{
 		case 1:
