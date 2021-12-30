@@ -2,6 +2,8 @@
 #include "AppLibrary.h"
 #include "MyType.h"
 
+#include <algorithm>
+#include <vector>
 
 #define MAX_DRAW_POINT_COUNT	8192
 PointF g_DrawBuffer[MAX_DRAW_POINT_COUNT];
@@ -64,10 +66,12 @@ long CMapDrawEngine::DrawMap()
 	std::list<_MapRecord>::iterator eee = mapDataManager._drawData._drawDataList.end();
 	_MapRecord pData;
 	
+	vector<pair<int, int>> dictionary;
 	for (pos; pos != eee; pos++) 
 	{
 		pData = *pos;
 		std::cout << pData.header.designCode << std::endl;
+		if ()
 		switch (pData.header.objType)
 		{
 		case 1:
@@ -297,11 +301,8 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		oldBrush = m_NULLBRUSH;
 	}
 
-	if (nIdx > 2) {
-
-
+	if (nIdx > 2 && nIdx != 4) {
 		graphics->FillPolygon(&(fillBrush), g_DrawBuffer, nIdx-1);
-
 	}
 	graphics->DrawPolygon(&(drawPen), g_DrawBuffer, nIdx-1);
 
