@@ -61,7 +61,9 @@ int main()
 	vector<string> commands;
 	double data1, data2;
     while (1) {
+		#ifdef _DEBUG
         cout << "명령어를 입력하세용 : ";
+		#endif
 		getline(cin, cmd);
 		istringstream foo(cmd);
 		string token;

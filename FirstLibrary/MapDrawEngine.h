@@ -1,5 +1,7 @@
 #pragma once
 
+#define _DEBUG
+
 #include <string>
 
 #include "MyType.h"
