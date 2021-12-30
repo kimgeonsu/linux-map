@@ -66,7 +66,8 @@ long CMapDrawEngine::DrawMap()
 	
 	for (pos; pos != eee; pos++) 
 	{
-		pData = *pos; 
+		pData = *pos;
+		std::cout << pData.header.designCode << std::endl;
 		switch (pData.header.objType)
 		{
 		case 1:
