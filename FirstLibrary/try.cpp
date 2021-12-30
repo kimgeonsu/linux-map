@@ -84,7 +84,7 @@ int main()
         if (commands[0] == "exit") {
             return 0;
         }
-
+		commands.clear();
     }
 
 	return 0;
