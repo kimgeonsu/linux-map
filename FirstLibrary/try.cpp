@@ -29,68 +29,6 @@ Color 		 color(0, 0, 0);
 Pen 		 pen(color, 1.0);
 Brush 		 brush(color);
 
-void polyline()
-{
-	PointF points[6];
-	PointF point;
-	int i;
-	int x = 10;
-	int y = 110;
-	int width = 100;
-	int height = 100;
-	float rx;
-	float ry;
-	float cx;
-	float cy;
-	double theta;
-	double dtheta;
-	rx = ((x + width) - x) / 2;
-	ry = (y - (y + height)) / 2;
-	cx = x + rx;
-	cy = y + ry;
-	theta = (-M_PI) / 2;
-	dtheta = (4 * M_PI) / 5;
-	for (i = 0; i < 5; i++) {
-		point.X = cx + (rx * cos(theta));
-		point.Y = cy + (ry * sin(theta));
-		points[i] = point;
-		theta += dtheta;
-	}
-
-	graphics->DrawLines(&pen, points, 5);
-}
-
-void polygon(int px, int py, int pw, int ph)
-{
-	PointF points[6];
-	PointF point;
-	int i;
-	int x = px;
-	int y = py;
-	int width = pw;
-	int height = ph;
-	float rx;
-	float ry;
-	float cx;
-	float cy;
-	double theta;
-	double dtheta;
-	rx = ((x + width) - x) / 2;
-	ry = (y - (y + height)) / 2;
-	cx = x + rx;
-	cy = y + ry;
-	theta = (-M_PI) / 2;
-	dtheta = (4 * M_PI) / 5;
-	for (i = 0; i < 5; i++) {
-		point.X = cx + (rx * cos(theta));
-		point.Y = cy + (ry * sin(theta));
-		points[i] = point;
-		theta += dtheta;
-	}
-
-	graphics->DrawPolygon(&pen, points, 5);
-}
-
 int main()
 {
     // std::string dataFilePath = "../Output";
@@ -142,43 +80,6 @@ int main()
 	//Screen clear.
 	Brush clear(Color(255, 255, 255));
 	graphics->FillRectangle(&clear, RectF(0, 0, 800, 480));
-	//
-
-	//star
-	polyline();
-	polygon(120, 110, 100, 100);
-	//
-
-	////hexagon
-	int x = 10;
-	int y = 120;
-
-	PointF hexa_pts[] = {
-		PointF(x+30, y), 
-		PointF(x, y+50), 
-		PointF(x+30, y+100), 
-		PointF(x+80, y+100), 
-		PointF(x+110, y+50), 
-		PointF(x+80, y)
-	};
-
-	graphics->FillPolygon(&brush, hexa_pts, 6);
-	graphics->DrawPolygon(&pen, hexa_pts, 6);
-	//
-
-	//triangle
-	brush.SetColor(Color(0,255,0));
-	pen.SetColor(Color(255,0,0));
-
-	x = 200;
-	y = 100;
-
-	PointF triangle_pts[] = {PointF(x, y), PointF(x-100, y+200), PointF(x+50, y+20)};
-
-	graphics->FillPolygon(&brush, triangle_pts, 3);
-	graphics->DrawPolygon(&pen, triangle_pts, 3);
-
-	pen.SetColor(Color(0,0,0));
 	//
 
 	//fox
