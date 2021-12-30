@@ -94,8 +94,8 @@ int main()
 		PointF(x+110, y+200), 
 		PointF(x+110, y+50), 
 		PointF(x+80, y),
-		PointF(x+70, y+25),
-		PointF(x+40, y+25)
+		PointF(x+140, y+50),
+		PointF(x+80, y+50)
 	};
 
 	graphics->FillPolygon(&brush, fox_pts, 7);
