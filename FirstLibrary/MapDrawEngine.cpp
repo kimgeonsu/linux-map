@@ -297,11 +297,12 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	}
 
 
-
+	std::cout << "Are you problem??\n";
 	if (nIdx > 2) {
 		graphics->FillPolygon(&(fillBrush), g_DrawBuffer, nIdx-1);
 	}
 	graphics->DrawPolygon(&(drawPen), g_DrawBuffer, nIdx-1);
+
 
 	// Text Output
 	if ((textData.length() > 0) && (designInfo != nullptr))
