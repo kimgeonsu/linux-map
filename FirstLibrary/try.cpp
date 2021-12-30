@@ -73,7 +73,8 @@ int main()
 		cout << cmd << endl;
 
         if (commands[0] == "move") {
-			cout << "hihi\n";
+			engine->MoveMap(commands[1], commands[2]);
+			engine->DrawMap();
         }
         // if (cmd == "rotate") {
 
