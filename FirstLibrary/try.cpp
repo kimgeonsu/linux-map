@@ -76,12 +76,14 @@ int main()
 			engine->MoveMap(stol(commands[1]), stol(commands[2]));
 			engine->DrawMap();
         }
-        // if (cmd == "rotate") {
-
-        // }
-        // if (cmd == "zoom") {
-
-        // }
+        if (commands[0] == "rotate") {
+			engine->SetMapAngle(stol(commands[1]));
+			engine->DrawMap();
+		}
+		if (commands[0] == "zoom") {
+			engine->SetZoomLevel(stol(commands[1]));
+			engine->DrawMap();
+		}
         if (commands[0] == "exit") {
             return 0;
         }
