@@ -75,15 +75,12 @@ long CMapDrawEngine::DrawMap()
 		switch (pData.header.objType)
 		{
 		case 1:
-			std::cout << "drawpoi\n";
 			DrawPOI(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 3:
-			std::cout << "drawpolyline\n";
 			DrawPolyline(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 5:
-			std::cout << "drawpolygon\n";
 			DrawPolygon(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		default:
@@ -306,35 +303,8 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 
 
 
-	try {		
-
-		bool haveMinus = false;
-		for (int idx = nIdx - 1; idx >= 0; idx--)
-		{
-			haveMinus = ((g_DrawBuffer[idx].X <= 0) || (g_DrawBuffer[idx].Y <= 0) ||
-				(g_DrawBuffer[idx].X >= 800) || (g_DrawBuffer[idx].Y >= 480) );
-			if(haveMinus == true)
-			{
-				std::cout << g_DrawBuffer[idx].X << " , " << g_DrawBuffer[idx].Y << std::endl;
-				break;
-			}
-
-		}
-		if (nIdx > 2) {
-
-			std::cout << g_DrawBuffer[0].X << " , " << g_DrawBuffer[0].Y << "  " << nIdx << std::endl;
-			std::cout << g_DrawBuffer[nIdx-2].X << " , " << g_DrawBuffer[nIdx-2].Y << std::endl;
-			graphics->FillPolygon(&(fillBrush), g_DrawBuffer, nIdx-1);
-		}
-
-		else
-		{
-			std::cout << "Not Draw" << std::endl;
-		}
-
-	} catch(std::exception& e) {
-		
-		std::cerr << "Exception caught : " << e.what() << std::endl;
+	if (nIdx > 2) {
+		graphics->FillPolygon(&(fillBrush), g_DrawBuffer, nIdx-1);
 	}
 	graphics->DrawPolygon(&(drawPen), g_DrawBuffer, nIdx-1);
 
