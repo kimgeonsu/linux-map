@@ -71,13 +71,13 @@ int main()
     // }
 
     Graphics 	*graphics;
-	Color 		 color(0, 0, 0);
+	Color 		 color(255, 192, 0);
 	Pen 		 pen(color, 1.0);
 
 	graphics = new Graphics("/dev/fb0");
 
 	//Screen clear.
-	Brush clear(Color(255, 192, 0));
+	Brush clear(Color(255, 255, 255));
 	graphics->FillRectangle(&clear, RectF(0, 0, 800, 480));
 	//
 
