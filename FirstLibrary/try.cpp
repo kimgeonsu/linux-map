@@ -10,7 +10,9 @@
 #include <sys/ioctl.h>
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <cmath>
+#include <vector>
 #include <unistd.h>
 
 extern "C" {
@@ -31,85 +33,59 @@ Brush 		 brush(color);
 
 int main()
 {
-    // std::string dataFilePath = "../Output";
-    // CMapDrawEngine *engine = new CMapDrawEngine;
-    // engine->Init();
-    // engine->SetMapDataPath(dataFilePath);
-	// engine->SetDeviceRect(0, 0, 480, 800);
-	// engine->SetDeviceCenterPos(240, 400);
+    std::string dataFilePath = "../Output";
+    CMapDrawEngine *engine = new CMapDrawEngine;
+    engine->Init();
+    engine->SetMapDataPath(dataFilePath);
+	engine->SetDeviceRect(0, 0, 480, 800);
+	engine->SetDeviceCenterPos(240, 400);
 
-	// engine->SetZoomLevel(0);
-	// engine->SetMapPos(128.0, 36.0);
+	engine->SetZoomLevel(0);
+	engine->SetMapPos(128.0, 36.0);
 
-	// int currentAngle = 0;
-	// int currentMapMode = 1;
-	// engine->SetMapAngle(currentAngle);
-	// engine->SetMapHeadingUpMode(currentMapMode);
-    // engine->SetMapDayNightMode(1);
+	int currentAngle = 0;
+	int currentMapMode = 1;
+	engine->SetMapAngle(currentAngle);
+	engine->SetMapHeadingUpMode(currentMapMode);
+    engine->SetMapDayNightMode(1);
 
-    // _dPoint dp;
-    // dp.x = 128.5; 
-    // dp.y = 36.5;
-    // Point ip = Point(10,10);
-    // engine->WorldToDevice(dp);
-    // engine->DeviceToWorldMove(ip, ip);
-    // engine->DrawMap();
+    _dPoint dp;
+    dp.x = 128.5; 
+    dp.y = 36.5;
+    Point ip = Point(10,10);
+    engine->WorldToDevice(dp);
+    engine->DeviceToWorldMove(ip, ip);
+    engine->DrawMap();
 
     string cmd;
+	vector<string> commands;
 	double data1, data2;
     while (1) {
         cout << "명령어를 입력하세용 : ";
 		getline(cin, cmd);
+		istringstream foo(cmd);
+		string token;
+
+		while(getline(foo, token, ' ')) {
+			commands.push_back(token);
+		}
 
 		cout << cmd << endl;
 
-
-		cout << cmd << endl;
-        // if (cmd == "move") {
-
-        // }
+        if (commands[0] == "move") {
+			cout << "hihi\n";
+        }
         // if (cmd == "rotate") {
 
         // }
         // if (cmd == "zoom") {
 
         // }
-        // if (cmd == "exit") {
-        //     return 0;
-        // }
+        if (commands[0] == "exit") {
+            return 0;
+        }
 
     }
-    
-    graphics = new Graphics("/dev/fb0");
-
-	//Screen clear.
-	Brush clear(Color(255, 255, 255));
-	graphics->FillRectangle(&clear, RectF(0, 0, 800, 480));
-	//
-
-	//fox
-	brush.SetColor(Color(255,192,0));
-
-	int x = 250;
-	int y = 120;
-
-	PointF fox_pts[] = {
-		PointF(x+30, y), 
-		PointF(x, y+50), 
-		PointF(x+55, y+100), 
-		PointF(x+110, y+50), 
-		PointF(x+80, y),
-		PointF(x+70, y+25),
-		PointF(x+40, y+25)
-	};
-
-	graphics->FillPolygon(&brush, fox_pts, 7);
-	graphics->DrawPolygon(&pen, fox_pts, 7);
-	//
-
-	graphics->~Graphics();
 
 	return 0;
-
-
 }
