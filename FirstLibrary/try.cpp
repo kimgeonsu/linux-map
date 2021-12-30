@@ -59,7 +59,6 @@ int main()
 	double data1, data2;
     while (1) {
         cout << ">";
-        cin.ignore();
 		getline(cin, cmd);
 
 		cout << cmd << endl;
