@@ -354,7 +354,7 @@ long CMapDrawEngine::DrawPolyline(_MapRecord* pData, double angle, long bufferId
 	Point		tmpCenterPoint = drawInfo.mapCenterPos4096;
 	long		nIdx = 0;
 
-	Color color = Color(0,0,256);
+	Color color = Color(0,255,0);
 	Pen	drawPen = Pen(color, 1.0);
 	Pen	oldPen = Pen(color, 1.0);
 
@@ -467,7 +467,7 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 	std::string		FieldValue;
 
 	Font font("Sans-Regular", 10);
-	Color color = Color(0,0,255);
+	Color color = Color(255,255,255);
 	Brush fillBrush = Brush(color);
 
 	FieldValue = pData->header.textData;
@@ -695,7 +695,7 @@ Color CMapDrawEngine::colorConverter(int data) {
 		hexa[i] = decimal % 16;
 		decimal /= 16;
 	}
-
+	RGB(255, 128, 0 )
 	int r = hexa[6] * 16 + hexa[7];
 	int g = hexa[4] * 16 + hexa[5];
 	int b = hexa[2] * 16 + hexa[3];
