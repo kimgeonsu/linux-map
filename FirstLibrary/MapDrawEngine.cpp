@@ -695,7 +695,6 @@ Color CMapDrawEngine::colorConverter(int data) {
 		hexa[i] = decimal % 16;
 		decimal /= 16;
 	}
-	RGB(255, 128, 0 )
 	int r = hexa[6] * 16 + hexa[7];
 	int g = hexa[4] * 16 + hexa[5];
 	int b = hexa[2] * 16 + hexa[3];
