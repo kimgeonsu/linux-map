@@ -297,9 +297,10 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	}
 
 	if (nIdx > 2) {
-		std::cout << "Not cool~~\n";
+
+
 		graphics->FillPolygon(&(fillBrush), g_DrawBuffer, nIdx-1);
-		std::cout << "cool~~\n";
+
 	}
 	graphics->DrawPolygon(&(drawPen), g_DrawBuffer, nIdx-1);
 
@@ -698,6 +699,6 @@ Color CMapDrawEngine::colorConverter(int data) {
 	int r = hexa[6] * 16 + hexa[7];
 	int g = hexa[4] * 16 + hexa[5];
 	int b = hexa[2] * 16 + hexa[3];
-
+	std::cout << r << " " << g << " " << b << std::endl;
 	return Color(r, g, b);
 }
