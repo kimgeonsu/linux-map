@@ -55,25 +55,27 @@ int main()
     // engine->DeviceToWorldMove(ip, ip);
     // engine->DrawMap();
 
-    // string cmd;
-    // while (1) {
-    //     cout << ">";
-    //     cin >> cmd;
+    string cmd;
+    while (1) {
+        cout << ">";
+        cin >> cmd;
 
-    //     if (cmd == "move") {
 
-    //     }
-    //     if (cmd == "rotate") {
+		cout << cmd << endl;
+        // if (cmd == "move") {
 
-    //     }
-    //     if (cmd == "zoom") {
+        // }
+        // if (cmd == "rotate") {
 
-    //     }
-    //     if (cmd == "exit") {
-    //         return 0;
-    //     }
+        // }
+        // if (cmd == "zoom") {
 
-    // }
+        // }
+        // if (cmd == "exit") {
+        //     return 0;
+        // }
+
+    }
     
     graphics = new Graphics("/dev/fb0");
 
