@@ -24,49 +24,55 @@ extern "C" {
 
 using namespace std;
 
+eun Menu { MOVE, ANGLE, EXIT }
+
 int main()
 {
-    std::string dataFilePath = "../Output";
-    CMapDrawEngine *engine = new CMapDrawEngine;
-    engine->Init();
-    engine->SetMapDataPath(dataFilePath);
-	engine->SetDeviceRect(0, 0, 480, 800);
-	engine->SetDeviceCenterPos(240, 400);
+    // std::string dataFilePath = "../Output";
+    // CMapDrawEngine *engine = new CMapDrawEngine;
+    // engine->Init();
+    // engine->SetMapDataPath(dataFilePath);
+	// engine->SetDeviceRect(0, 0, 480, 800);
+	// engine->SetDeviceCenterPos(240, 400);
 
-	engine->SetZoomLevel(0);
-	engine->SetMapPos(128.0, 36.0);
+	// engine->SetZoomLevel(0);
+	// engine->SetMapPos(128.0, 36.0);
 
-	int currentAngle = 0;
-	int currentMapMode = 1;
-	engine->SetMapAngle(currentAngle);
-	engine->SetMapHeadingUpMode(currentMapMode);
-    engine->SetMapDayNightMode(1);
+	// int currentAngle = 0;
+	// int currentMapMode = 1;
+	// engine->SetMapAngle(currentAngle);
+	// engine->SetMapHeadingUpMode(currentMapMode);
+    // engine->SetMapDayNightMode(1);
 
-    _dPoint dp;
-    dp.x = 128.5; 
-    dp.y = 36.5;
-    Point ip = Point(10,10);
-    engine->WorldToDevice(dp);
-    engine->DeviceToWorldMove(ip, ip);
-    engine->DrawMap();
-
-    // sleep(3);
-    // std::cout << "MoveMap function executing...\n";
-    // engine->MoveMap(10, 100);
+    // _dPoint dp;
+    // dp.x = 128.5; 
+    // dp.y = 36.5;
+    // Point ip = Point(10,10);
+    // engine->WorldToDevice(dp);
+    // engine->DeviceToWorldMove(ip, ip);
     // engine->DrawMap();
 
-    // int i = 0;
-    // while(1) {
-    //     sleep(10);
-    //     std::cout << "SetMapAngle function executing...\n";
-    //     engine->SetMapAngle(90 * i++);
-    //     engine->DrawMap();        
-    // }
+    string cmd;
+    while (1) {
+        cout << ">";
+        cin >> cmd;
 
-    // sleep(3);
-    // std::cout << "SetZoomLevel function executing...\n";
-    // engine->SetZoomLevel(2);
-    // engine->DrawMap();
+        
+
+        switch (menu) {
+            case MOVE:
+                /* code */
+                break;
+            case EXIT:
+
+            default:
+                break;
+        }
+    }
+
+    
+
+
 
     return 0;
 }
