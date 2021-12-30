@@ -56,9 +56,10 @@ int main()
     // engine->DrawMap();
 
     string cmd;
+	double data1, data2;
     while (1) {
         cout << ">";
-        cin >> cmd;
+        cin >> cmd >> data1 >> data2;
 
 
 		cout << cmd << endl;
