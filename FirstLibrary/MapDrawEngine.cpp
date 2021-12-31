@@ -295,7 +295,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		for (int i = 0; i < nIdx; i++) {
 			std::cout << "(" <<g_DrawBuffer[i].X << " , " << g_DrawBuffer[i].Y << ")   ";
 		}
-		std::cout << std::endl;
+		std::cout << std::endl << "-------------------------" << std::endl;
 		graphics->FillPolygon(&(fillBrush), g_DrawBuffer, nIdx-1);
 		
 	}
