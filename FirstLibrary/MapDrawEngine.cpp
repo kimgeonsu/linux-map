@@ -8,7 +8,6 @@
 #define MAX_DRAW_POINT_COUNT	8192
 PointF g_DrawBuffer[MAX_DRAW_POINT_COUNT];
 
-
 CMapDrawEngine::CMapDrawEngine()
 {
 	Color color = Color(0, 0, 0);
@@ -36,6 +35,8 @@ CMapDrawEngine::CMapDrawEngine()
 		m_CosValue[angleIdx] = (long)(cos(radius) * 10000);
 		m_SinValue[angleIdx] = (long)(sin(radius) * 10000);
 	}
+
+	debugIndex = 0;
 }
 
 CMapDrawEngine::~CMapDrawEngine()
@@ -296,8 +297,9 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 			std::cout << "(" <<g_DrawBuffer[i].X << " , " << g_DrawBuffer[i].Y << ")   ";
 		}
 		std::cout << std::endl << "-------------------------" << std::endl;
+		std::cout << debugIndex << " : Zoom : " << drawInfo.logicalLevel << std::endl;
 		graphics->FillPolygon(&(fillBrush), g_DrawBuffer, nIdx-1);
-		
+		debugIndex++;
 	}
 	graphics->DrawPolygon(&(drawPen), g_DrawBuffer, nIdx-1);
 

@@ -34,7 +34,7 @@ private:
 		return drawInfo.physicalLevel;
 	};
 
-public:
+public:	
 	long Init();
 	void SetMapDataPath(std::string mapDataPath)
 	{
@@ -88,6 +88,7 @@ public:
 
 	void SetZoomLevel(long level)							// Set Zoom Level
 	{
+		debugIndex = 0;
 		drawInfo.logicalLevel = level;
 	};
 	void GetZoomLevel(long& level)							// Get Zoom Level
@@ -250,4 +251,6 @@ public:
 	int						m_BaseZone;
 
 	Graphics				*graphics;
+
+	int 					debugIndex;
 };
