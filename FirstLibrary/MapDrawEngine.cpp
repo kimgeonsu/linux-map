@@ -292,7 +292,11 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	}
 
 	if (nIdx > 2 && nIdx != 4 && check) {
-		// graphics->FillPolygon(&(fillBrush), g_DrawBuffer, nIdx-1);
+		for (int i = 0; i < nIdx; i++) {
+			std::cout << "(" <<g_DrawBuffer[i].X << " , " << g_DrawBuffer[i].Y << ")   ";
+		}
+		std::cout << std::endl;
+		graphics->FillPolygon(&(fillBrush), g_DrawBuffer, nIdx-1);
 		
 	}
 	graphics->DrawPolygon(&(drawPen), g_DrawBuffer, nIdx-1);
