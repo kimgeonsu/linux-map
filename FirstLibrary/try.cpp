@@ -47,7 +47,7 @@ int main()
 	int currentMapMode = 1;
 	engine->SetMapAngle(currentAngle);
 	engine->SetMapHeadingUpMode(currentMapMode);
-    engine->SetMapDayNightMode(1);
+    engine->SetMapDayNightMode(0);
 
     _dPoint dp;
     dp.x = 128.5; 
