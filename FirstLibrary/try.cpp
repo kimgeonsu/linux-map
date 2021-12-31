@@ -84,6 +84,14 @@ int main()
 			engine->SetZoomLevel(stol(commands[1]));
 			engine->DrawMap();
 		}
+		if (commands[0] == "dark") {
+			engine->SetMapDayNightMode(0);
+			engine->DrawMap();
+		}
+		if (commands[0] == "light") {
+			engine->SetMapDayNightMode(1);
+			engine->DrawMap();
+		}
         if (commands[0] == "exit") {
             return 0;
         }
