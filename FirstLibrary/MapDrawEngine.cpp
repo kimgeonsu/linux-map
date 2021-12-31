@@ -510,9 +510,9 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle, long bufferIdx)
 
 
 	if (drawInfo.dayNightMode == 0)
-		color = Color(0, 0, 0);
+		fillBrush.SetColor(Color(0,0,0));
 	else
-		color = Color(255, 255, 255);
+		fillBrush.SetColor(Color(255,255,255));
 
 	RectF tmpRectF = textRect.Rect2RectF();
 	font.SetFont("Sans-Regular");
