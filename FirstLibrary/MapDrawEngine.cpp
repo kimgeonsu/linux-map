@@ -76,7 +76,7 @@ long CMapDrawEngine::DrawMap()
 			// DrawPOI(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 3:
-			DrawPolyline(&pData, drawInfo.mapAngle, nIdx);
+			// DrawPolyline(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 5:
 			// if (pData.header.designCode > 35)
@@ -700,5 +700,8 @@ Color CMapDrawEngine::colorConverter(int data) {
 	int r = hexa[6] * 16 + hexa[7];
 	int g = hexa[4] * 16 + hexa[5];
 	int b = hexa[2] * 16 + hexa[3];
+
+	std::hex << decimal << std::endl;
+	std::cout << r << " " << g << " " << b << std::endl;
 	return Color(r, g, b);
 }
