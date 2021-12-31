@@ -1,4 +1,5 @@
 #include "DesignRecordManager.h"
+#include <iostream>
 
 #pragma warning(suppress : 4996)
 
