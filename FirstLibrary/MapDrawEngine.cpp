@@ -273,7 +273,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		if (designInfo->objType == (unsigned char)2)
 		{
 			// fillBursh = CreateSolidBrush(designInfo->_brush[drawInfo.dayNightMode].fillValue.data);
-			std::cout << "brush color : " << pData->header.designCode << " " << std::hex << designInfo->_brush[drawInfo.dayNightMode].fillValue.data << " " << designInfo->_brush[drawInfo.dayNightMode].type << std::endl;
+			std::cout << "brush color : " << pData->header.designCode << " " << designInfo->_brush[drawInfo.dayNightMode].type<< " " << std::hex << designInfo->_brush[drawInfo.dayNightMode].fillValue.data << std::endl;
 			
 			Color brushColor = colorConverter(designInfo->_brush[drawInfo.dayNightMode].fillValue.data);
 			fillBrush.SetColor(brushColor);
