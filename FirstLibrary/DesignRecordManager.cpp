@@ -41,7 +41,7 @@ long CDesignRecordMng::LoadDesignFile(std::string fileName)
 		if (_recordList[i].objType != 1)
 			std::cout.width(8);
 			std::cout.fill('0');
-			std::cout << std::hex << _recordList[i]._line[0].color << std::endl;
+			std::cout << _recordList[i].designCode << " "<< std::hex << _recordList[i]._line[0].color << std::endl;
 	}
 
 
