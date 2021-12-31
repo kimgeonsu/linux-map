@@ -79,7 +79,7 @@ long CMapDrawEngine::DrawMap()
 			DrawPolyline(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 5:
-			if (pData.header.designCode > 35)
+			// if (pData.header.designCode > 35)
 				DrawPolygon(&pData, drawInfo.mapAngle, nIdx);
 			std::cout << pData.header.designCode << std::endl;
 			break;
