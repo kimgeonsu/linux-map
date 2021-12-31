@@ -39,3 +39,14 @@ void CDrawData::AddDataList(_MapRecord* inData)
 	}
 	return;
 }
+
+void CDrawData::DebugPrint() {
+	std::list<_MapRecord>::iterator	listPos = _drawDataList.begin();
+	std::list<_MapRecord>::iterator end = _drawDataList.end(); 
+
+	for (; listPos != end; listPos++) {
+		std::cout << listPos->header.drawOrder;
+
+	}
+	std::cout << std::endl;
+}

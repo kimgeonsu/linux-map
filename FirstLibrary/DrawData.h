@@ -90,6 +90,8 @@ public:
 	}
 
 	void Init();
+	
+	void DebugPrint();
 
 public:
 	CDrawData();
