@@ -33,6 +33,8 @@ long CDesignRecordMng::LoadDesignFile(std::string fileName)
 
 	fread(&_recordList[recIdx], sizeof(_DesignRecord), _recordCount, pFile);
 
+	std::cout << std::hex << _recordList[0]._line[0].color << std::endl;
+
 	fclose(pFile);
 
 	return true;
