@@ -26,7 +26,7 @@ void CDrawData::AddDataList(_MapRecord* inData)
 	bool isInsert = false;
 
 	for (; listPos != end; listPos++) {
-		if (listPos->header.drawOrder > inData->header.drawOrder) {
+		if (listPos->header.drawOrder >= inData->header.drawOrder) {
 			_drawDataList.push_front(*inData);
 			isInsert = true;
 			break;
