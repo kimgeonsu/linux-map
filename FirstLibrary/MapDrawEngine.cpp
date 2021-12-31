@@ -188,6 +188,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	Color color = Color(0,0,0);
 	Brush oldBrush = Brush(color);
 	Brush fillBrush = Brush(color);
+	bool check = false;
 	Pen	drawPen = Pen(color, 1.0);
 	Pen	oldPen = Pen(color, 1.0);
 	Font font("Sans-Regular", 10);
@@ -270,7 +271,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 
 	if (designInfo != nullptr)
 	{
-		if (designInfo->objType == (unsigned char)5 )
+		if (designInfo->objType == (unsigned char)2 )
 		{
 			// fillBursh = CreateSolidBrush(designInfo->_brush[drawInfo.dayNightMode].fillValue.data);
 			std::cout << "brush color : " << pData->header.designCode << " " << designInfo->_brush[drawInfo.dayNightMode].type<< " " << std::hex << designInfo->_brush[drawInfo.dayNightMode].fillValue.data << std::endl;
@@ -278,17 +279,12 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 			Color brushColor = colorConverter(designInfo->_brush[drawInfo.dayNightMode].fillValue.data);
 			fillBrush.SetColor(brushColor);
 			oldBrush = fillBrush;
+			check = true;
 		}
-		else
-		{
-			oldBrush = m_NULLBRUSH;
-		}
-
-		if (designInfo->_line[drawInfo.dayNightMode].type == (unsigned char)2)
+		if (designInfo->_line[drawInfo.dayNightMode].type == (unsigned char)5)
 		{
 			Color color = Color(255, 255, 255);
 			drawPen = Pen(color, 0);
-
 		}
 		else
 		{
@@ -299,12 +295,8 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		}
 		oldPen = drawPen;
 	}
-	else
-	{
-		oldBrush = m_NULLBRUSH;
-	}
 
-	if (nIdx > 2 && nIdx != 4) {
+	if (nIdx > 2 && nIdx != 4 && check) {
 		graphics->FillPolygon(&(fillBrush), g_DrawBuffer, nIdx-1);
 		
 	}
