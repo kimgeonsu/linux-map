@@ -73,7 +73,7 @@ long CMapDrawEngine::DrawMap()
 		switch (pData.header.objType)
 		{
 		case 1:
-			DrawPOI(&pData, drawInfo.mapAngle, nIdx);
+			// DrawPOI(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 3:
 			DrawPolyline(&pData, drawInfo.mapAngle, nIdx);
