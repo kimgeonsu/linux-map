@@ -34,7 +34,7 @@ long CDesignRecordMng::LoadDesignFile(std::string fileName)
 
 	fread(&_recordList[recIdx], sizeof(_DesignRecord), _recordCount, pFile);
 
-
+	std::cout << sizeof(_DesignRecord) << " " << _recordCount << std::endl;
 	fclose(pFile);
 
 	for (int i = 0; i < _recordCount; i++) {
