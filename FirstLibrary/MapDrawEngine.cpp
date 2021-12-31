@@ -701,7 +701,7 @@ Color CMapDrawEngine::colorConverter(int data) {
 	int g = hexa[4] * 16 + hexa[5];
 	int b = hexa[2] * 16 + hexa[3];
 
-	std::cout << std::hex << decimal << std::endl;
-	std::cout << r << " " << g << " " << b << std::endl;
+	std::cout << "16진수 : "<< std::hex << decimal << std::endl;
+	std::cout << "RGB : " << r << " " << g << " " << b << std::endl;
 	return Color(r, g, b);
 }
