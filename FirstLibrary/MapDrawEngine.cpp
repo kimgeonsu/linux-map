@@ -79,7 +79,8 @@ long CMapDrawEngine::DrawMap()
 			DrawPolyline(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 5:
-			DrawPolygon(&pData, drawInfo.mapAngle, nIdx);
+			if (pData.header.designCode > 20)
+				DrawPolygon(&pData, drawInfo.mapAngle, nIdx);
 			std::cout << pData.header.designCode << std::endl;
 			break;
 		default:
