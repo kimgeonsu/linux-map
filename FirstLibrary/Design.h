@@ -27,7 +27,7 @@ typedef struct _PointInfo
 {
 	unsigned char PtType;
 	unsigned char TxtPosition;
-	unsigned int SymAngle;
+	unsigned short SymAngle;
 	_ImageCode			SymCode;
 
 	_PointInfo() : PtType(0), TxtPosition(0), SymAngle(0)
