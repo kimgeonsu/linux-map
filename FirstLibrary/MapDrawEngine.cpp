@@ -69,7 +69,6 @@ long CMapDrawEngine::DrawMap()
 	for (pos; pos != eee; pos++) 
 	{
 		pData = *pos;
-		std::cout << pData.header.designCode << std::endl;
 
 		switch (pData.header.objType)
 		{
@@ -81,6 +80,7 @@ long CMapDrawEngine::DrawMap()
 			break;
 		case 5:
 			DrawPolygon(&pData, drawInfo.mapAngle, nIdx);
+			std::cout << pData.header.designCode << std::endl;
 			break;
 		default:
 			break;
