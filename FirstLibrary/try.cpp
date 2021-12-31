@@ -81,7 +81,6 @@ int main()
 			engine->DrawMap();
 		}
 		if (commands[0] == "zoom") {
-			a = 0;
 			engine->SetZoomLevel(stol(commands[1]));
 			engine->DrawMap();
 		}
