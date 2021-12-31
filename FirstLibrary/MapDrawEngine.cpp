@@ -68,7 +68,6 @@ long CMapDrawEngine::DrawMap()
 	
 	for (pos; pos != eee; pos++) 
 	{
-		std::cout << pData.header.drawOrder;
 		pData = *pos;
 		switch (pData.header.objType)
 		{
@@ -426,22 +425,17 @@ long CMapDrawEngine::DrawPolyline(_MapRecord* pData, double angle, long bufferId
 
 	if (designInfo != nullptr)
 	{
-		if (designInfo->_line[drawInfo.dayNightMode].type == 5)
+		if (designInfo->_line[drawInfo.dayNightMode].type != (unsigned char)5)
 		{
-			Color color = Color(0, 0, 0);
-			drawPen = Pen(color, 0);
+			Color color = colorConverter(designInfo->_line[drawInfo.dayNightMode].color);
+			drawPen.SetColor(color);
+			graphics->DrawLines(&drawPen, g_DrawBuffer, nIdx);
 		}
-		else
-		{
-			//drawPen = CreatePen(designInfo->_line[drawInfo.dayNightMode].type, designInfo->_line[drawInfo.dayNightMode].width, designInfo->_line[drawInfo.dayNightMode].color);
-			Color color = Color(256, 0, 0);
-			drawPen = Pen(color, 1);
-		}
-
-		oldPen = drawPen;
+	} else {
+		graphics->DrawLines(&drawPen, g_DrawBuffer, nIdx);
 	}
 
-	graphics->DrawLines(&drawPen, g_DrawBuffer, nIdx);
+	
 
 	return true;
 }
