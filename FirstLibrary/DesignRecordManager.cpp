@@ -34,14 +34,7 @@ long CDesignRecordMng::LoadDesignFile(std::string fileName)
 
 	fread(&_recordList[recIdx], sizeof(_DesignRecord), _recordCount, pFile);
 
-	std::cout << sizeof(_DesignRecord) << " " << _recordCount << std::endl;
 	fclose(pFile);
-
-	for (int i = 0; i < _recordCount; i++) {
-		if (_recordList[i].objType != 1)			
-			std::cout << _recordList[i].designCode << " "<< std::hex << _recordList[i]._line[0].color << std::endl;
-	}
-
 
 	return true;
 }
