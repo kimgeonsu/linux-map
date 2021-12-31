@@ -292,7 +292,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		else
 		{
 			// drawPen = CreatePen(designInfo->_line[drawInfo.dayNightMode].type, designInfo->_line[drawInfo.dayNightMode].width, designInfo->_line[drawInfo.dayNightMode].color);
-			std::cout << "pen color : " << pData->header.designCode << " " << std::hex << designInfo->_line[drawInfo.dayNightMode].fillValue.data;
+			std::cout << "pen color : " << pData->header.designCode << " " << std::hex << designInfo->_line[drawInfo.dayNightMode].color;
 			Color color = colorConverter(designInfo->_line[drawInfo.dayNightMode].color);
 			drawPen.SetColor(color);
 		}
