@@ -69,17 +69,16 @@ long CMapDrawEngine::DrawMap()
 	for (pos; pos != eee; pos++) 
 	{
 		pData = *pos;
-
+		std::cout << "drawOrder: " << pData.header.drawOrder << std::endl;
 		switch (pData.header.objType)
 		{
 		case 1:
-			// DrawPOI(&pData, drawInfo.mapAngle, nIdx);
+			DrawPOI(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 3:
-			// DrawPolyline(&pData, drawInfo.mapAngle, nIdx);
+			DrawPolyline(&pData, drawInfo.mapAngle, nIdx);
 			break;
 		case 5:
-			// if (pData.header.designCode > 35)
 				DrawPolygon(&pData, drawInfo.mapAngle, nIdx);
 			std::cout << pData.header.designCode << std::endl;
 			break;
