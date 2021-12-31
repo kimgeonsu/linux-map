@@ -69,7 +69,7 @@ long CMapDrawEngine::DrawMap()
 	for (pos; pos != eee; pos++) 
 	{
 		pData = *pos;
-		std::cout << "drawOrder: " << pData.header.drawOrder << std::endl;
+		std::cout << pData.header.drawOrder;
 		switch (pData.header.objType)
 		{
 		case 1:

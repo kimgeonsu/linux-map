@@ -93,6 +93,7 @@ int main()
 			engine->DrawMap();
 		}
         if (commands[0] == "exit") {
+			std::cout << "바이 바이 ~~~~\n";
             return 0;
         }
 		commands.clear();
