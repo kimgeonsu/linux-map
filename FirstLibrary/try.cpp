@@ -33,29 +33,29 @@ Brush 		 brush(color);
 
 int main()
 {
-    // std::string dataFilePath = "../Output";
-    // CMapDrawEngine *engine = new CMapDrawEngine;
-    // engine->Init();
-    // engine->SetMapDataPath(dataFilePath);
-	// engine->SetDeviceRect(0, 0, 480, 800);
-	// engine->SetDeviceCenterPos(240, 400);
+    std::string dataFilePath = "../Output";
+    CMapDrawEngine *engine = new CMapDrawEngine;
+    engine->Init();
+    engine->SetMapDataPath(dataFilePath);
+	engine->SetDeviceRect(0, 0, 480, 800);
+	engine->SetDeviceCenterPos(240, 400);
 
-	// engine->SetZoomLevel(0);
-	// engine->SetMapPos(128.0, 36.0);
+	engine->SetZoomLevel(0);
+	engine->SetMapPos(128.0, 36.0);
 
-	// int currentAngle = 0;
-	// int currentMapMode = 1;
-	// engine->SetMapAngle(currentAngle);
-	// engine->SetMapHeadingUpMode(currentMapMode);
-    // engine->SetMapDayNightMode(0);
+	int currentAngle = 0;
+	int currentMapMode = 1;
+	engine->SetMapAngle(currentAngle);
+	engine->SetMapHeadingUpMode(currentMapMode);
+    engine->SetMapDayNightMode(0);
 
-    // _dPoint dp;
-    // dp.x = 128.5; 
-    // dp.y = 36.5;
-    // Point ip = Point(10,10);
-    // engine->WorldToDevice(dp);
-    // engine->DeviceToWorldMove(ip, ip);
-    // engine->DrawMap();
+    _dPoint dp;
+    dp.x = 128.5; 
+    dp.y = 36.5;
+    Point ip = Point(10,10);
+    engine->WorldToDevice(dp);
+    engine->DeviceToWorldMove(ip, ip);
+    engine->DrawMap();
 
     // string cmd;
 	// vector<string> commands;
