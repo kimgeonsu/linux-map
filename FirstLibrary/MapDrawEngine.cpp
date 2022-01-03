@@ -298,9 +298,9 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		std::cout << cntPoint << std::endl;
 		std::cout << objRect.left << " " << objRect.top << " " << objRect.right << " " << objRect.bottom << std::endl;
 		std::cout << checkRect.left << " " << checkRect.top << " " << checkRect.right << " " << checkRect.bottom << std::endl;
-		for (int i = 0; i < cntPoint; i++) {
-			std::cout << "PointF(" <<g_DrawBuffer[i].X << " , " << g_DrawBuffer[i].Y << ")," << std::endl;
-		}
+		// for (int i = 0; i < cntPoint; i++) {
+		// 	std::cout << "PointF(" <<g_DrawBuffer[i].X << " , " << g_DrawBuffer[i].Y << ")," << std::endl;
+		// }
 		std::cout << std::endl << "-------------------------" << std::endl;
 		std::cout << debugIndex << " : Zoom : " << drawInfo.logicalLevel << std::endl;
 		std::cout << pData->header.objCode.codeValue[0] << " , " << pData->header.objCode.codeValue[1] << std::endl;
