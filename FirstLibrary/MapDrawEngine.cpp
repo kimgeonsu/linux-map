@@ -298,8 +298,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		}
 		std::cout << std::endl << "-------------------------" << std::endl;
 		std::cout << debugIndex << " : Zoom : " << drawInfo.logicalLevel << std::endl;
-		if (drawInfo.logicalLevel != 2 || debugIndex != 8)
-			graphics->FillPolygon(&(fillBrush), g_DrawBuffer, nIdx-1);
+		// graphics->FillPolygon(&(fillBrush), g_DrawBuffer, nIdx-1);
 		debugIndex++;
 	}
 	graphics->DrawPolygon(&(drawPen), g_DrawBuffer, nIdx-1);
