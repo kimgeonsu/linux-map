@@ -116,6 +116,7 @@ PointF(300 , -200),
 PointF(400 , 0),
 PointF(500 , 200),
 PointF(600 , 400),
+PointF(600 , -600),
 
 
 // PointF(28 , -1335),
