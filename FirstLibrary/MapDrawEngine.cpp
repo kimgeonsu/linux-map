@@ -296,6 +296,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	if (cntPoint > 2 && check) {
 		std::cout << std::endl << "-------------------------" << std::endl;
 		std::cout << pData->header.objCode.codeValue[0] << " , " << pData->header.objCode.codeValue[1] << std::endl;
+		graphics->FillPolygon(&(drawPen), g_DrawBuffer, cntPoint);
 		debugIndex++;
 	}
 	graphics->DrawPolygon(&(drawPen), g_DrawBuffer, cntPoint);
