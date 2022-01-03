@@ -230,6 +230,10 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		checkRect = GetBoundaryRect(checkRect, (long)angle);
 	}
 
+
+	std::cout << objRect.left << " " << objRect.right << " " << objRect.top << " " << objRect.bottom << std::endl;
+	std::cout << checkRect.left << " " << checkRect.right << " " << checkRect.top << " " << checkRect.bottom << std::endl;
+
 	// Text Point Calculate
 	textData = pData->header.textData;
 	if (!rectBuffer.IntersectRect(&checkRect, &objRect))
