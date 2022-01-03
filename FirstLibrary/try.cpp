@@ -272,7 +272,7 @@ PointF(0 , -860),
 	};
 
 	int cntPoint = sizeof fox_pts/sizeof fox_pts[0];
-	std::cout << cntPoint << std:endl;
+	std::cout << cntPoint << std::endl;
 
 	graphics->FillPolygon(&brush, fox_pts, 61);
 	graphics->DrawPolygon(&pen, fox_pts, 61);
