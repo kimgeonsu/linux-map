@@ -168,9 +168,6 @@ bool CMapDrawEngine::IsDrawObject(Rect drawRect, Rect objRect)
 
 long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx)
 {
-	if (pData->header.objCode.codeValue[1] != 4690) {
-		return 0;
-	}
 	// for intersect calculation..
 	Rect		objRect(pData->header.boundaryRect);
 	Rect		drawRect;
@@ -237,7 +234,6 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	textData = pData->header.textData;
 	if (!rectBuffer.IntersectRect(&checkRect, &objRect))
 	{
-		std::cout << "I'm FALSE BYE ~~~ BYE ~~~\n";
 		return false;
 	}
 
@@ -298,14 +294,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 
 	int cntPoint = pData->header.pointCount;	
 	if (cntPoint > 2 && check) {
-		std::cout << cntPoint << std::endl;
-		std::cout << objRect.left << " " << objRect.top << " " << objRect.right << " " << objRect.bottom << std::endl;
-		std::cout << checkRect.left << " " << checkRect.top << " " << checkRect.right << " " << checkRect.bottom << std::endl;
-		// for (int i = 0; i < cntPoint; i++) {
-		// 	std::cout << "PointF(" <<g_DrawBuffer[i].X << " , " << g_DrawBuffer[i].Y << ")," << std::endl;
-		// }
 		std::cout << std::endl << "-------------------------" << std::endl;
-		std::cout << debugIndex << " : Zoom : " << drawInfo.logicalLevel << std::endl;
 		std::cout << pData->header.objCode.codeValue[0] << " , " << pData->header.objCode.codeValue[1] << std::endl;
 		debugIndex++;
 	}
