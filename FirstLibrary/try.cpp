@@ -99,5 +99,24 @@ int main()
 		commands.clear();
     }
 
+	// brush.SetColor(Color(255,127,39));
+
+	// PointF fox_pts[] = {
+	// 	PointF(891, -1799), 
+	// 	PointF(891 , -1785), 
+	// 	PointF(886 , -1775), 
+	// 	PointF(877 , -1761), 
+	// 	PointF(879 , -1751),
+	// 	PointF(x+70, y+25),
+	// 	PointF(x+40, y+25)
+	// };
+
+	// graphics->FillPolygon(&brush, fox_pts, 7);
+	// graphics->DrawPolygon(&pen, fox_pts, 7);
+	// //
+
+	// graphics->~Graphics();
+
+
 	return 0;
 }

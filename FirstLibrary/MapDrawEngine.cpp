@@ -294,7 +294,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 
 	if (nIdx > 2 && nIdx != 4 && check) {
 		for (int i = 0; i < nIdx; i++) {
-			std::cout << "(" <<g_DrawBuffer[i].X << " , " << g_DrawBuffer[i].Y << ")   ";
+			std::cout << "PointF(" <<g_DrawBuffer[i].X << " , " << g_DrawBuffer[i].Y << ")," << std::endl;
 		}
 		std::cout << std::endl << "-------------------------" << std::endl;
 		std::cout << debugIndex << " : Zoom : " << drawInfo.logicalLevel << std::endl;
