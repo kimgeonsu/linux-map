@@ -238,6 +238,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 	textData = pData->header.textData;
 	if (!rectBuffer.IntersectRect(&checkRect, &objRect))
 	{
+		std::cout << "I'm FALSE BYE ~~~ BYE ~~~\n";
 		return false;
 	}
 
