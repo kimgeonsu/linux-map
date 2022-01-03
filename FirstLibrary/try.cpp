@@ -455,11 +455,10 @@ int main()
 	PointF(-548 , -1790),
 	PointF(-557 , -1791),
 	PointF(-565 , -1799),
-	PointF(891 , -1799),
 	};
 
-	graphics->FillPolygon(&brush, fox_pts, 347);
-	graphics->DrawPolygon(&pen, fox_pts, 347);
+	graphics->FillPolygon(&brush, fox_pts, 346);
+	graphics->DrawPolygon(&pen, fox_pts, 346);
 	//
 
 	graphics->~Graphics();
