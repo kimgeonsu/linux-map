@@ -457,8 +457,8 @@ int main()
 	// PointF(-565 , -1799),
 	// };
 
-	int x = 10;
-	int y = 10;
+	int x = -100;
+	int y = -100;
 	PointF fox_pts[] = {
 		PointF(x+30, y), 
 		PointF(x, y+50), 
