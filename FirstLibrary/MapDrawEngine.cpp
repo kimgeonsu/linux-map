@@ -293,20 +293,21 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		oldPen = drawPen;
 	}
 
-	std::cout << nIdx << std::endl;
+	int cntPoint = pData->header.pointCount;
+	std::cout << cntPoint << std::endl;
 	std::cout << objRect.left << " " << objRect.top << " " << objRect.right << " " << objRect.bottom << std::endl;
 	std::cout << checkRect.left << " " << checkRect.top << " " << checkRect.right << " " << checkRect.bottom << std::endl;
 
-	if (nIdx > 2 && nIdx != 4 && check) {
-		for (int i = 0; i < nIdx; i++) {
+	if (cntPoint > 2 && check) {
+		for (int i = 0; i < cntPoint; i++) {
 			std::cout << "PointF(" <<g_DrawBuffer[i].X << " , " << g_DrawBuffer[i].Y << ")," << std::endl;
 		}
 		std::cout << std::endl << "-------------------------" << std::endl;
 		std::cout << debugIndex << " : Zoom : " << drawInfo.logicalLevel << std::endl;
-		graphics->FillPolygon(&(fillBrush), g_DrawBuffer, nIdx-1);
+		graphics->FillPolygon(&(fillBrush), g_DrawBuffer, cntPoint);
 		debugIndex++;
 	}
-	graphics->DrawPolygon(&(drawPen), g_DrawBuffer, nIdx-1);
+	graphics->DrawPolygon(&(drawPen), g_DrawBuffer, cntPoint);
 
 	// Text Output
 	if ((textData.length() > 0) && (designInfo != nullptr))
