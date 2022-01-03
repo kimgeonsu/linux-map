@@ -109,16 +109,25 @@ int main()
 	brush.SetColor(Color(255,127,39));
 
 	PointF fox_pts[] = {
-		PointF(28 , -1335),
-PointF(39 , -1327),
-PointF(47 , -1321),
-PointF(49 , -1312),
-PointF(45 , -1301),
-PointF(51 , -1288),
-PointF(54 , -1279),
-PointF(45 , -1272),
-PointF(40 , -1261),
-PointF(28 , -1260),
+
+PointF(28 , 35),
+PointF(39 , 27),
+PointF(47 , 21),
+PointF(49 , 12),
+PointF(45 , 1),
+PointF(51 , 88),
+
+
+// PointF(28 , -1335),
+// PointF(39 , -1327),
+// PointF(47 , -1321),
+// PointF(49 , -1312),
+// PointF(45 , -1301),
+// PointF(51 , -1288),
+// PointF(54 , -1279),
+// PointF(45 , -1272),
+// PointF(40 , -1261),
+// PointF(28 , -1260),
 // PointF(22 , -1251),
 // PointF(25 , -1239),
 // PointF(32 , -1230),
