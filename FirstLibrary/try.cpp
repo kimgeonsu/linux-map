@@ -110,12 +110,12 @@ int main()
 
 	PointF fox_pts[] = {
 
-PointF(28 , 35),
-PointF(39 , 27),
-PointF(47 , 21),
-PointF(49 , 12),
-PointF(45 , 1),
-PointF(51 , 88),
+PointF(100 , -600),
+PointF(200 , -400),
+PointF(300 , -200),
+PointF(400 , 0),
+PointF(500 , 200),
+PointF(600 , 400),
 
 
 // PointF(28 , -1335),
