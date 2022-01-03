@@ -230,10 +230,6 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		checkRect = GetBoundaryRect(checkRect, (long)angle);
 	}
 
-	std::cout << nIdx << std::endl;
-	std::cout << objRect.left << " " << objRect.top << " " << objRect.right << " " << objRect.bottom << std::endl;
-	std::cout << checkRect.left << " " << checkRect.top << " " << checkRect.right << " " << checkRect.bottom << std::endl;
-
 	// Text Point Calculate
 	textData = pData->header.textData;
 	if (!rectBuffer.IntersectRect(&checkRect, &objRect))
@@ -296,6 +292,10 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle, long bufferIdx
 		}
 		oldPen = drawPen;
 	}
+
+	std::cout << nIdx << std::endl;
+	std::cout << objRect.left << " " << objRect.top << " " << objRect.right << " " << objRect.bottom << std::endl;
+	std::cout << checkRect.left << " " << checkRect.top << " " << checkRect.right << " " << checkRect.bottom << std::endl;
 
 	if (nIdx > 2 && nIdx != 4 && check) {
 		for (int i = 0; i < nIdx; i++) {
