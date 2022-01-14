@@ -65,7 +65,7 @@ typedef struct Rect {
 	}
 
 	bool PtInRect(Point p) {
-		if (left <= p.x && top <= p.y && bottom >= p.y && p.x >= right) {
+		if ((left <= p.x) && (top <= p.y) && (bottom >= p.y) && (p.x <= right)) {
 			return true;
 		}
 		return false;

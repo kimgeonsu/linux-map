@@ -203,7 +203,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord *pData, double angle, long bufferIdx
 	objRect.bottom <<= drawInfo.logicalLevel;
 
 	drawRect.SetRect(tmpCenterPoint.x - drawInfo.drawRect.CenterPoint().x, tmpCenterPoint.y - drawInfo.drawRect.CenterPoint().y,
-					 tmpCenterPoint.x + drawInfo.drawRect.CenterPoint().x, tmpCenterPoint.y + drawInfo.drawRect.CenterPoint().y);
+					tmpCenterPoint.x + drawInfo.drawRect.CenterPoint().x, tmpCenterPoint.y + drawInfo.drawRect.CenterPoint().y);
 
 	textPoint = objRect.CenterPoint();
 	checkRect = drawRect;
@@ -291,8 +291,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord *pData, double angle, long bufferIdx
 	int cntPoint = pData->header.pointCount;
 	if (cntPoint > 2 && check)
 	{
-		std::cout << std::endl
-				  << "-------------------------" << std::endl;
+		std::cout << std::endl << "-------------------------" << std::endl;
 		std::cout << pData->header.objCode.codeValue[0] << " , " << pData->header.objCode.codeValue[1] << std::endl;
 		graphics->FillPolygon(&(fillBrush), g_DrawBuffer, cntPoint);
 		debugIndex++;
@@ -366,7 +365,7 @@ long CMapDrawEngine::DrawPolyline(_MapRecord *pData, double angle, long bufferId
 	objRect.bottom <<= drawInfo.logicalLevel;
 
 	drawRect.SetRect(tmpCenterPoint.x - drawInfo.drawRect.CenterPoint().x, tmpCenterPoint.y - drawInfo.drawRect.CenterPoint().y,
-					 tmpCenterPoint.x + drawInfo.drawRect.CenterPoint().x, tmpCenterPoint.y + drawInfo.drawRect.CenterPoint().y);
+					tmpCenterPoint.x + drawInfo.drawRect.CenterPoint().x, tmpCenterPoint.y + drawInfo.drawRect.CenterPoint().y);
 
 	checkRect = drawRect;
 	long xGap = centerPoint.x - drawInfo.devRect.CenterPoint().x;
@@ -469,7 +468,7 @@ long CMapDrawEngine::DrawPOI(_MapRecord *pData, double angle, long bufferIdx)
 
 	objRect.SetRect(inPoint.x - 1, inPoint.y - 1, inPoint.x + 1, inPoint.y + 1);
 	drawRect.SetRect(tmpCenterPoint.x - drawInfo.drawRect.CenterPoint().x, tmpCenterPoint.y - drawInfo.drawRect.CenterPoint().y,
-					 tmpCenterPoint.x + drawInfo.drawRect.CenterPoint().x, tmpCenterPoint.y + drawInfo.drawRect.CenterPoint().y);
+					tmpCenterPoint.x + drawInfo.drawRect.CenterPoint().x, tmpCenterPoint.y + drawInfo.drawRect.CenterPoint().y);
 
 	checkRect = drawRect;
 	if (drawInfo.headingUpMode == 1)
