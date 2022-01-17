@@ -11,6 +11,7 @@ class Graphics
 {
 	public:
 		Graphics(const char *fb_name);
+		Graphics(INT width, INT height);
 		~Graphics();
 
 		void SetPixel(const Pen *pen, INT x, INT y);
@@ -36,6 +37,9 @@ class Graphics
 
 		void DrawString(const WCHAR *string, INT length, const Font *font, const PointF& origin, const Brush *brush);
 		void DrawImage(Image *image, const PointF &point);
+
+		///layer의 rect영역을 자신의 dst(좌측상단 위치임) 위치의 위에 그린다.
+		void DrawLayer(const Brush *brush, const PointF &dst, Graphics *layer, const RectF &rect);
 };
 
 #endif

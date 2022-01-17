@@ -27,12 +27,14 @@ typedef struct RectF {
 } RectF;
 
 typedef struct Color {
+	INT a;
 	INT r;
 	INT g;
 	INT b;
 
-	Color(): r(0), g(0), b(0) {}
-	Color(INT R, INT G, INT B): r(R), g(G), b(B) {}
+	Color(): a(255), r(0), g(0), b(0) {}
+	Color(INT R, INT G, INT B): a(255), r(R), g(G), b(B) {}
+	Color(INT A, INT R, INT G, INT B): a(A), r(R), g(G), b(B) {}
 } Color;
 
 #endif
