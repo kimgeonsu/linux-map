@@ -79,6 +79,7 @@ long CMapDrawEngine::DrawMap()
 			break;
 		case 5:
 			DrawPolygon(&pData, drawInfo.mapAngle, nIdx);
+			std::cout << "poly poly\n";
 			break;
 		default:
 			break;
