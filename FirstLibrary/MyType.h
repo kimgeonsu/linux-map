@@ -114,6 +114,7 @@ typedef union _MapCode
 typedef struct _MapRecordHeader
 {
 	_MapCode objCode;
+	int		isVisible;
 	int		designCode;
 	int		objType;
 	int		pointCount;
@@ -121,10 +122,13 @@ typedef struct _MapRecordHeader
 	Rect	boundaryRect;
 	char			textLayerDes[32];
 	char			textData[32];
+	char			textData2[32];
+	int				textCount;
 
-	_MapRecordHeader() : designCode(0), objType(0), pointCount(0), drawOrder(0)
+	_MapRecordHeader() : designCode(0), objType(0), pointCount(0), drawOrder(0), textCount(0), isVisible(true)
 	{
 		memset(&textData, 0, sizeof(textData));
+		memset(&textData2, 0, sizeof(textData2));
 		memset(&textLayerDes, 0, sizeof(textLayerDes));
 	};
 
@@ -135,7 +139,7 @@ typedef struct _MapRecord
 	_MapRecordHeader	header;
 	Point* pointList;
 
-	_MapRecord() : pointList(0) { };
+	_MapRecord() : pointList(nullptr) { };
 	~_MapRecord()
 	{
 		
