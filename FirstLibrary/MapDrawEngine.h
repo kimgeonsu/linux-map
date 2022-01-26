@@ -237,7 +237,7 @@ public:
 
 	MapDataManager				mapDataManager;
 	_MapFactorInfo			_mapFactorInfo;
-	_MapDrawInfo			drawInfo;					// Draw Window Information
+	_MapDrawInfo			drawInfo;					// Draw Wiundow Information
 
 	Color					color = Color(0, 0, 0);
 	Pen						m_NULLPEN = Pen(color, 1.0);

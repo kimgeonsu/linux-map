@@ -53,7 +53,6 @@ long CMapDrawEngine::Init()
 long CMapDrawEngine::DrawMap()
 {
 
-	long tmpFontSize = 0;
 	long nIdx = 0;
 
 	Font oldFont = Font("Sans-Regular", 10);

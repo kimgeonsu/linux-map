@@ -54,9 +54,14 @@ public:
 		return _mapDataPath;
 	}
 
+	void SaveAirMapData();
+	void SelectAll();
+	void ReleaseAll();
+	void SortAdd(_MapRecord *inData);
 	long ReadFile(std::string fileName);
 
 public :
+	std::list<_MapRecord> _airMapList;
 	CDrawData _drawData;
 	CDesignRecordMng _designRecordMng;
 };

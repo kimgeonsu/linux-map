@@ -60,4 +60,55 @@ long MapDataManager::ReadFile(std::string fileName)
 	return true;
 }
 
+void MapDataManager::SaveAirMapData() {
+	FILE* mapFile = nullptr;
+	_MapRecord* pData = nullptr;
 
+	std::string fileName = _mapDataPath + "/Lv1/0_0/SUAS.rec";
+	mapFile = fopen(fileName.c_str(), "wb");
+
+	if (mapFile != nullptr) {
+		std::list<_MapRecord>::iterator listPos = _airMapList.begin();
+		std::list<_MapRecord>::iterator end = _airMapList.end();
+
+		for (; listPos != end; listPos++) {
+			fwrite(&(listPos->header), sizeof(_MapRecordHeader), 1, mapFile);
+			fwrite(&(listPos->pointList), sizeof(Point), listPos->header.pointCount, mapFile);
+		}
+		fclose(mapFile);
+	}
+}
+
+void MapDataManager::SortAdd(_MapRecord* inData) {
+	bool findFlag = false;
+
+	std::list<_MapRecord>::iterator listPos = _airMapList.begin();
+	std::list<_MapRecord>::iterator end = _airMapList.end();
+	for (; listPos != end; listPos++) {
+		if (strcmp(inData->header.textData, listPos->header.textData) < 0) {
+			_airMapList.insert(listPos, *inData);
+			findFlag = true;
+			break;
+		}
+	}
+
+	if (findFlag == false) {
+		_airMapList.push_back(*inData);
+	}
+}
+
+void MapDataManager::SelectAll() {
+	std::list<_MapRecord>::iterator listPos = _airMapList.begin();
+	std::list<_MapRecord>::iterator end = _airMapList.end();
+	for (; listPos != end; listPos++) {
+		listPos->header.isVisible = true;
+	}
+}
+
+void MapDataManager::ReleaseAll() {
+	std::list<_MapRecord>::iterator listPos = _airMapList.begin();
+	std::list<_MapRecord>::iterator end = _airMapList.end();
+	for (; listPos != end; listPos++) {
+		listPos->header.isVisible = false;
+	}
+}
