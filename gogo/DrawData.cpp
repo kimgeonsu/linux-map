@@ -14,7 +14,7 @@ CDrawData::~CDrawData()
 
 void CDrawData::Init()
 {
-	_drawDataList.clear();
+	// _drawDataList.clear();
 	_level = 0;
 }
 
