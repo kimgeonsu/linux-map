@@ -779,9 +779,9 @@ long CMapDrawEngine::DrawMap()
 		}
 	}
 
-	DrawUserLayer();
+	// DrawUserLayer();
 
-	DrawMission();
+	// DrawMission();
 
 	// HSI Draw
 	if (drawInfo.headingUpMode == (long)1)
