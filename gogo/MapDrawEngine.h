@@ -607,7 +607,7 @@ public:
 	_MapDrawInfo			drawInfo;					// Draw Window Information
 
 	_dPoint					carPos;
-	Brush					m_BACKBRUSH[2];
+	Brush					m_BACKBRUSH[2] = { Brush(Color(255,0,0,0)), Brush(Color(255,0,0,0)) };
 	Font					m_MapFont = Font("Sans-Regular", 10);
 
 	// Image					carImage;
