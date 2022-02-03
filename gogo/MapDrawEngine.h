@@ -609,16 +609,14 @@ public:
 	_dPoint					carPos;
 	Brush					m_BACKBRUSH[2];
 	Font					m_MapFont;
-	Font					userLayerFont;
-	Font					debugFont;
 
-	Image					carImage;
+	// Image					carImage;
 
-	Image					imgHomeSymbol[2];
+	// Image					imgHomeSymbol[2];
 
-	Image					arrowHSI[2];
+	// Image					arrowHSI[2];
 
-	Image					patternImage[2];
+	// Image					patternImage[2];
 
 	long					m_CosValue[360];
 	long					m_SinValue[360];

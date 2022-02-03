@@ -696,10 +696,6 @@ CMapDrawEngine::CMapDrawEngine()
 
 	m_MapFont.SetFont("Sans-Regular");
 	m_MapFont.SetSize(8);
-	userLayerFont.SetFont("Sans-Regular");
-	userLayerFont.SetSize(10);
-	debugFont.SetFont("Sans-Regular");
-	debugFont.SetSize(10);
 
 	// carImage = CAppLib::LoadResourceImage(ImgFileName);
 	// arrowHSI[0] = CAppLib::LoadResourceImage(ImgFileName);
@@ -1856,8 +1852,8 @@ long CMapDrawEngine::DrawGuideLine(_dPoint basePoint, _dPoint targetPoint, long 
 	}
 
 
-	graphics->DrawLine(&backPen, drawBuffer[0], drawBuffer[1]);
-	graphics->DrawLine(&tmpPen, drawBuffer[0], drawBuffer[1]);
+	graphics->DrawLine(&backPen, drawBuffer[0].Point2PointF(), drawBuffer[1].Point2PointF());
+	graphics->DrawLine(&tmpPen, drawBuffer[0].Point2PointF(), drawBuffer[1].Point2PointF());
 	return true;
 }
 

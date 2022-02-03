@@ -40,8 +40,8 @@ namespace APP_STATE_CONST
 	const double TBL_LAR_CHECK[8] = { 0.79, 0.78, 0.76, 0.75, 0.73, 0.72, 0.70, 0.69 };
 
 	// 20120115 : User layer Color Table
-	const long		TBL_WAY_COLOR_COUNT = 3;
-	const Color TBL_WAY_COLOR[3] = { Color(255, 250, 192, 144), Color(255, 74, 178, 100), Color(255,197, 216, 225) };
+	// const long		TBL_WAY_COLOR_COUNT = 3;
+	// const Color TBL_WAY_COLOR[3] = { Color(255, 250, 192, 144), Color(255, 74, 178, 100), Color(255,197, 216, 225) };
 
 	namespace APP_MENU_MODE
 	{
