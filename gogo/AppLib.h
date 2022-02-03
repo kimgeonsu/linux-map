@@ -4,7 +4,9 @@
 //////////////////////////////////////////////////////////////////////
 #include <string>
 #include <math.h>
-#include "MyType.h"
+// #include "MyType.h"S
+
+class _dPoint;
 
 template <typename dataSize>
 inline dataSize GlConvertByteOrder(dataSize data)

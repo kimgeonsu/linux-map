@@ -18,7 +18,7 @@ namespace GREEN_MAP_CONST
 
 	// 20120115 User Layer Line Color
 	// const Color ORANGE_COLOR	Color(255, 219, 77, 36);
-	const Color ORANGE_COLOR	Color(255, 250, 192, 144);
+	const Color ORANGE_COLOR = Color(255, 250, 192, 144);
 
 	const Color	GEN_TEXT_COLOR[2] =
 	{
