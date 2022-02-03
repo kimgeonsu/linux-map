@@ -788,8 +788,8 @@ long CMapDrawEngine::DrawMap()
 		DrawHSI();
 
 	// Car Image Draw
-	DrawCarImage();
-	DrawScaleBar();
+	// DrawCarImage();
+	// DrawScaleBar();
 
 #if 0 //IS_DYNAMIC_LOG > 0
 
