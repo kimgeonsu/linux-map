@@ -608,7 +608,7 @@ public:
 
 	_dPoint					carPos;
 	Brush					m_BACKBRUSH[2];
-	Font					m_MapFont("Sans-Regular", 10);
+	Font					m_MapFont = Font("Sans-Regular", 10);
 
 	// Image					carImage;
 
