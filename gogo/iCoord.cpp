@@ -367,7 +367,7 @@ bool CGeoCoordinate::mgrs2gp(int tawon, std::string mgrs, KW& kw)
 	}
 	else
 	{
-		subString.clear();
+		subString = "";
 		Factor = 0;
 		ixValue = 0;
 		iyValue = 0;
@@ -538,7 +538,7 @@ bool CGeoCoordinate::mgrs2utm(int tawon, std::string mgrs, double& utmx, double&
 	}
 	else
 	{
-		subString.clear();
+		subString = "";
 		Factor = 0;
 		ixValue = 0;
 		iyValue = 0;
