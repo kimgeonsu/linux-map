@@ -2,7 +2,7 @@
 // DataComm.h: interface for the CDataComm class.
 //
 //////////////////////////////////////////////////////////////////////
-#include "Apptype.h"
+#include "AppType.h"
 
 namespace DATA_COMM_CONST
 {
