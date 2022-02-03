@@ -7,6 +7,7 @@
 // #include "MyType.h"S
 
 class _dPoint;
+class _LatLonDMS;
 
 template <typename dataSize>
 inline dataSize GlConvertByteOrder(dataSize data)
