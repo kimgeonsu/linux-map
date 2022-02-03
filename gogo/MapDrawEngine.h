@@ -570,8 +570,8 @@ public:
 	long DrawCarImage();
 	long DrawScaleBar();
 	long DrawSymbol(_dPoint mapPoint, Image img, std::string text = "");
-	long DrawSymbol(long staNum, long symbolType, _dPoint mapPoint, Color color, long lineSize, long angle = 0, bool isTooMsn = fasle);
-	long DrawSymbol(long staNum, long symbolType, Point centerPoint, Color color, long lineSize, long angle = 0, bool isTooMsn = fasle);
+	long DrawSymbol(long staNum, long symbolType, _dPoint mapPoint, Color color, long lineSize, long angle = 0, bool isTooMsn = false);
+	long DrawSymbol(long staNum, long symbolType, Point centerPoint, Color color, long lineSize, long angle = 0, bool isTooMsn = false);
 	long DrawGuideLine(_dPoint basePoint, _dPoint targetPoint, long lineType, long lineSize, Color lineColor, Color BackColor);
 	long DrawMission();
 	long DrawUserLayer();

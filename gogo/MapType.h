@@ -8,13 +8,13 @@ namespace GREEN_MAP_CONST
 	const int		MAX_TEXT_LENGTH = 64;
 	const double		PI_VALUE = 3.141592653589793238462643383279502884197169399375105820974944592308;
 
-	const Color BLACK_COLOR	Color(255, 0, 0, 0);
-	const Color RED_COLOR	Color(255, 255, 0, 0);
-	const Color GREEN_COLOR	Color(255, 0, 255, 0);
-	const Color BLUE_COLOR	Color(255, 0, 0, 255);
-	const Color PURPLE_COLOR	Color(255, 255, 0, 255);
-	const Color WHITE_COLOR	Color(255, 255, 255, 255);
-	const Color MISSION_COLOR	Color(255, 247, 104, 12);
+	const Color BLACK_COLOR	= Color(255, 0, 0, 0);
+	const Color RED_COLOR = Color(255, 255, 0, 0);
+	const Color GREEN_COLOR	= Color(255, 0, 255, 0);
+	const Color BLUE_COLOR	= Color(255, 0, 0, 255);
+	const Color PURPLE_COLOR = Color(255, 255, 0, 255);
+	const Color WHITE_COLOR	= Color(255, 255, 255, 255);
+	const Color MISSION_COLOR = Color(255, 247, 104, 12);
 
 	// 20120115 User Layer Line Color
 	// const Color ORANGE_COLOR	Color(255, 219, 77, 36);
@@ -85,8 +85,8 @@ namespace GREEN_MAP_CONST
 
 	namespace MAP_MODE_HEADING
 	{
-		const long		MAP_MODE_NORTH_UP = 0;				// ³ë½º¾÷
-		const long		MAP_MODE_HEADING_UP = 1;				// Çìµù¾÷
+		const long		MAP_MODE_NORTH_UP = 0;				// ï¿½ë½ºï¿½ï¿½
+		const long		MAP_MODE_HEADING_UP = 1;				// ï¿½ï¿½ï¿½ï¿½ï¿½
 		const long		COUNT = 2;
 	}
 
@@ -98,8 +98,8 @@ namespace GREEN_MAP_CONST
 
 	namespace MAP_MODE_DAYNIGHT
 	{
-		const long		MAP_MODE_DAY = 0;				// ÁÖ°£ ¸ðµå
-		const long		MAP_MODE_NIGHT = 1;				// ¾ß°£ ¸ðµå
+		const long		MAP_MODE_DAY = 0;				// ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½
+		const long		MAP_MODE_NIGHT = 1;				// ï¿½ß°ï¿½ ï¿½ï¿½ï¿½
 
 		const long		COUNT = 2;
 	}

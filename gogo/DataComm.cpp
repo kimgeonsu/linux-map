@@ -26,24 +26,24 @@ int CDataComm::GetCurStaionByAircraftIndex(int index)
 int CDataComm::GetAircraftIndex()
 {
 	int outindex = 0;
-	switch (GlAppState.appAircraftType)
-	{
-	case APP_STATE_CONST::AIRCRAFT_TYPE::TYPE_F5:
-	case APP_STATE_CONST::AIRCRAFT_TYPE::TYPE_FA50: //Modified by eung32 20120223
-		outindex = 0;
-		break;
-	case APP_STATE_CONST::AIRCRAFT_TYPE::TYPE_F15S:
-		outindex = 1;
-		break;
-	case APP_STATE_CONST::AIRCRAFT_TYPE::TYPE_F16:
-		//case APP_STATE_CONST::AIRCRAFT_TYPE::TYPE_FA50: //org
-		outindex = 3;
-		break;
-	case APP_STATE_CONST::AIRCRAFT_TYPE::TYPE_F4:
-		outindex = 2;
-		break;
-	default:
-		break;
-	}
+	// switch (GlAppState.appAircraftType)
+	// {
+	// case APP_STATE_CONST::AIRCRAFT_TYPE::TYPE_F5:
+	// case APP_STATE_CONST::AIRCRAFT_TYPE::TYPE_FA50: //Modified by eung32 20120223
+	// 	outindex = 0;
+	// 	break;
+	// case APP_STATE_CONST::AIRCRAFT_TYPE::TYPE_F15S:
+	// 	outindex = 1;
+	// 	break;
+	// case APP_STATE_CONST::AIRCRAFT_TYPE::TYPE_F16:
+	// 	//case APP_STATE_CONST::AIRCRAFT_TYPE::TYPE_FA50: //org
+	// 	outindex = 3;
+	// 	break;
+	// case APP_STATE_CONST::AIRCRAFT_TYPE::TYPE_F4:
+	// 	outindex = 2;
+	// 	break;
+	// default:
+	// 	break;
+	// }
 	return outindex;
 }
