@@ -468,7 +468,7 @@ public:
 		_LatLonDMS latlonDMS;
 		_dPoint calcuPoint;
 		GetUTM2KW(40, pt, latlonDMS);
-		CAppLib::Coord_GetDegreebyDMS(latlonDMS, calcuPoint);
+		// CAppLib::Coord_GetDegreebyDMS(latlonDMS, calcuPoint);
 
 		return SetMapPos(calcuPoint);
 	}

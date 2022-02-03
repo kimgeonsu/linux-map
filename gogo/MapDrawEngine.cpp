@@ -691,8 +691,8 @@ CMapDrawEngine::CMapDrawEngine()
 {
 	graphics = new Graphics("/dev/fb0");
 
-	m_BACKBRUSH[0].SetColor(Color(255, 80, 131, 183));
-	m_BACKBRUSH[1].SetColor(Color(255, 0, 0, 0));
+	m_BACKBRUSH[0] = Color(255, 80, 131, 183);
+	m_BACKBRUSH[1] = Color(255, 0, 0, 0);
 
 	m_MapFont.SetFont("Sans-Regular");
 	m_MapFont.SetSize(8);
