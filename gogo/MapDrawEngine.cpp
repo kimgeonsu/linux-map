@@ -1168,7 +1168,7 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle)
 		// drawPen = (Pen)GetStockObject(NULL_PEN);
 		isNullPen = true;
 	else {
-		// pen »ìÂ¦ ÀÌ»óÇÏ´Ï±î ³ªÁß¿¡ ´Ù½Ã º¸±â
+		// pen ï¿½ï¿½Â¦ ï¿½Ì»ï¿½ï¿½Ï´Ï±ï¿½ ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		drawPen.SetColor(colorConverter(designInfo->_line[drawInfo.dayNightMode].color));
 		drawPen.SetWidth(designInfo->_line[drawInfo.dayNightMode].width);
 		drawPen.SetDashStyle(designInfo->_line[drawInfo.dayNightMode].type);
@@ -1481,11 +1481,6 @@ long CMapDrawEngine::DrawBackground()
 
 long CMapDrawEngine::DrawOutLineText(Rect textRect, std::string textString, Color inColor, Color outColor)
 {
-	return DrawOutLineText(textRect, textString, inColor, outColor);
-}
-
-long CMapDrawEngine::DrawOutLineText(Rect textRect, std::string textString, Color inColor, Color outColor)
-{
 	Rect		tmpRect;
 	long		OutLineGap = 2;
 	Color		oldTextColor;
@@ -1575,7 +1570,7 @@ long CMapDrawEngine::DrawSymbol(_dPoint mapPoint, Image img, std::string text)
 		//SelectObject(tempDC, img);
 		//TransparentBlt(hDC, drawPoint.x - gapX, drawPoint.y - gapY, imgInfo.bmWidth, imgInfo.bmHeight,
 			//tempDC, 0, 0, imgInfo.bmWidth, imgInfo.bmHeight, RGB(255, 0, 255));
-		//drawImage ÇÏ´Â ÆÄÆ®ÀÓ
+		//drawImage ï¿½Ï´ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½
 		if (text.length() > 0)
 		{
 			Rect textRect = Rect(drawPoint.x - 100, drawPoint.y - 30, drawPoint.x + 100, drawPoint.y);
@@ -1832,7 +1827,7 @@ long CMapDrawEngine::DrawHSI()
 	//TransparentBlt(hDC, centerPoint.x - 25, centerPoint.y - circleRadius + 25,
 		//arrowHSIInfo[drawInfo.dayNightMode].bmWidth, arrowHSIInfo[drawInfo.dayNightMode].bmHeight,
 		//tempDC, 0, 0, arrowHSIInfo[drawInfo.dayNightMode].bmWidth, arrowHSIInfo[drawInfo.dayNightMode].bmHeight, RGB(255, 0, 255));
-	//drawimge ÇÏ´Â ÆÄÆ®ÀÓ
+	//drawimge ï¿½Ï´ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½
 	return true;
 }
 
@@ -1861,8 +1856,8 @@ long CMapDrawEngine::DrawGuideLine(_dPoint basePoint, _dPoint targetPoint, long 
 	}
 
 
-	graphics->DrawPolygon(&backPen, &drawBuffer->Point2PointF(), 2);
-	graphics->DrawPolygon(&tmpPen, &drawBuffer->Point2PointF(), 2);
+	graphics->DrawLine(&backPen, drawBuffer[0], drawBuffer[1]);
+	graphics->DrawLine(&tmpPen, drawBuffer[0], drawBuffer[1]);
 	return true;
 }
 

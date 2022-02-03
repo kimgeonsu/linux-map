@@ -28,11 +28,6 @@ typedef struct Point {
 	}
 } Point;
 
-typedef struct _dPoint {
-	double x;
-	double y;
-} _dPoint;
-
 typedef struct Rect {
 	int top;
 	int left;
@@ -249,16 +244,3 @@ typedef struct _MapDrawInfo
 		dayNightMode(0) {};
 	~_MapDrawInfo() {};
 } _MapDrawInfo;
-
-typedef struct _LatLonDMS
-{
-	short	LonDo;
-	short	LonBun;
-	double	LonCho;
-	short	LatDo;
-	short	LatBun;
-	double	LatCho;
-
-	_LatLonDMS() : LonDo(0), LonBun(0), LonCho(0.0), LatDo(0), LatBun(0), LatCho(0.0) {};
-
-} _LatLonDMS;
