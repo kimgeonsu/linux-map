@@ -35,7 +35,7 @@ public:
 			{
 				std::cout << ent->d_name << std::endl;
 				ReadFile(ent->d_name);
-				std:: cout << end->d_name << " is complete!!\n";
+				std:: cout << ent->d_name << " is complete!!\n";
 			}
 			closedir(dir);
 		}
