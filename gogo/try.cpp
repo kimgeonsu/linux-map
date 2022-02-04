@@ -33,71 +33,72 @@ Brush 		 brush(color);
 
 int main()
 {
-    std::string dataFilePath = "../Output";
-    CMapDrawEngine *engine = new CMapDrawEngine;
-    engine->Init();
-    engine->SetMapDataPath(dataFilePath);
-	engine->SetDeviceRect(0, 0, 480, 800);
-	engine->SetDeviceCenterPos(240, 400);
+    std::cout << "hello world" << std::endl;
+    // std::string dataFilePath = "../Output";
+    // CMapDrawEngine *engine = new CMapDrawEngine;
+    // engine->Init();
+    // engine->SetMapDataPath(dataFilePath);
+	// engine->SetDeviceRect(0, 0, 480, 800);
+	// engine->SetDeviceCenterPos(240, 400);
 
-	engine->SetZoomLevel(0);
-	engine->SetMapPos(128.0, 36.0);
+	// engine->SetZoomLevel(0);
+	// engine->SetMapPos(128.0, 36.0);
 
-	int currentAngle = 0;
-	int currentMapMode = 1;
-	engine->SetMapAngle(currentAngle);
-	engine->SetMapHeadingUpMode(currentMapMode);
-	engine->SetMapDayNightMode(0);
+	// int currentAngle = 0;
+	// int currentMapMode = 1;
+	// engine->SetMapAngle(currentAngle);
+	// engine->SetMapHeadingUpMode(currentMapMode);
+	// engine->SetMapDayNightMode(0);
 
-	_dPoint dp;
-    dp.x = 128.5; 
-    dp.y = 36.5;
-    Point ip = Point(10,10);
-    engine->WorldToDevice(dp);
-    engine->DeviceToWorldMove(ip, ip);
-    engine->DrawMap();
+	// _dPoint dp;
+    // dp.x = 128.5; 
+    // dp.y = 36.5;
+    // Point ip = Point(10,10);
+    // engine->WorldToDevice(dp);
+    // engine->DeviceToWorldMove(ip, ip);
+    // engine->DrawMap();
 
-    string cmd;
-	vector<string> commands;
-	double data1, data2;
-    while (1) {
-        cout << "명령어를 입력하세용 : ";
-		getline(cin, cmd);
-		istringstream foo(cmd);
-		string token;
+    // string cmd;
+	// vector<string> commands;
+	// double data1, data2;
+    // while (1) {
+    //     cout << "명령어를 입력하세용 : ";
+	// 	getline(cin, cmd);
+	// 	istringstream foo(cmd);
+	// 	string token;
 
-		while(getline(foo, token, ' ')) {
-			commands.push_back(token);
-		}
+	// 	while(getline(foo, token, ' ')) {
+	// 		commands.push_back(token);
+	// 	}
 
-		cout << cmd << endl;
+	// 	cout << cmd << endl;
 
-        if (commands[0] == "move") {
-			engine->MoveMap(stol(commands[1]), stol(commands[2]));
-			engine->DrawMap();
-        }
-        if (commands[0] == "rotate") {
-			engine->SetMapAngle(stol(commands[1]));
-			engine->DrawMap();
-		}
-		if (commands[0] == "zoom") {
-			engine->SetZoomLevel(stol(commands[1]));
-			engine->DrawMap();
-		}
-		if (commands[0] == "dark") {
-			engine->SetMapDayNightMode(0);
-			engine->DrawMap();
-		}
-		if (commands[0] == "light") {
-			engine->SetMapDayNightMode(1);
-			engine->DrawMap();
-		}
-        if (commands[0] == "exit") {
-			std::cout << "바이 바이 ~~~~\n";
-            return 0;
-        }
-		commands.clear();
-    }
+    //     if (commands[0] == "move") {
+	// 		engine->MoveMap(stol(commands[1]), stol(commands[2]));
+	// 		engine->DrawMap();
+    //     }
+    //     if (commands[0] == "rotate") {
+	// 		engine->SetMapAngle(stol(commands[1]));
+	// 		engine->DrawMap();
+	// 	}
+	// 	if (commands[0] == "zoom") {
+	// 		engine->SetZoomLevel(stol(commands[1]));
+	// 		engine->DrawMap();
+	// 	}
+	// 	if (commands[0] == "dark") {
+	// 		engine->SetMapDayNightMode(0);
+	// 		engine->DrawMap();
+	// 	}
+	// 	if (commands[0] == "light") {
+	// 		engine->SetMapDayNightMode(1);
+	// 		engine->DrawMap();
+	// 	}
+    //     if (commands[0] == "exit") {
+	// 		std::cout << "바이 바이 ~~~~\n";
+    //         return 0;
+    //     }
+	// 	commands.clear();
+    // }
 
 // 	graphics = new Graphics("/dev/fb0");
 
