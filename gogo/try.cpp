@@ -34,9 +34,9 @@ Brush 		 brush(color);
 int main()
 {
     std::cout << "hello world" << std::endl;
-    // std::string dataFilePath = "../Output";
-    // CMapDrawEngine *engine = new CMapDrawEngine;
-    // engine->Init();
+    std::string dataFilePath = "../Output";
+    CMapDrawEngine *engine = new CMapDrawEngine;
+    engine->Init();
     // engine->SetMapDataPath(dataFilePath);
 	// engine->SetDeviceRect(0, 0, 480, 800);
 	// engine->SetDeviceCenterPos(240, 400);
