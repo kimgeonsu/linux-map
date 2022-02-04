@@ -705,6 +705,9 @@ CMapDrawEngine::CMapDrawEngine()
 	// patternImage[0] = CAppLib::LoadResourceImage(ImgFileName);
 	// patternImage[1] = CAppLib::LoadResourceImage(ImgFileName);
 
+	Brush clear(Color(255, 255, 255));
+	graphics->FillRectangle(&clear, RectF(0, 0, 800, 480));
+
 	m_BaseZone = 40;
 
 	double radius;
