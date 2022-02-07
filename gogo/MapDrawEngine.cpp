@@ -1227,7 +1227,10 @@ long CMapDrawEngine::DrawPolyline(_MapRecord* pData, double angle)
 	}
 
 	int cntPoint = pData->header.textCount;
-	graphics->DrawPolygon(&drawPen, GlDrawBuffer, cntPoint);
+	if (isNullPen == false) {
+		graphics->DrawPolygon(&drawPen, GlDrawBuffer, cntPoint);
+	}
+
 	return true;
 }
 
@@ -1246,18 +1249,8 @@ long CMapDrawEngine::DrawPOI(_MapRecord* pData, double angle)
 	std::string		FieldValue;
 	std::string		AddFieldValue;
 
-	wchar_t		wBuffer[32];
-
-	memset(&wBuffer, 0, sizeof(wBuffer));
-
-	// Multibyte to Widechar
-#if	defined(_UNICODE)
 	FieldValue = pData->header.textData;
 	AddFieldValue = pData->header.textData2;
-#else
-	// FieldValue.Format("%s", pData->header.textData);
-	// AddFieldValue.Format("%s", pData->header.textData2);
-#endif
 
 	centerPoint = drawInfo.devCenterPos;
 
@@ -1430,7 +1423,7 @@ long CMapDrawEngine::DrawCarImage()
 
 	//TransparentBlt(hDC, drawPoint.x, drawPoint.y, symbolWidth, carImageInfo.bmHeight,
 		//tempDC, imageXPos, 0, symbolWidth, carImageInfo.bmHeight, RGB(255, 0, 255));
-
+	// graphics->DrawImage(&imageName, drawPoint);
 	return true;
 }
 
@@ -1456,7 +1449,8 @@ long CMapDrawEngine::DrawSymbol(_dPoint mapPoint, Image img, std::string text)
 		//SelectObject(tempDC, img);
 		//TransparentBlt(hDC, drawPoint.x - gapX, drawPoint.y - gapY, imgInfo.bmWidth, imgInfo.bmHeight,
 			//tempDC, 0, 0, imgInfo.bmWidth, imgInfo.bmHeight, RGB(255, 0, 255));
-		//drawImage ??? ?????
+		graphics->DrawImage(&carImage, drawPoint);
+
 		if (text.length() > 0)
 		{
 			Rect textRect = Rect(drawPoint.x - 100, drawPoint.y - 30, drawPoint.x + 100, drawPoint.y);
@@ -1543,6 +1537,7 @@ long CMapDrawEngine::DrawSymbol(long staNum, long symbolType, Point centerPoint,
 
 	if ((isTooMsn == false) && ((symbolType == MAP_DRAW_ENGINE_CONST::SYMBOL_TYPE::LAUNCH) || (symbolType == MAP_DRAW_ENGINE_CONST::SYMBOL_TYPE::TARGET)))
 		graphics->DrawPolygon(&linePen, &GlDrawBuffer[MAP_DRAW_ENGINE_CONST::SYMBOL_POINT_COUNT[symbolType]], 2);
+
 
 	if ((symbolType == MAP_DRAW_ENGINE_CONST::SYMBOL_TYPE::TARGET) && (staNum == 999))
 	{
@@ -1714,6 +1709,8 @@ long CMapDrawEngine::DrawHSI()
 		//arrowHSIInfo[drawInfo.dayNightMode].bmWidth, arrowHSIInfo[drawInfo.dayNightMode].bmHeight,
 		//tempDC, 0, 0, arrowHSIInfo[drawInfo.dayNightMode].bmWidth, arrowHSIInfo[drawInfo.dayNightMode].bmHeight, RGB(255, 0, 255));
 	//drawimge ??? ?????
+	graphics->DrawImage(&hsiImage, )
+
 	return true;
 }
 
