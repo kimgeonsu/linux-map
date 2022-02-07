@@ -752,16 +752,16 @@ long CMapDrawEngine::DrawMap()
 		pData = *pos;
 		if (drawInfo.logicalLevel < 5)
 		{
-			if ((strcmp(pData.header.textLayerDes, "ï¿½ï¿½") == 0) ||
-				(strcmp(pData.header.textLayerDes, "Ã¶ï¿½ï¿½") == 0) ||
-				(strcmp(pData.header.textLayerDes, "È°ï¿½Ö·ï¿½") == 0) ||
-				(strcmp(pData.header.textLayerDes, "ï¿½ï¿½ï¿½ï¿½") == 0))
+			if ((strcmp(pData.header.textLayerDes, "°­") == 0) ||
+				(strcmp(pData.header.textLayerDes, "Ã¶µµ") == 0) ||
+				(strcmp(pData.header.textLayerDes, "È°ÁÖ·Î") == 0) ||
+				(strcmp(pData.header.textLayerDes, "µµ·Î") == 0))
 			{
 				continue;
 			}
 		}
 
-		if ((strcmp(pData.header.textLayerDes, "ï¿½ï¿½ï¿½ï¿½") == 0) && (pData.header.isVisible == false))
+		if ((strcmp(pData.header.textLayerDes, "°øµµ") == 0) && (pData.header.isVisible == false))
 		{
 			continue;
 		}
@@ -782,134 +782,22 @@ long CMapDrawEngine::DrawMap()
 		}
 	}
 
+	// ÀÌ ºÎºÐÀº ¸Ê ÂÊ¿¡¼­ Áö¿øÇÏ´Â°ÇÁö ¾Ö¸ÅÇÔ
 	// DrawUserLayer();
-
 	// DrawMission();
 
-	// HSI Draw
+	// HSI Draw HSI Draw HSI Draw HSI Drw HSI Draw
 	if (drawInfo.headingUpMode == (long)1)
 		DrawHSI();
 
-	// Car Image Draw
+	// Car Image Draw Car Image Draw Car Image Draw Car Image Draw
 	// DrawCarImage();
 	// DrawScaleBar();
-
-#if 0 //IS_DYNAMIC_LOG > 0
-
-	if (GlAppState.isDisplayDynamicDebugMsg != false)
-	{
-		SelectObject(hDC, debugFont);
-		long drawIndex = 0;
-		long baseX = 80;
-		long baseY = 280;
-		long gapValue = 18;
-		Rect drawTextRectL = Rect(baseX, baseY, baseX + 200, baseY + gapValue);
-		Rect drawTextRectR = Rect(baseX + 200, baseY, baseX + 400, baseY + gapValue);
-		Rect drawTextRectC = Rect(baseX, baseY, baseX + 400, baseY + gapValue);
-
-		DrawOutLineText(hDC, drawTextRectL, inWindSpeedMsg, GREEN_MAP_CONST::BLACK_COLOR, GREEN_MAP_CONST::WHITE_COLOR, DT_LEFT);
-		DrawOutLineText(hDC, drawTextRectR, inWindHead, GREEN_MAP_CONST::BLACK_COLOR, GREEN_MAP_CONST::WHITE_COLOR, DT_LEFT);
-		drawTextRectL.top += gapValue;
-		drawTextRectL.bottom += gapValue;
-		drawTextRectR.top += gapValue;
-		drawTextRectR.bottom += gapValue;
-		drawTextRectC.top += gapValue;
-		drawTextRectC.bottom += gapValue;
-		DrawOutLineText(hDC, drawTextRectL, inTemperature, GREEN_MAP_CONST::BLACK_COLOR, GREEN_MAP_CONST::WHITE_COLOR, DT_LEFT);
-		DrawOutLineText(hDC, drawTextRectR, inAlt, GREEN_MAP_CONST::BLACK_COLOR, GREEN_MAP_CONST::WHITE_COLOR, DT_LEFT);
-		drawTextRectL.top += gapValue;
-		drawTextRectL.bottom += gapValue;
-		drawTextRectR.top += gapValue;
-		drawTextRectR.bottom += gapValue;
-		drawTextRectC.top += gapValue;
-		drawTextRectC.bottom += gapValue;
-		DrawOutLineText(hDC, drawTextRectL, innV, GREEN_MAP_CONST::BLACK_COLOR, GREEN_MAP_CONST::WHITE_COLOR, DT_LEFT);
-		DrawOutLineText(hDC, drawTextRectR, indV, GREEN_MAP_CONST::BLACK_COLOR, GREEN_MAP_CONST::WHITE_COLOR, DT_LEFT);
-		drawTextRectL.top += gapValue;
-		drawTextRectL.bottom += gapValue;
-		drawTextRectR.top += gapValue;
-		drawTextRectR.bottom += gapValue;
-		drawTextRectC.top += gapValue;
-		drawTextRectC.bottom += gapValue;
-		DrawOutLineText(hDC, drawTextRectL, ineV, GREEN_MAP_CONST::BLACK_COLOR, GREEN_MAP_CONST::WHITE_COLOR, DT_LEFT);
-		drawTextRectL.top += gapValue;
-		drawTextRectL.bottom += gapValue;
-		drawTextRectR.top += gapValue;
-		drawTextRectR.bottom += gapValue;
-		drawTextRectC.top += gapValue;
-		drawTextRectC.bottom += gapValue;
-		DrawOutLineText(hDC, drawTextRectC, inTargetPoint, GREEN_MAP_CONST::BLACK_COLOR, GREEN_MAP_CONST::WHITE_COLOR, DT_LEFT);
-		drawTextRectL.top += gapValue;
-		drawTextRectL.bottom += gapValue;
-		drawTextRectR.top += gapValue;
-		drawTextRectR.bottom += gapValue;
-		drawTextRectC.top += gapValue;
-		drawTextRectC.bottom += gapValue;
-
-		for (drawIndex = 0; drawIndex < 8; drawIndex++)
-		{
-			if (inWayListPoint[drawIndex].Find(L"None") >= 0)
-				continue;
-
-			DrawOutLineText(hDC, drawTextRectC, inWayListPoint[drawIndex], GREEN_MAP_CONST::BLACK_COLOR, GREEN_MAP_CONST::WHITE_COLOR, DT_LEFT);
-			drawTextRectL.top += gapValue;
-			drawTextRectL.bottom += gapValue;
-			drawTextRectR.top += gapValue;
-			drawTextRectR.bottom += gapValue;
-			drawTextRectC.top += gapValue;
-			drawTextRectC.bottom += gapValue;
-		}
-
-		for (drawIndex = 0; drawIndex < 10; drawIndex++)
-		{
-			if (inInZoneListPoint[drawIndex].Find(L"None") >= 0)
-				continue;
-			DrawOutLineText(hDC, drawTextRectC, inInZoneListPoint[drawIndex], GREEN_MAP_CONST::BLACK_COLOR, GREEN_MAP_CONST::WHITE_COLOR, DT_LEFT);
-			drawTextRectL.top += gapValue;
-			drawTextRectL.bottom += gapValue;
-			drawTextRectR.top += gapValue;
-			drawTextRectR.bottom += gapValue;
-			drawTextRectC.top += gapValue;
-			drawTextRectC.bottom += gapValue;
-		}
-
-		DrawOutLineText(hDC, drawTextRectL, outWindHead, GREEN_MAP_CONST::BLACK_COLOR, GREEN_MAP_CONST::WHITE_COLOR, DT_LEFT);
-		DrawOutLineText(hDC, drawTextRectR, outWindSpeed, GREEN_MAP_CONST::BLACK_COLOR, GREEN_MAP_CONST::WHITE_COLOR, DT_LEFT);
-		drawTextRectL.top += gapValue;
-		drawTextRectL.bottom += gapValue;
-		drawTextRectR.top += gapValue;
-		drawTextRectR.bottom += gapValue;
-		drawTextRectC.top += gapValue;
-		drawTextRectC.bottom += gapValue;
-
-		for (drawIndex = 0; drawIndex < 4; drawIndex++)
-		{
-			DrawOutLineText(hDC, drawTextRectC, outInZoneListPoint[drawIndex], GREEN_MAP_CONST::BLACK_COLOR, GREEN_MAP_CONST::WHITE_COLOR, DT_LEFT);
-			drawTextRectL.top += gapValue;
-			drawTextRectL.bottom += gapValue;
-			drawTextRectR.top += gapValue;
-			drawTextRectR.bottom += gapValue;
-			drawTextRectC.top += gapValue;
-			drawTextRectC.bottom += gapValue;
-		}
-
-		DrawOutLineText(hDC, drawTextRectL, outTooPoint, GREEN_MAP_CONST::BLACK_COLOR, GREEN_MAP_CONST::WHITE_COLOR, DT_LEFT);
-		DrawOutLineText(hDC, drawTextRectR, outTooMinMaxRange, GREEN_MAP_CONST::BLACK_COLOR, GREEN_MAP_CONST::WHITE_COLOR, DT_LEFT);
-		drawTextRectL.top += gapValue;
-		drawTextRectL.bottom += gapValue;
-		drawTextRectR.top += gapValue;
-		drawTextRectR.bottom += gapValue;
-		drawTextRectC.top += gapValue;
-		drawTextRectC.bottom += gapValue;
-
-		DrawOutLineText(hDC, drawTextRectC, timeValue, GREEN_MAP_CONST::BLACK_COLOR, GREEN_MAP_CONST::WHITE_COLOR, DT_LEFT);
-	}
-#endif
 
 	return true;
 }
 
-Point CMapDrawEngine::GetDevicePoint(Point inPoint, Point centerPoint, long anlge)
+Point CMapDrawEngine::GetDevicePoint(Point inPoint, Point centerPoint, long angle)
 {
 	Point retPoint;
 	Point outPoint;
@@ -926,7 +814,7 @@ Point CMapDrawEngine::GetDevicePoint(Point inPoint, Point centerPoint, long anlg
 
 	if (drawInfo.headingUpMode == (long)1)
 	{
-		retPoint = Rotate(outPoint, drawInfo.devCenterPos, anlge);
+		retPoint = Rotate(outPoint, drawInfo.devCenterPos, angle);
 	}
 	else
 	{
@@ -1167,7 +1055,6 @@ long CMapDrawEngine::DrawPolygon(_MapRecord* pData, double angle)
 		// drawPen = (Pen)GetStockObject(NULL_PEN);
 		isNullPen = true;
 	else {
-		// pen ï¿½ï¿½Â¦ ï¿½Ì»ï¿½ï¿½Ï´Ï±ï¿½ ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		drawPen.SetColor(colorConverter(designInfo->_line[drawInfo.dayNightMode].color));
 		drawPen.SetWidth(designInfo->_line[drawInfo.dayNightMode].width);
 		drawPen.SetDashStyle(designInfo->_line[drawInfo.dayNightMode].type);
@@ -1569,7 +1456,7 @@ long CMapDrawEngine::DrawSymbol(_dPoint mapPoint, Image img, std::string text)
 		//SelectObject(tempDC, img);
 		//TransparentBlt(hDC, drawPoint.x - gapX, drawPoint.y - gapY, imgInfo.bmWidth, imgInfo.bmHeight,
 			//tempDC, 0, 0, imgInfo.bmWidth, imgInfo.bmHeight, RGB(255, 0, 255));
-		//drawImage ï¿½Ï´ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½
+		//drawImage ??? ?????
 		if (text.length() > 0)
 		{
 			Rect textRect = Rect(drawPoint.x - 100, drawPoint.y - 30, drawPoint.x + 100, drawPoint.y);
@@ -1826,7 +1713,7 @@ long CMapDrawEngine::DrawHSI()
 	//TransparentBlt(hDC, centerPoint.x - 25, centerPoint.y - circleRadius + 25,
 		//arrowHSIInfo[drawInfo.dayNightMode].bmWidth, arrowHSIInfo[drawInfo.dayNightMode].bmHeight,
 		//tempDC, 0, 0, arrowHSIInfo[drawInfo.dayNightMode].bmWidth, arrowHSIInfo[drawInfo.dayNightMode].bmHeight, RGB(255, 0, 255));
-	//drawimge ï¿½Ï´ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½
+	//drawimge ??? ?????
 	return true;
 }
 
@@ -2162,8 +2049,8 @@ long CMapDrawEngine::GetUTM(_dPoint inPoint, _dPoint& utmPoint, long param)
 	int		tmp_zone = 0;
 
 	CAppLib::Coord_GetDMSbyDegree(inPoint, latlonDMS);
-	slam = CAppLib::Coord_GetRadian(latlonDMS.LonDo, latlonDMS.LonBun, latlonDMS.LonCho);	// ï¿½æµµ
-	sphi = CAppLib::Coord_GetRadian(latlonDMS.LatDo, latlonDMS.LatBun, latlonDMS.LatCho);	// ï¿½ï¿½ï¿½ï¿½
+	slam = CAppLib::Coord_GetRadian(latlonDMS.LonDo, latlonDMS.LonBun, latlonDMS.LonCho);	// ??
+	sphi = CAppLib::Coord_GetRadian(latlonDMS.LatDo, latlonDMS.LatBun, latlonDMS.LatCho);	// ????
 
 	CAppLib::Coord_Tawon2UTM(GREEN_MAP_CONST::MAP_COORD_TYPE::WGS_84_TYPE, sphi, slam, &m_BaseZone, &tutmy, &tutmx, 0);// if 0, calculate UTM Zone
 

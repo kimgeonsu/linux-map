@@ -622,5 +622,5 @@ public:
 	long					m_SinValue[360];
 	int						m_BaseZone;
 
-	Graphics* graphics;
+	Graphics* 				graphics;
 };
