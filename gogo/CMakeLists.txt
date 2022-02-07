@@ -13,6 +13,6 @@ FILE(COPY fonts/ DESTINATION out/fonts/ )
 
 ADD_EXECUTABLE(try try.cpp)
 
-TARGET_LINK_LIBRARIES(try -Llib LinuxMap png16 jpeg)
+TARGET_LINK_LIBRARIES(try -Llib LinuxMap geminit-gn-gdi png16 jpeg)
 
 SET_TARGET_PROPERTIES(try PROPERTIES RUNTIME_OUTPUT_DIRECTORY out)
