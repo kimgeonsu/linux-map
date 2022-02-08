@@ -33,9 +33,7 @@ public:
 		if ((dir = opendir(searchPath.c_str())) != nullptr) {
 			while ((ent = readdir(dir)) != nullptr)
 			{
-				std::cout << ent->d_name << std::endl;
 				ReadFile(ent->d_name);
-				std:: cout << ent->d_name << " is completed!!\n";
 			}
 			closedir(dir);
 		}
